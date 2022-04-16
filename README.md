@@ -36,12 +36,45 @@ Gear Nutrition é um site com temática do famoso anime/manga One Piece, que ven
 Implementado em HTML, CSS, JavaScript.
 
 Diagrama de navegação:
-![alt text](./midia)
+![alt text](./mockups/navigation_diagram.png)
 
-As imagens do mockup estão na pasta `/mockup`. Também pode ser acessado nos links abaixo:
+As imagens do mockup estão na pasta `/mockup`.
 
 ### Funcionalidades
 
+Sobre as funcionalidades planejadas para o website:
+- Cadastro usando email e senha, assim como login.
+- Visualização das informações do cliente, com opção de alterar cadastro.
+- Página de administrador capaz de alterar, adicionar e remover dados da loja.
+- Homepage com categorias e produtos visando acessibilidade.
+- Página de cada produto com todas as informações necessárias e possibilidade de adicionar ao carrinho.
+- Acesso ao carrinho de compras, sendo possível alterar quantidades dos produtos selecionados e proseguir com a finalização da compra.
+- Adicionar cartão de crédito/débito.
+- Seleção de endereço de entrega.
+- Algo ai.
+
+### Servidor
+
+As informações que devemos salvar são:
+Usuários:
+- Id (chave única para cliente)
+- Nome
+- Email
+- Senha
+- Campo booleano para indicar administrador
+- CPF
+- Endereço
+- Número de telefone
+
+Produtos:
+- Id (chave única para produto)
+- Nome
+- Categoria (0 a 2)
+- Preço
+- Descrição
+- Identificador da Imagem
+- Quantidade vendida do produto
+- Quantidade em estoque
 
 ## Comentários Sobre o Código
 ## Plano de Teste
