@@ -35,7 +35,7 @@ Gear Nutrition é um site com temática do famoso anime/manga One Piece, que ven
 
 Implementado em HTML, CSS, JavaScript.
 
-Diagrama de navegação:\\
+Diagrama de navegação:<br>
 ![alt text](./mockups/navigation_diagram.png)
 
 As imagens do mockup estão na pasta `/mockup`.
