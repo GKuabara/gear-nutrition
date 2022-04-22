@@ -22,17 +22,18 @@ a {
 
 nav {
     flex: 1;
-    text-align: right;
 }
 
 nav ul {
     display: inline-block;
     list-style-type: none;
+    width: 100%;
+    min-width: 297px;
 }
 
 nav ul li {
     display: inline-block;
-    margin-right: 40px;
+    margin: auto 5%;
     vertical-align: middle;
 }
 
@@ -45,8 +46,8 @@ input[type="text"], input[type="password"]{
 .navbar-top{
     display: flex;
     width: 100%;
-    height: 60px;
-    padding-left: 20px;
+    height: 5vw;
+    padding-left: 2%;
     background-color: var(--azul-escuro);
     align-items: center;
     vertical-align: center;
@@ -54,8 +55,9 @@ input[type="text"], input[type="password"]{
 }
 
 .navbar-top h1 {
-    padding-left: 20px;
+    padding-left: 3%;
     letter-spacing: 2px;
+    font-size: 2.5vw;
 }
 
 .navbar-top img {
@@ -63,14 +65,19 @@ input[type="text"], input[type="password"]{
 }
 
 .navbar-top input[type="text"] {
-    width: 500px;
-    margin: 0px 50px;
+    width: 32vw;
+    min-width: 170px;
+    margin-left: 30px;
+}
+
+.navbar-top nav {
+    text-align: center;
 }
 
 .navbar-bottom{
     display: flex;
     width: 100%;
-    height: 40px;
+    height: 3vw;
     padding-left: 40px;
     background-color: var(--azul-claro);
     align-items: center;
@@ -82,6 +89,15 @@ input[type="text"], input[type="password"]{
     text-align: left;
 }
 
+.navbar-bottom ul {
+    font-size: 1.3vw;
+    width: 50vw;
+}
+
+.navbar-bottom li {
+    text-align: left;
+}
+
 .footer {
     position: absolute;
     bottom: 0;
@@ -89,15 +105,29 @@ input[type="text"], input[type="password"]{
     background-color: var(--azul);
     color: white;
     font-size: 14px;
-    display: inline-block;
+    /* display: inline-block; */
 }
 
 .footer div {
     display: table-cell;
 }
 
+.footer .container {
+    display: block;
+    margin: 0 auto;
+    width: 70vw;
+    /* border: 1px solid black; */
+}
+
 .footer-col-1, .footer-col-2, .footer-col-3 {
     width: 33.33%;
+    /* border: 1px solid red; */
     padding: 10px 20px;
     justify-items: auto;
+}
+
+#logo {
+    width: 5vw;
+    margin: auto;
+    vertical-align: middle;
 }
