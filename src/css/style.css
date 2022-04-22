@@ -105,7 +105,6 @@ input[type="text"], input[type="password"]{
     background-color: var(--azul);
     color: white;
     font-size: 14px;
-    /* display: inline-block; */
 }
 
 .footer div {
@@ -115,15 +114,19 @@ input[type="text"], input[type="password"]{
 .footer .container {
     display: block;
     margin: 0 auto;
-    width: 70vw;
-    /* border: 1px solid black; */
+    width: 100vw;
 }
+
+.footer .row {
+    width: 100vw; 
+}
+
 
 .footer-col-1, .footer-col-2, .footer-col-3 {
     width: 33.33%;
-    /* border: 1px solid red; */
     padding: 10px 20px;
     justify-items: auto;
+    margin: 0 auto;
 }
 
 #logo {
