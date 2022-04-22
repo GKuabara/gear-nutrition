@@ -1,7 +1,5 @@
-@font-face {
-    font-family: 'RobotoS';
-    src: url('../font/RobotoSlab.woff') format('woff');
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
+@import url("../media/Treasuremap.woff2");
 
 :root {
     --azul: #105EDD;
@@ -14,6 +12,14 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+#logo {
+    width: 6vw;
+    margin: auto;
+    vertical-align: middle;
 }
 
 a {
@@ -46,7 +52,7 @@ input[type="text"], input[type="password"]{
 .navbar-top{
     display: flex;
     width: 100%;
-    height: 5vw;
+    height: 7vw;
     padding-left: 2%;
     background-color: var(--azul-escuro);
     align-items: center;
@@ -55,8 +61,9 @@ input[type="text"], input[type="password"]{
 }
 
 .navbar-top h1 {
-    padding-left: 3%;
+    padding-left: 1%;
     letter-spacing: 2px;
+    font-family: 'Treasuremap', cursive;   
     font-size: 2.5vw;
 }
 
@@ -64,10 +71,27 @@ input[type="text"], input[type="password"]{
     justify-content: center;
 }
 
-.navbar-top input[type="text"] {
-    width: 32vw;
+
+.search-box {
+    width: 38vw;
     min-width: 170px;
     margin-left: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    display: flex;
+}
+
+.search-box input[type="text"] {
+    width: 98%;
+    border: none;
+    float: left;
+}
+
+.search-box img {
+    width: 25px;
+    float: right;
 }
 
 .navbar-top nav {
@@ -82,7 +106,6 @@ input[type="text"], input[type="password"]{
     background-color: var(--azul-claro);
     align-items: center;
     vertical-align: middle;
-    margin-bottom: 60px;
 }
 
 .navbar-bottom nav {
@@ -99,8 +122,8 @@ input[type="text"], input[type="password"]{
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
     width: 100%;
     background-color: var(--azul);
     color: white;
@@ -114,23 +137,63 @@ input[type="text"], input[type="password"]{
 .footer .container {
     display: block;
     margin: 0 auto;
-    width: 100vw;
+    width: 90vw;
 }
 
 .footer .row {
     width: 100vw; 
 }
 
-
 .footer-col-1, .footer-col-2, .footer-col-3 {
     width: 33.33%;
     padding: 10px 20px;
-    justify-items: auto;
     margin: 0 auto;
 }
 
-#logo {
-    width: 5vw;
-    margin: auto;
-    vertical-align: middle;
+.content-container {
+    width: 80vw;
+    margin: 2% 10%;
+}
+
+.product-series {
+    text-align: center;
+}
+
+.product-series h1 {
+    margin-top: 4%;
+    margin-bottom: 1%;
+    font-weight: 900;
+}
+
+.product-box {
+    display: inline-block;
+    width: 20%;
+    margin: 1% 2%;
+    border-radius: 20px;
+    border: 1px solid #cdcdcd;
+    box-shadow: 1px 2px 5px #cdcdcd;
+    text-align: center;
+}
+
+.product-image {
+    width: 60%;
+    margin: 7% auto;
+}
+
+.product-box img {
+    width: 100%;
+}
+
+.product-box h3 {
+    font-size: 1.1vw;
+    margin: 5%;
+    padding: 1%;
+} 
+
+.product-box h2 {
+    font-size: 2vw;
+    font-weight: 700;
+    color: #F8DE3C;
+    padding: 3%;
+    margin-bottom: 5%;
 }
