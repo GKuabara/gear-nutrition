@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
-@import url("../media/Treasuremap.woff2");
+@import url("../media/fonts/Treasuremap.woff2");
 
 :root {
     --azul: #105EDD;
@@ -122,8 +122,8 @@ input[type="text"], input[type="password"]{
 }
 
 .footer {
-    /* position: absolute;
-    bottom: 0; */
+    /*position: relative;
+    bottom: 0;*/
     width: 100%;
     background-color: var(--azul);
     color: white;

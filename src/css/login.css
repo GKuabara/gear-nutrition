@@ -1,0 +1,23 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 80vw;
+    margin: 2% 10%;
+}
+
+.login-box {
+    width: 60%;
+    margin: 1% 2%;
+    border-radius: 20px;
+    border: 1px solid #cdcdcd;
+    box-shadow: 1px 2px 5px #cdcdcd;
+}
+
+.login-box h1 {
+    margin-left: 10%;
+    margin-top: 4%;
+    margin-bottom: 1%;
+    font-weight: 900;
+    border-bottom: 1px solid silver;
+}
