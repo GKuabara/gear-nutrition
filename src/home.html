@@ -5,18 +5,17 @@
         <title>Gear Nutrition</title>
         <link rel="stylesheet" href="css/home.css">
         <link rel="stylesheet" href="css/style.css">
-        <!-- <link rel="stylesheet" href="css/reset.css"> -->
-        <!-- <link rel="stylesheet" href="css/mobile.css"> -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="utf-8">
     </head>
 
     <body>
+        <!-- Barras de navegação -->
         <div class="container">
             <div class="navbar">
                 <div class="navbar-top">
                     <div class="logo">
-                        <img src="media/imgs/logo.png" id="logo">
+                        <a href="home.html"><img src="media/imgs/logo.png" id="logo"></a>
                     </div>
                     <div class="search-box">
                         <input type="text" placeholder="Procurar por um produto">
@@ -24,10 +23,10 @@
                     </div>
                     <nav>
                         <ul>
-                            <li><a hef="">Cadastro</a></li>
-                            <li><a hef="">Login</a></li>
-                            <li><a hef=""><img src="media/imgs/pirate.png" width="35px"></a></li>
-                            <li><a hef=""><img src="media/imgs/shoppingBoat.png" width="35px"></a></li>
+                            <li><a href="">Cadastro</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href=""><img src="media/imgs/pirate.png" width="35px"></a></li>
+                            <li><a href="cart.html"><img src="media/imgs/shoppingBoat.png" width="35px"></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -35,21 +34,23 @@
                 <div class="navbar-bottom">
                     <nav>
                         <ul>
-                            <li><a hef="">Gear Second</a></li>
-                            <li><a hef="">Gear Third</a></li>
-                            <li><a hef="">Gear Fourth</a></li>
-                            <li><a hef="">Calcular TMB</a></li>
+                            <li><a href="#g2">Gear Second</a></li>
+                            <li><a href="#g3">Gear Third</a></li>
+                            <li><a href="#g4">Gear Fourth</a></li>
+                            <li><a href="">Calcular TMB</a></li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </div>
 
+        <!-- Conteúdo -->
         <div class="content-container">
+
             <!-- Produtos Populares -->
             <div class="product-series">
                 <h1>Populares</h1>
-                <div class="product-box">
+                <div id="Populares" class="product-box">
                     <div class="product-image"><img src="media/imgs/whey.png"></div>
                     <h3>Whey Protein Concentrado - Gear Second Buff (1KG)</h3>
                     <h2>R$ 88,90</h2>
@@ -75,7 +76,7 @@
             </div>
 
             <!-- Gear Second -->
-            <div class="product-series">
+            <div id="g2" class="product-series">
                 <h1>Gear Second</h1>
                 <div class="product-box">
                     <div class="product-image"><img src="media/imgs/whey.png"></div>
@@ -103,7 +104,7 @@
             </div>
             
             <!-- Gear Third -->
-            <div class="product-series">
+            <div id="g3" class="product-series">
                 <h1>Gear Third</h1>
                 <div class="product-box">
                     <div class="product-image"><img src="media/imgs/whey.png"></div>
@@ -131,7 +132,7 @@
             </div>
 
             <!-- Gear Fourth -->
-            <div class="product-series">
+            <div id="g4" class="product-series">
                 <h1>Gear Fourth</h1>
                 <div class="product-box">
                     <div class="product-image"><img src="media/imgs/whey.png"></div>
@@ -159,6 +160,7 @@
             </div>
         </div>
 
+        <!-- Footer -->
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -177,6 +179,5 @@
                 </div>
             </div>
         </div>
-
     </body>
 </html>
