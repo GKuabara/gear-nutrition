@@ -68,6 +68,7 @@ Usuários:
   -  Nome
   -  Logradouro
   -  Número
+  -  CEP
   -  Bairro
   -  Cidade
   -  Estado
