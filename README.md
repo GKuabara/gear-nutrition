@@ -15,17 +15,17 @@ AVISO: Esse é um projeto realizado para fins educativos e tem problemas graves 
 
 O sistema contém 2 tipos de usuários: clientes e administradores.
 
-**Clientes** são aqueles que compram os produtos. Esses são registrados com as informações de CPF, nome, endereço, número de celular e email.
+**Clientes** são aqueles que compram os produtos. Esses são registrados com as informações de CPF, nome, número de celular e email.
 
-**Administradores** são responsáveis por registrar e gerenciar outros administradores, clientes e produtos. A aplicação já vem como padrão um usuário *admin* e senha *admin*. Cada administrador tem informações de CPF, nome, número de celular e email.
+**Administradores** são responsáveis por registrar e gerenciar outros administradores e produtos. A aplicação já vem como padrão um usuário *admin* e senha *admin*. Cada administrador tem informações de CPF, nome, número de celular e email.
 
-Os **produtos** contém um código de identificação, nome, foto, descrição, preço, quantidade em estoque e quantidade já vendida.
+Os **produtos** contém um código de identificação, nome, foto, descrição, preço e quantidade em estoque.
 
-Sobre a **venda**, os produtos selecionados são adicionados ao carrinho na quantidade especificada. Uma venda pode ser efetuada através de um número de cartão de crédito (qualquer número é aceito pelo sistema). A quantidade comprada é subtraída do estoque e adicionada a quantidade vendida. Somente quando uma compra é efetuada ou o usuário excluí os itens, que o carrinho é esvaziado.
+Sobre a **venda**, os produtos selecionados são adicionados ao carrinho na quantidade especificada. Uma venda pode ser efetuada através de um número de cartão de crédito (qualquer número é aceito pelo sistema). A quantidade comprada é subtraída do estoque. Somente quando uma compra é efetuada ou o usuário excluí os itens, que o carrinho é esvaziado.
 
 Sobre o **gerenciamento de produtos**, os administradores podem criar, atualizar, ver e deletar produtos.
 
-Como **funcionalidade** extra, criaremos
+Como **funcionalidade** extra, criaremos uma página na qual o usuário pode inserir alguns dados pessoais, os quais usaremos para calcular, aproximadamente, sua [taxa metabólica basal](https://pt.wikipedia.org/wiki/Metabolismo_basal) (TMB). Com essa estimativa, o usuário pode, começando sozinho e, posteriormente, com ajuda profissional, estabelecer uma dieta mais adequada para si.
 
 O sistema é responsivo e visa uma boa acessibilidade e usabilidade para seus usuários.
 
@@ -44,14 +44,15 @@ As imagens do mockup estão na pasta `/mockup`.
 
 Sobre as funcionalidades planejadas para o website:
 - Cadastro usando email e senha, assim como login.
-- Visualização das informações do cliente, com opção de alterar cadastro.
-- Página de administrador capaz de alterar, adicionar e remover dados da loja.
+- Visualização das informações do cliente, com opção de alterar alguns dados cadastrais, ver histórico de pedidos e deslogar.
+- Acesso ao carrinho de compras, sendo possível alterar quantidades dos produtos selecionados e prosseguir com a finalização da compra.
+- Uma página de pagamento, no qual o cliente insere os dados para finalizar a compra.
+- Uma página para adicionar um endereço de entrega 
 - Homepage com categorias e produtos visando acessibilidade.
 - Página de cada produto com todas as informações necessárias e possibilidade de adicionar ao carrinho.
-- Acesso ao carrinho de compras, sendo possível alterar quantidades dos produtos selecionados e proseguir com a finalização da compra.
-- Adicionar cartão de crédito/débito.
-- Seleção de endereço de entrega.
-- Algo ai.
+- Página de administrador capaz de visualizar, alterar, adicionar e remover produtos no estoque.
+- Uma outra página de administrador na qual é possível visualizar, adicionar e remover outros administradores.
+- E, por fim, uma página na qual o usuário pode calcular sua TMB.
 
 ### Servidor
 
@@ -63,7 +64,14 @@ Usuários:
 - Senha
 - Campo booleano para indicar administrador
 - CPF
-- Endereço
+- Endereços Entrega
+  -  Nome
+  -  Logradouro
+  -  Número
+  -  CEP
+  -  Bairro
+  -  Cidade
+  -  Estado
 - Número de telefone
 
 Produtos:
@@ -73,12 +81,22 @@ Produtos:
 - Preço
 - Descrição
 - Identificador da Imagem
-- Quantidade vendida do produto
 - Quantidade em estoque
 
 ## Comentários Sobre o Código
+Cada página possui um CSS próprio, o qual está dividido em blocos (comentados) para facilitar o entendimento.
 ## Plano de Teste
+No decorrer do projeto, pretendemos testar algumas funcionalidades para garantir uma boa experiência para o usuário, podendo elas ser:
+- Criação de conta,
+- Login, 
+- Compras
 ## Resultado dos Testes
+Não houve realização de testes ainda.
 ## Building
+Nessa primeira entrega, para visualizar as páginas feitas é necessário baixar o arquivo ``zip`` do repositório e abrir os HTMLs na pasta ``src``.
+
+Para ver os mockups das páginas principais, basta acessar a pasta ``mockups``
 ## Problemas
+Não houve problemas.
 ## Comentários
+Não há.

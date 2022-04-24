@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
-@import url("../media/fonts/Treasuremap.woff2");
 
 :root {
     --azul: #105EDD;
@@ -17,7 +16,7 @@
 }
 
 #logo {
-    width: 6vw;
+    width: 20vw;
     margin: auto;
     vertical-align: middle;
 }
