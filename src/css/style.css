@@ -1,3 +1,5 @@
+/* Estruturas gerais do site */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap');
 
 :root {
@@ -15,14 +17,22 @@
     font-weight: 500;
 }
 
-#logo {
-    width: 20vw;
-    margin: auto;
-    vertical-align: middle;
+body {
+    display:flex; 
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 a {
     text-decoration: none;
+    color: black;
+}
+
+/* Barra de navegação superior */
+#logo {
+    width: 20vw;
+    margin: auto;
+    vertical-align: middle;
 }
 
 nav {
@@ -42,10 +52,8 @@ nav ul li {
     vertical-align: middle;
 }
 
-input[type="text"], input[type="password"]{
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 5px 10px;
+.navbar-top ul li a{
+    color: white;
 }
 
 .navbar-top{
@@ -70,7 +78,6 @@ input[type="text"], input[type="password"]{
     justify-content: center;
 }
 
-
 .search-box {
     width: 38vw;
     min-width: 170px;
@@ -86,6 +93,7 @@ input[type="text"], input[type="password"]{
     width: 98%;
     border: none;
     float: left;
+    padding: 2px 5px;
 }
 
 .search-box img {
@@ -97,6 +105,7 @@ input[type="text"], input[type="password"]{
     text-align: center;
 }
 
+/* Barra de navegação inferior */
 .navbar-bottom{
     display: flex;
     width: 100%;
@@ -120,9 +129,9 @@ input[type="text"], input[type="password"]{
     text-align: left;
 }
 
+/* Footer */
 .footer {
-    position: absolute;
-    bottom: 0;
+    margin-top: auto;
     width: 100%;
     background-color: var(--azul);
     color: white;
@@ -152,47 +161,4 @@ input[type="text"], input[type="password"]{
 .content-container {
     width: 80vw;
     margin: 2% 10%;
-}
-
-.product-series {
-    text-align: center;
-}
-
-.product-series h1 {
-    margin-top: 4%;
-    margin-bottom: 1%;
-    font-weight: 900;
-}
-
-.product-box {
-    display: inline-block;
-    width: 20%;
-    margin: 1% 2%;
-    border-radius: 20px;
-    border: 1px solid #cdcdcd;
-    box-shadow: 1px 2px 5px #cdcdcd;
-    text-align: center;
-}
-
-.product-image {
-    width: 60%;
-    margin: 7% auto;
-}
-
-.product-box img {
-    width: 100%;
-}
-
-.product-box h3 {
-    font-size: 1.1vw;
-    margin: 5%;
-    padding: 1%;
-} 
-
-.product-box h2 {
-    font-size: 2vw;
-    font-weight: 700;
-    color: #F8DE3C;
-    padding: 3%;
-    margin-bottom: 5%;
 }
