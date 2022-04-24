@@ -122,8 +122,8 @@ input[type="text"], input[type="password"]{
 }
 
 .footer {
-    /*position: relative;
-    bottom: 0;*/
+    position: absolute;
+    bottom: 0;
     width: 100%;
     background-color: var(--azul);
     color: white;

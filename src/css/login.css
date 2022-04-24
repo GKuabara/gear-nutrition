@@ -7,17 +7,40 @@
 }
 
 .login-box {
-    width: 60%;
+    width: 70%;
     margin: 1% 2%;
     border-radius: 20px;
     border: 1px solid #cdcdcd;
     box-shadow: 1px 2px 5px #cdcdcd;
+    font-weight: bolder;
 }
 
 .login-box h1 {
-    margin-left: 10%;
-    margin-top: 4%;
-    margin-bottom: 1%;
+    margin: 3% 5%;
     font-weight: 900;
     border-bottom: 1px solid silver;
+}
+
+.login-items {
+    margin: 3% 5%;
+}
+
+.login-items input {
+    width: 50%;
+}
+
+.item {
+    margin: 3% 0%;
+}
+
+button {
+    background-color: #F8DE3C;
+    color: white;
+    width: 25%;
+    height: 30px;
+    border-radius: 5px;
+    border: 0px;
+    float: right;
+    margin: 0% 5% 3% 0%;
+    font-size: 16px;
 }
