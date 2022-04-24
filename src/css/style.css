@@ -31,7 +31,6 @@ a {
 /* Barra de navegação superior */
 #logo {
     width: 20vw;
-    margin: auto;
     vertical-align: middle;
 }
 
@@ -64,7 +63,6 @@ nav ul li {
     background-color: var(--azul-escuro);
     align-items: center;
     vertical-align: center;
-    color: white;
 }
 
 .navbar-top h1 {
@@ -72,10 +70,6 @@ nav ul li {
     letter-spacing: 2px;
     font-family: 'Treasuremap', cursive;   
     font-size: 2.5vw;
-}
-
-.navbar-top img {
-    justify-content: center;
 }
 
 .search-box {
@@ -113,16 +107,12 @@ nav ul li {
     padding-left: 40px;
     background-color: var(--azul-claro);
     align-items: center;
-    vertical-align: middle;
-}
-
-.navbar-bottom nav {
-    text-align: left;
 }
 
 .navbar-bottom ul {
     font-size: 1.3vw;
     width: 50vw;
+    align-items: center;
 }
 
 .navbar-bottom li {
