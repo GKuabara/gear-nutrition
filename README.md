@@ -95,7 +95,7 @@ Não houve realização de testes ainda.
 ## Building
 Nessa primeira entrega, para visualizar as páginas feitas é necessário baixar o arquivo ``zip`` do repositório e abrir os HTMLs na pasta ``src``.
 
-Para ver os mockups das páginas principais, basta acessar a pasta ``mockups``
+Para ver os mockups das páginas principais, basta acessar a pasta ``mockups`` ou abrir o projeto no [figma](https://www.figma.com/file/ZMtR2FPqWEN6cs2xp5uz2I/Gear-Nutrition?node-id=0%3A1).
 ## Problemas
 Não houve problemas.
 ## Comentários
