@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import './css/App.css';
+import ProductCard from './prodCard'
+import TopNavBar from './topNavbar'
 
 function App() {
+  const image = require('./media/imgs/whey.png');
+  const product = {name: "Whey Protein Concentrado - Gear Second Buff (1KG)", price: "88,90", img: image}
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TopNavBar/>
+      <ProductCard prod={product} />
     </div>
   );
 }

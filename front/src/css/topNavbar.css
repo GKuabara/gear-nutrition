@@ -1,0 +1,69 @@
+#logo {
+    width: 20vw;
+    vertical-align: middle;
+}
+
+nav {
+    flex: 1;
+}
+
+nav ul {
+    display: inline-block;
+    list-style-type: none;
+    width: 100%;
+    min-width: 297px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: auto 5%;
+    vertical-align: middle;
+}
+
+.navbar-top ul li a{
+    color: white;
+}
+
+.navbar-top{
+    display: flex;
+    width: 100%;
+    height: 7vw;
+    padding-left: 2%;
+    background-color: #0B3075;
+    align-items: center;
+    vertical-align: center;
+}
+
+.navbar-top h1 {
+    padding-left: 1%;
+    letter-spacing: 2px;
+    font-family: 'Treasuremap', cursive;   
+    font-size: 2.5vw;
+}
+
+.search-box {
+    width: 38vw;
+    min-width: 170px;
+    margin-left: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    display: flex;
+}
+
+.search-box input[type="text"] {
+    width: 98%;
+    border: none;
+    float: left;
+    padding: 2px 5px;
+}
+
+.search-box img {
+    width: 25px;
+    float: right;
+}
+
+.navbar-top nav {
+    text-align: center;
+}
