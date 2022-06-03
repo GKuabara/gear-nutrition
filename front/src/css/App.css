@@ -29,3 +29,8 @@ a {
 textarea:focus, input:focus{
     outline: none;
 }
+
+.content {
+    width: 80vw;
+    margin: 2% 10%;
+}

@@ -2,7 +2,7 @@ import './css/bottomNavbar.css';
 
 const BottomNav = () => {
     return ( 
-        <div class="navbar-bottom">
+        <div className="navbar-bottom">
             <nav>
                 <ul>
                     <li><a href="#g2">Gear Second</a></li>
