@@ -1,0 +1,18 @@
+.navbar-bottom{
+    display: flex;
+    width: 100%;
+    height: 3vw;
+    padding-left: 40px;
+    background-color: var(--azul-claro);
+    align-items: center;
+}
+
+.navbar-bottom ul {
+    font-size: 1.3vw;
+    width: 50vw;
+    align-items: center;
+}
+
+.navbar-bottom li {
+    text-align: left;
+}

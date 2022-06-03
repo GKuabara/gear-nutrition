@@ -1,6 +1,8 @@
 import './css/App.css';
-import ProductCard from './prodCard'
-import TopNavBar from './topNavbar'
+import ProductCard from './ProdCard';
+import TopNavBar from './TopNavbar';
+import BottomNavBar from './BottomNavbar';
+import Footer from './Footer';
 
 function App() {
   const image = require('./media/imgs/whey.png');
@@ -8,7 +10,9 @@ function App() {
   return (
     <div className="App">
       <TopNavBar/>
+      <BottomNavBar/>
       <ProductCard prod={product} />
+      <Footer />
     </div>
   );
 }
