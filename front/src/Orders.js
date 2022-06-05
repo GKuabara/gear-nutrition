@@ -17,19 +17,24 @@ const Orders = () => {
     const [lengths, setLengths] = useState([10, 60, 20]);
 
     return ( 
-        <div id="orders">
-            <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
-            {
-            orders.map((order) => {
-                return (
-                    <div key={order.key}>
-                        <RowInfos className={"info-row"} sizes={lengths} infos={order} />
-                    </div>
-                );  
-            })
-            }
+        <div className="orders-container">
+            <div className="orders-filter">
+                <input type="text" placeholder="Pedido de nº" />
+            </div>
+            <div id="orders">
+                <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
+                {
+                orders.map((order) => {
+                    return (
+                        <div key={order.key}>
+                            <RowInfos className={"info-row"} sizes={lengths} infos={order} />
+                        </div>
+                    );  
+                })
+                }
+            </div>
         </div>
-     );
+    );
 }
  
 export default Orders;

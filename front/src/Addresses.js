@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import AddrCard from "./AddrCard";
 import './css/addresses.css';
 
@@ -32,6 +33,7 @@ const Addresses = () => {
                 );
             })
             }
+            <Link to="/newAddress">Adicionar</Link>
         </div>
     );
 }

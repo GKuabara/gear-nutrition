@@ -5,6 +5,7 @@ import './css/profile.css';
 import Orders from './Orders';
 import ProfileData from './ProfileData';
 import Addresses from './Addresses';
+import NewAddress from './NewAddress';
 
 const Profile = () => {
     return ( 
@@ -16,6 +17,7 @@ const Profile = () => {
                     <Route path="/orders" element={<Orders />} />
                     <Route path="/profile" element={<ProfileData />} />
                     <Route path="/addresses" element={<Addresses />} />
+                    <Route path="/newAddress" element={<NewAddress />} />
                 </Routes>
             </Router>
         </div>

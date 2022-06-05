@@ -2,7 +2,22 @@
     border: 1px solid grey;
     border-radius: 5px;
     box-shadow: var(--sombra);
+    width: 100%;
+}
+
+.orders-container {
     float: left;
-    width: 60%;
     margin-left: 5%;
+    width: 60%;
+}
+
+.orders-filter {
+    margin: 2% 0;
+}
+
+.orders-filter input {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    width: 70%;
 }

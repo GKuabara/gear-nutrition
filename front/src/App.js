@@ -4,6 +4,7 @@ import BottomNavBar from './BottomNavbar';
 import Footer from './Footer';
 import Profile from './Profile';
 import Homepage from './Home';
+import NewAddress from './NewAddress';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <div className="content">
         {/* <Homepage /> */}
         <Profile />
+        {/* <NewAddress /> */}
       </div>
       <Footer />
     </div>
