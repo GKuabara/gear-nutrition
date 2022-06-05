@@ -1,0 +1,29 @@
+.addr-card {
+    font-weight: 900;
+    padding: 5px;
+    display: inline-block;
+    width: 90%;
+}
+
+.addr-card h3 {
+    font-size: 1.5em;
+    padding: 10px;
+}
+
+.addr-card table {
+    text-align: center;
+    width: 100%;
+    border-spacing: 1em;
+}
+
+.addr-card td {
+    color: lightgrey;
+}
+
+.addr-card span {
+    color: black;
+}
+
+.addr-card td {
+    width: 33%;
+}

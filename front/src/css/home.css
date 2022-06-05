@@ -16,7 +16,7 @@
     margin: 1% 2%;
     border-radius: 20px;
     border: 1px solid #cdcdcd;
-    box-shadow: 1px 2px 5px #cdcdcd;
+    box-shadow: var(--sombra);
     text-align: center;
 }
 

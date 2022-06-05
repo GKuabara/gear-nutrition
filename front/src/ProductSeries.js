@@ -14,7 +14,7 @@ const ProductSeries = (props) => {
     ]);
 
     return ( 
-        <div className="product-series">
+        <div id={"g" + series} className="product-series">
             <h1>{props.title}</h1>
             {
                 products.map((product) => {

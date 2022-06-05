@@ -5,6 +5,8 @@
     --azul-escuro: #0B3075;
     --azul-claro: #58ACF4;
     --preto: #333;
+    --amarelo: rgb(255, 213, 0);
+    --sombra: 1px 1px 5px lightgrey;
 }
 
 * {
@@ -12,7 +14,6 @@
     padding: 0px;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    font-weight: 500;
 }
 
 body {
@@ -32,5 +33,7 @@ textarea:focus, input:focus{
 
 .content {
     width: 80vw;
+    min-height: 70vh;
+    min-width: 760px;
     margin: 2% 10%;
 }

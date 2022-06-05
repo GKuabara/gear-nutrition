@@ -5,9 +5,9 @@ const BottomNav = () => {
         <div className="navbar-bottom">
             <nav>
                 <ul>
-                    <li><a href="#g2">Gear Second</a></li>
-                    <li><a href="#g3">Gear Third</a></li>
-                    <li><a href="#g4">Gear Fourth</a></li>
+                    <li><a href="#g20">Gear Second</a></li>
+                    <li><a href="#g30">Gear Third</a></li>
+                    <li><a href="#g40">Gear Fourth</a></li>
                     <li><a href="">Calcular TMB</a></li>
                 </ul>
             </nav>

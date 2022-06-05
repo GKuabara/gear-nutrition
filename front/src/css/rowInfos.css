@@ -1,0 +1,19 @@
+.info-col {
+    display: inline-block;
+    padding: 15px;
+}
+
+.row-titles {
+    text-align: center;
+    padding-top: 0;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    border-bottom: 1px solid black;
+    background-color: rgb(231, 231, 231);
+}
+
+.info-row {
+    border-bottom: 1px solid lightgrey;
+    text-align: center;
+    width: 100%;
+}

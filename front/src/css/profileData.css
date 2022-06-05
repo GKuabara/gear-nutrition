@@ -1,0 +1,16 @@
+#profile-card {
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: var(--sombra);
+    float: left;
+    width: 60%;
+    margin-left: 5%;
+}
+
+#profile-card span {
+    display: block;
+}
+
+#profile-card input {
+    width: 80%;
+}
