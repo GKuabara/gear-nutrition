@@ -1,0 +1,54 @@
+.new-address {
+    text-align: left;
+    display: inline-block;
+    padding: 5px;
+    margin-left: 5%;
+    width: 65%;
+    border: 1px solid lightgrey;
+    border-radius: 10px;
+    box-shadow: var(--sombra);
+}
+
+.new-address a {
+    margin: 2% 5%;
+    float: right;
+    border: none;
+    background-color: white;
+    font-size: 1em;
+}
+
+.new-address a:hover {
+    cursor: pointer;
+}
+
+.house-name {
+    margin: 1% 2% 0 2%;
+}
+
+.house-name input {
+    margin-left: 1%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid grey;
+}
+
+.house-name h3 {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5em;
+}
+
+.house-name td {
+    text-align: left;
+    float: left;
+}
+
+.new-address table {
+    width: 100%;
+    border-spacing: 1em;
+}
+
+.new-address td {
+    border: 1px solid red;
+    /* width: 25%; */
+}
