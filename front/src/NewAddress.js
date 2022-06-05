@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import AddrInput from './AddrInput';
 import './css/newAddress.css';
 
-const NewAddress = ({addAddr}) => {
+const NewAddress = ({}) => {
     return ( 
         <div className="new-address">            
             <div className="house-name">
