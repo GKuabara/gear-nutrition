@@ -5,6 +5,8 @@ import Footer from './Footer';
 import Profile from './Profile';
 import Homepage from './Home';
 import NewAddress from './NewAddress';
+import TMB from './Tmb';
+import ChangePwd from './ChangePwd';
 
 function App() {
   return (
@@ -12,9 +14,9 @@ function App() {
       <TopNavBar/>
       <BottomNavBar/>
       <div className="content">
+        <TMB />
         {/* <Homepage /> */}
-        <Profile />
-        {/* <NewAddress /> */}
+        {/* <Profile /> */}
       </div>
       <Footer />
     </div>

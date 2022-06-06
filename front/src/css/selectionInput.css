@@ -1,0 +1,17 @@
+.form-input {
+    display: inline-block;
+    margin-left: 2%;
+}
+
+.form-input span {
+    font-size: 1em;
+    display: block;
+}
+
+.form-input select {
+    width: 90%;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+}
