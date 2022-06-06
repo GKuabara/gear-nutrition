@@ -1,7 +1,7 @@
 import './css/selectionInput.css';
 import Select from 'react-select';
 
-const SelectionInput = ({size, values, title}) => {
+const SelectionInput = ({id, onChange, size, values, title}) => {
     const selectTheme = (theme) => ({
         ...theme,
         colors: {
@@ -12,9 +12,9 @@ const SelectionInput = ({size, values, title}) => {
     });
 
     return ( 
-        <div style={{width: size}} className="form-input">
+        <div className="form-input" style={{width: size}}>
             <span>{title}: </span>
-            <Select theme={selectTheme} options={values} />
+            <Select id={id} onChange={ e=>onChange(e.value) } theme={selectTheme} options={values} />
         </div>
     );
 }

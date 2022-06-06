@@ -1,3 +1,7 @@
+.error {
+    background-color: lightcoral;
+}
+
 #tmb-container {
     display: table;
 }
@@ -34,7 +38,7 @@
     margin: 2% 0;
 }
 
-#activity-info button {
+#user-info button {
     border: 1px solid grey;
     border-radius: 5px;
     padding: 5px;
