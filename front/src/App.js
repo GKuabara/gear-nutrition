@@ -7,6 +7,9 @@ import Homepage from './Home';
 import NewAddress from './NewAddress';
 import TMB from './Tmb';
 import ChangePwd from './ChangePwd';
+import Orders from './Orders';
+import Stock from './Stock';
+import Admin from './Admin';
 
 function App() {
   return (
@@ -14,7 +17,8 @@ function App() {
       <TopNavBar/>
       <BottomNavBar/>
       <div className="content">
-        <TMB />
+        {/* <TMB /> */}
+        <Admin />
         {/* <Homepage /> */}
         {/* <Profile /> */}
       </div>

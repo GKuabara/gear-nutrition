@@ -11,7 +11,7 @@ const Profile = () => {
     return ( 
         <div id="profile-container">
             <Router>
-                <ProfileNav/>
+                <ProfileNav />
                 <Routes>
                     <Route path="/changePwd" element={<ChangePwd />} />
                     <Route path="/orders" element={<Orders />} />
