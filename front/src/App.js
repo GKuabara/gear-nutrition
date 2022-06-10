@@ -5,6 +5,7 @@ import Footer from './Footer';
 import Profile from './Profile';
 import Homepage from './Home';
 import NewAddress from './NewAddress';
+import Login from './LoginPage'
 
 function App() {
   return (
@@ -13,8 +14,9 @@ function App() {
       <BottomNavBar/>
       <div className="content">
         {/* <Homepage /> */}
-        <Profile />
+        {/* <Profile /> */}
         {/* <NewAddress /> */}
+        <Login/>
       </div>
       <Footer />
     </div>
