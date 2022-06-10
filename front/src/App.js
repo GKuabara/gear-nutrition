@@ -17,10 +17,8 @@ function App() {
       <TopNavBar/>
       <BottomNavBar/>
       <div className="content">
-        {/* <TMB /> */}
         <Admin />
-        {/* <Homepage /> */}
-        {/* <Profile /> */}
+        {/* <TMB /> */}
       </div>
       <Footer />
     </div>

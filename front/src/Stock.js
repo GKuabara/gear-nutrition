@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RowInfos from "./rowInfos";
 import './css/stock.css';
+import { Link } from "react-router-dom";
 
 const Stock = () => {
     const colTitles = {key: "Código", name: "Nome", value: "Valor", qtt: "Quantidade", sold: "Vendidos", desc: "Descrição"};
@@ -12,22 +13,9 @@ const Stock = () => {
         {key: 4, name: "Tapioca", value: "R$ 88,90", qtt: 500, sold: 1000, desc: "Lorem Ipsum Dolor Sit Amet"}
     ]);
 
-    const lengths = [15, 20, 15, 15, 15, 20];
+    const lengths = [12, 18, 15, 20, 15, 20];
 
-    let [classes, setClasses] = useState(["info-row"])
-    function makeSelected(key) {
-        console.log(key, "selecionada")
-        // const curSelection = document.querySelector(".selected");
-        // console.log(curSelection)
-        // if (curSelection !== null) {
-        //     curSelection.class = "info-row";
-        //     curSelection.style.border = "1px solid grey"
-        // }
-        const newSelection = document.getElementById(key)
-        setClasses(['info-row selected']);
-        newSelection.style.border = "1px solid var(--vermelho)";
-    }
-
+    let [selection, setSelection] = useState(-1);
     return (  
         <div id="stock-container">
             <input type="text" placeholder="Pesquisar por código"/>
@@ -36,13 +24,14 @@ const Stock = () => {
                 {
                 stock.map((product) => {
                     return (
-                        <div onMouseUp={() => {makeSelected(product.key)}} id={product.key} key={product.key}>
-                            <RowInfos className={classes} sizes={lengths} infos={product} />
+                        <div className={selection === product.key ? "info-row selected" : "info-row"} onClick={() => {setSelection(product.key)}} id={product.key} key={product.key}>
+                            <RowInfos sizes={lengths} infos={product} />
                         </div>
                     );  
                 })
                 }
             </div>
+            <Link to={`/editStock/${selection}`} >Editar</Link>
         </div>
     );
 }
