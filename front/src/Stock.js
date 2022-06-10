@@ -1,7 +1,7 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import RowInfos from "./rowInfos";
 import './css/stock.css';
-import { Link } from "react-router-dom";
 
 const Stock = () => {
     const colTitles = {key: "Código", name: "Nome", value: "Valor", qtt: "Quantidade", sold: "Vendidos", desc: "Descrição"};
@@ -15,11 +15,11 @@ const Stock = () => {
 
     const lengths = [12, 18, 15, 20, 15, 20];
 
-    let [selection, setSelection] = useState(-1);
+    let [selection, setSelection] = useState(1);
     return (  
-        <div id="stock-container">
+        <div className="info-container">
             <input type="text" placeholder="Pesquisar por código"/>
-            <div id="stock">
+            <div className="b-shadow">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {
                 stock.map((product) => {

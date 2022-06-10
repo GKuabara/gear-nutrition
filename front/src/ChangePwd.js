@@ -1,15 +1,15 @@
-import './css/changePwd.css';
+import { Link } from 'react-router-dom';
 import FormInput from './FormInput';
 
 const ChangePwd = () => {
     return ( 
-        <div id="pwd-container">
+        <div className="b-shadow pwd info-container">
             <form action="">
                 <FormInput title="Senha Atual" type="password"/>
                 <FormInput title="Nova Senha" type="password"/>
                 <FormInput title="Confirmação da Nova Senha" type="password"/>
             </form>
-            <button>Salvar</button>
+            <Link to="/profile">Salvar</Link>
         </div>
     );
 }

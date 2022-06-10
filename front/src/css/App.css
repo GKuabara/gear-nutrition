@@ -38,3 +38,26 @@ textarea:focus, input:focus{
     min-width: 760px;
     margin: 2% 10%;
 }
+
+/* Estruturas gerais */ 
+.info-container {
+    display: inline-block;
+    padding: 10px;
+    margin-left: 5%;
+    width: 60%;
+}
+
+.info-container a {
+    float: right;
+    margin: 2%;
+    background-color: white;
+    border-style: none;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.b-shadow {
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: var(--sombra);
+}

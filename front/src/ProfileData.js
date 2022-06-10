@@ -3,7 +3,7 @@ import './css/profileData.css';
 
 const ProfileData = () => {
     return (  
-        <div id="profile-card">
+        <div className="b-shadow info-container" id="profile-card">
             <FormInput param="disabled" placeholder="Gabriel Alves Kuabara" title="Nome Completo" type="text"/>
             <FormInput param="disabled" placeholder="111.111.111-1" title="CPF" type="text"/>
             <FormInput param="disabled" placeholder="email@usp.br" title="Email" type="text"/>

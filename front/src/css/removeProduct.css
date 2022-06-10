@@ -1,9 +1,3 @@
-#pr-container {
-    display: inline-block;
-    margin-left: 5%;
-    width: 60%;
-}
-
 .info {
     margin-top: 1%;
     width: 33%;
@@ -13,9 +7,4 @@
 .desc {
     margin-top: 2%;
     margin-bottom: 2%;
-}
-
-#prod-overview a {
-    float: right;
-    margin: 2%;
 }

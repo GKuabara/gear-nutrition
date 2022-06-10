@@ -5,7 +5,7 @@ const RemoveProduct = () => {
     const prod = {key: 4, name: "Tapioca", value: "R$ 88,90", qtt: 500, sold: 1000, desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi quaerat iure a cumque aut temporibus? Consequatur rem soluta vel aut, suscipit eaque quidem incidunt accusantium deleniti facere alias impedit cumque?"}
 
     return (  
-        <div id="pr-container">
+        <div className="info-container">
             <TextInput size={{width: 55, height: 30}} placeholder={prod.name} title="Procurar por nome" />
             <TextInput size={{width: 35, height: 30}} placeholder={prod.key} title="Procurar por código" />
             <div id="prod-overview">

@@ -1,9 +1,8 @@
 import ProdInput from "./ProdInputs";
-import './css/addProd.css';
 
 const AddProduct = () => {
     return (  
-       <div id="add-product">
+       <div className="info-container">
             <ProdInput />
        </div>
     );

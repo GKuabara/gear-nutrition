@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import RowInfos from "./rowInfos";
 import ProdInput from "./ProdInputs";
-import './css/editStock.css';
 
 const EditStock = () => {
     const { id } = useParams();
@@ -17,8 +16,8 @@ const EditStock = () => {
     const product = stock[idx];
 
     return (  
-        <div id="edition-container">
-            <div id="cur-prod">
+        <div className="info-container">
+            <div className="b-shadow">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 <RowInfos className={"info-row"} sizes={lengths} infos={stock[idx]} />
             </div>

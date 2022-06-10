@@ -17,11 +17,11 @@ const Orders = () => {
     const [lengths, setLengths] = useState([10, 60, 20]);
 
     return ( 
-        <div className="orders-container">
+        <div className="info-container">
             <div className="orders-filter">
                 <input type="text" placeholder="Pedido de nº" />
             </div>
-            <div id="orders">
+            <div className="b-shadow" id="orders">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {
                 orders.map((order) => {

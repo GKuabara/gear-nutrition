@@ -5,9 +5,11 @@ import './css/prodInput.css';
 const ProdInput = ({product}) => {
     return (  
         <div id="edition">
-            <TextInput size={{width: 48, height: 40}} placeholder={product ? product.name : "Nome do Produto"} title="Nome" />
-            <TextInput size={{width: 28, height: 40}} placeholder={product ? product.value : "Valor do Produto"} title="Valor" />
-            <TextInput size={{width: 20, height: 40}} placeholder="Ex: 1000" title="Adicionar" />
+            <div style={{border:"1ps solid red"}}>
+                <TextInput size={{width: 50, height: 40}} placeholder={product ? product.name : "Nome do Produto"} title="Nome" />
+                <TextInput size={{width: 24, height: 40}} placeholder={product ? product.value : "Valor do Produto"} title="Valor" />
+                <TextInput size={{width: 20, height: 40}} placeholder="Ex: 1000" title="Adicionar" />
+            </div>
             <div id="text-area">
                 <span style={{marginLeft: "2%"}}>Descrição</span>
                 <textarea style={{

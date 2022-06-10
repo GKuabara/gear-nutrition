@@ -1,6 +1,5 @@
 import { useState } from "react";
 import RowInfos from "./rowInfos";
-import './css/manageAdmins.css';
 import { Link } from "react-router-dom";
 
 const ManageAdmins = () => {
@@ -18,9 +17,9 @@ const ManageAdmins = () => {
 
     let [selection, setSelection] = useState(-1);
     return (  
-        <div id="stock-container">
+        <div className="info-container" id="stock-container">
             <input type="text" placeholder="Pesquisar por código"/>
-            <div id="stock">
+            <div className="b-shadow">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {
                 admins.map((admin) => {
@@ -32,7 +31,7 @@ const ManageAdmins = () => {
                 })
                 }
             </div>
-            <button>Remover</button>
+            <Link to="/admin/manageAdmins">Remover</Link>
             <Link to="/admin/addAdmin">Adicionar</Link>
         </div>
     );
