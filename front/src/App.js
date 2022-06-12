@@ -10,6 +10,8 @@ import ChangePwd from './ChangePwd';
 import Orders from './Orders';
 import Stock from './Stock';
 import Admin from './Admin';
+import Product from './Product';
+import Cart from './Cart'
 
 function App() {
   return (
@@ -19,7 +21,7 @@ function App() {
       <div className="content">
         {/* <Homepage /> */}
         {/* <TMB /> */}
-        <Admin />
+        <Cart />
         {/* <Profile /> */}
       </div>
       <Footer />

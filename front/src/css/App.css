@@ -37,6 +37,12 @@ textarea:focus, input:focus{
     min-height: 70vh;
     min-width: 760px;
     margin: 2% 10%;
+
+    /* se der merda tira isso */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 /* Estruturas gerais */ 
