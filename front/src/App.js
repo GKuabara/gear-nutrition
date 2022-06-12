@@ -1,6 +1,4 @@
 import './css/App.css';
-import TopNavBar from './TopNavbar';
-import BottomNavBar from './BottomNavbar';
 import Footer from './Footer';
 import Profile from './Profile';
 import Homepage from './Home';
@@ -12,16 +10,16 @@ import Stock from './Stock';
 import Admin from './Admin';
 import Product from './Product';
 import Cart from './Cart'
+import NavBar from './Navbar';
 
 function App() {
   return (
     <div className="App">
-      <TopNavBar/>
-      <BottomNavBar/>
+      <NavBar />
       <div className="content">
-        {/* <Homepage /> */}
+        <Homepage />
         {/* <TMB /> */}
-        <Cart />
+        {/* <Admin /> */}
         {/* <Profile /> */}
       </div>
       <Footer />

@@ -1,32 +1,13 @@
-.footer {
-    margin-top: auto;
-    width: 100%;
+.row {
     background-color: var(--azul);
     color: white;
     font-size: 14px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-self: flex-end;
 }
 
-.footer div {
-    display: table-cell;
-}
-
-.footer .container {
-    display: block;
-    margin: 0 auto;
-    width: 90vw;
-}
-
-.footer .row {
-    width: 100vw; 
-}
-
-.footer-col-1, .footer-col-2, .footer-col-3 {
-    width: 33.33%;
-    padding: 10px 20px;
-    margin: 0 auto;
-}
-
-.content-container {
-    width: 80vw;
-    margin: 2% 10%;
+.footer-col {
+    padding: 10px;
 }
