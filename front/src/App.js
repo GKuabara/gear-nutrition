@@ -1,6 +1,4 @@
 import './css/App.css';
-import TopNavBar from './TopNavbar';
-import BottomNavBar from './BottomNavbar';
 import Footer from './Footer';
 import Profile from './Profile';
 import Homepage from './Home';
@@ -10,16 +8,16 @@ import ChangePwd from './ChangePwd';
 import Orders from './Orders';
 import Stock from './Stock';
 import Admin from './Admin';
+import NavBar from './Navbar';
 
 function App() {
   return (
     <div className="App">
-      <TopNavBar/>
-      <BottomNavBar/>
+      <NavBar />
       <div className="content">
-        {/* <Homepage /> */}
+        <Homepage />
         {/* <TMB /> */}
-        <Admin />
+        {/* <Admin /> */}
         {/* <Profile /> */}
       </div>
       <Footer />
