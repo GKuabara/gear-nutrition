@@ -9,6 +9,8 @@ import Orders from './Orders';
 import Stock from './Stock';
 import Admin from './Admin';
 import NavBar from './Navbar';
+import Product from './Product';
+import Cart from './Cart';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
         {/* <Homepage /> */}
         {/* <TMB /> */}
         {/* <Admin /> */}
-        <Profile />
+        <Product />
       </div>
       <Footer />
     </div>

@@ -1,0 +1,98 @@
+#product-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 70vw;
+    height: auto;
+    margin: 2%;
+}
+
+#prod-img {
+    align-items: center;
+    margin: 0% 5%;
+}
+
+#prod-img img{
+    width: 100%;
+}
+
+#prod-info {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+#prod-info h1 {
+    text-align: left;
+}
+
+#prod-info p {
+    margin: 3% 0%;   
+}
+
+#prod-desc {
+    text-align: justify;
+    font-size: 20px;
+}
+
+#prod-sold {
+    color: gray;
+    vertical-align: bottom;
+}
+
+#prod-price {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#prod-info-row {
+    bottom: 30px;
+    position: absolute;
+    display: flex;
+}
+
+#prod-info-left {
+    left: 0px;
+}
+
+#prod-info input {
+    width: 15%;
+    height: 40px;
+    align-items: center;
+    font-size: 20px;
+    padding-left: 20px;
+    border: 1px solid grey;
+    border-radius: 10%;
+    margin: 10px;
+}
+
+#decButton {
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 100%;
+    padding: 0px 12px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#incButton {
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 100%;
+    padding: 0px 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#buyButton {
+    margin-left: auto;
+    color: white;
+    background-color: gold;
+    border: none;
+    border-radius: 10px;
+    padding: 0px 60px;
+    text-align: center;
+    font-size: 20px;
+}
