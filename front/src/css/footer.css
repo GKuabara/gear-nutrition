@@ -2,12 +2,21 @@
     background-color: var(--azul);
     color: white;
     font-size: 14px;
+    padding: 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-self: flex-end;
+    align-items: baseline;
 }
 
 .footer-col {
     padding: 10px;
+}
+
+@media (max-width: 960px) {
+    .row {
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }

@@ -10,3 +10,14 @@
     border: 1px solid grey;
     padding: 8px;
 }
+
+@media (max-width: 960px) {
+    .form-input {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .form-input input {
+        width: 100%;
+    }
+}
