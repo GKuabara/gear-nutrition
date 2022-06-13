@@ -1,6 +1,6 @@
 import ProductCard from './ProdCard';
-import './css/prodSeries.css';
 import {useState} from 'react';
+import './css/prodSeries.css';
 
 const ProductSeries = (props) => {
     const series = props.series;
@@ -18,7 +18,11 @@ const ProductSeries = (props) => {
             <h1>{props.title}</h1>
             {
                 products.map((product) => {
-                    return <div className="productCard" key={product.key}><ProductCard prod={product} /></div>
+                    return (
+                        <div className="productCard" key={product.key}>
+                            <ProductCard prod={product} />
+                        </div>
+                    );
                 })
             }
         </div>

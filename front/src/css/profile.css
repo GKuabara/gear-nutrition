@@ -1,5 +1,13 @@
 #profile-container {
     margin: 5%;
     padding: 1%;
-    min-width: 635px;
+}
+
+@media (max-width: 960px) {
+    #profile-container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        align-items: center;
+    }
 }

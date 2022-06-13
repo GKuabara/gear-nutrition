@@ -6,10 +6,12 @@ const ProductCard = (props) => {
     const price = product.price;
     const img = product.img
     return ( 
-        <div>
+        <div className='prod-container'>
             <div className="productImage"><img src={img} /></div>
-            <h3>{name}</h3>
-            <h2>R$ {price}</h2>
+            <div className='np-container'>
+                <h3>{name}</h3>
+                <h2>R$ {price}</h2>
+            </div>
         </div>
      );
 }

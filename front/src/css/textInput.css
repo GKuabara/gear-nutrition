@@ -1,0 +1,10 @@
+.text-input {
+    display: inline-block;
+    height: 80px;
+    margin: 1%;
+}
+
+.text-input span {
+    margin: 1%;
+    display: block;
+}
