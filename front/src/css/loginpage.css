@@ -1,0 +1,43 @@
+#login-container {
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-shadow: var(--sombra);
+    width: 60%;
+    margin-left: 5%;
+    display: inline-block;
+}
+
+h1{
+    margin: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid gray;    
+}
+
+table{
+    margin: 0;
+    width: 100%;
+    padding-right: 20px;
+}
+
+#first-column{
+    width: 50%;
+}
+
+#login-field input{
+    width: 100%;
+}
+
+#second-column{
+    width: 50%;
+    padding-bottom: 18px;
+    vertical-align: bottom;
+}
+
+button{
+    border-radius: 5px;
+    border: 1px solid grey;
+    padding: 8px;
+    width: 50%;
+    background-color: #F8DE3C;
+    color: white;
+}
