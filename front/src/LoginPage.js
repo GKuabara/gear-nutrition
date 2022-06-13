@@ -11,7 +11,7 @@ const Login = () => {
                     <tr>
                         <td id="first-column">
                             <div id="login-field">
-                                <FormInput placeholder="fernanbrasildefesa@hotmail.com" title="Email" type="text"/>
+                                <FormInput placeholder="seu@email.com" title="Email" type="text"/>
                             </div>
                             <div id="login-field">
                                 <FormInput title="Senha" type="password"/>

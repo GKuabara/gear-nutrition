@@ -6,6 +6,7 @@ import Profile from './Profile';
 import Homepage from './Home';
 import NewAddress from './NewAddress';
 import Login from './LoginPage'
+import SignUp from './SignUp'
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
         {/* <Homepage /> */}
         {/* <Profile /> */}
         {/* <NewAddress /> */}
-        <Login/>
+        {/* <Login/> */}
+        <SignUp/>
       </div>
       <Footer />
     </div>

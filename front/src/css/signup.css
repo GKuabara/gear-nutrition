@@ -1,15 +1,14 @@
-#login-container {
+#signup-container {
     border: 1px solid grey;
     border-radius: 5px;
     box-shadow: var(--sombra);
-    width: 60%;
-    margin-left: 5%;
+    width: 80%;
+    margin: 5%;
     display: inline-block;
 }
 
 h1{
-    margin: 20px;
-    padding-bottom: 8px;
+    margin: 5px 0 0 15px;
     border-bottom: 1px solid gray;    
 }
 
@@ -23,21 +22,28 @@ table{
     width: 50%;
 }
 
-#login-field input{
+#signup-field input{
     width: 100%;
+    /* height: 0; */
 }
 
 #second-column{
     width: 50%;
     padding-bottom: 18px;
-    vertical-align: bottom;
+    vertical-align: top;
+}
+
+#button-div{
+    padding: 20px;
+    width: 100%;
+    text-align: right;
 }
 
 button{
     border-radius: 5px;
     border: 1px solid grey;
     padding: 8px;
-    width: 50%;
+    width: 37.5%;
     background-color: #F8DE3C;
     color: white;
 }
