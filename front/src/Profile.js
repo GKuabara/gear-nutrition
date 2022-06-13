@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ChangePwd from './ChangePwd';
 import ProfileNav from './ProfileNav';
-import './css/profile.css';
 import Orders from './Orders';
 import ProfileData from './ProfileData';
 import Addresses from './Addresses';
 import NewAddress from './NewAddress';
+import './css/profile.css';
 
 const Profile = () => {
     return ( 

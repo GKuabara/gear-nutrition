@@ -1,8 +1,9 @@
 import ProductSeries from "./ProductSeries";
+import './css/home.css';
 
 const Homepage = () => {
     return ( 
-        <div>
+        <div className="home-container">
             <ProductSeries title="Populares" series={10} />
             <ProductSeries title="Gear Second" series={20} />
             <ProductSeries title="Gear Third" series={30} />
