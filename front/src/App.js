@@ -11,20 +11,22 @@ import Admin from './Admin';
 import NavBar from './Navbar';
 import Product from './Product';
 import Cart from './Cart';
+import CompletedPayment from './CompletedPayment';
+import Payment from './Payment/Payment';
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <div className="content">
-        {/* <Homepage /> */}
-        {/* <TMB /> */}
-        {/* <Admin /> */}
-        <Product />
-      </div>
-      <Footer />
-    </div>
-  );
+  	return (
+    	<div className="App">
+      		<NavBar />
+      		<div className="content">
+        		{/* <Homepage /> */}
+        		{/* <TMB /> */}	
+        		{/* <Admin /> */}
+				<Cart />
+	  		</div>
+      		<Footer />
+    	</div>
+  	);
 }
 
 export default App;

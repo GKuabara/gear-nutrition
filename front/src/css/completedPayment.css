@@ -1,0 +1,37 @@
+#completed-content {
+    display: flex;
+    justify-content: center;
+}
+
+.completed-container {
+    width: 40vw;
+    border: 1px solid gray;
+    border-radius: 20px;
+    padding: 3%;
+    /* se der merda tira aqui*/
+    position: absolute;
+    top: 30%;
+    text-align: center;
+}
+
+#green-text {
+    color: green;
+}
+
+.completed-container p {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5% 0%;
+}
+
+@media (max-width: 960px) {
+    .completed-container {
+        width: 60vw;
+    }
+}   
+
+@media (max-width: 480px) {
+    .completed-container {
+        width: 80vw;
+    }
+} 
