@@ -64,12 +64,6 @@
     padding-bottom: 6%;
 }
 
-#select-address {
-    margin: 0% 5%;
-    width: 80%;
-    height: 35%;
-}
-
 #payment-right-container p {
     font-size: 24px;
     text-align: center;
@@ -113,13 +107,7 @@ input, select {
         font-weight: bold;
         margin-bottom: 4%;
     }
-
-    #select-address {
-        margin: 3%;
-        margin-left: 0;
-        font-size: 16px;
-    }
-
+    
     .payment-info {
         display: flex;
         flex-direction: column;
