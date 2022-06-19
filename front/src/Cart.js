@@ -10,9 +10,7 @@ const Cart = (props) => {
 
     let [products, setProducts] = useState([
         {key: 1, name: "Whey Protein Concentrado (1KG)", price: 88.90, img: prodImg},
-        {key: 2, name: "Whey Protein Concentrado (1KG)", price: 88.90, img: prodImg},
-        // {key: 3, name: "Whey Protein Concentrado (1KG)", price: 88.90, img: prodImg},
-        // {key: 4, name: "Whey Protein Concentrado (1KG)", price: 88.90, img: prodImg}
+        {key: 2, name: "Creatina Monidratada (250g)", price: 45.90, img: prodImg},
     ]);
     
     let total = 100000;

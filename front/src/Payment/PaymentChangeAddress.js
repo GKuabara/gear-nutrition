@@ -1,17 +1,29 @@
 import '../css/payment.css'
+import { useState } from 'react';
+import Select from 'react-select'
 
-const paymentChangeAddress = (props) => {
+const PaymentChangeAddress = (props) => {
+    let infos = props.infos;
+
+    let options = [];
+    infos.forEach(info => {
+        const dict = {
+            value: info.name,
+            label: info.name
+        }
+        options.push(dict);
+    });
 
     return (
         <div id='payment-change-address'>
             <p>Alterar endereço de entrega</p>
-            <select name='select-address' id='select-address'>
-                <option value="casa1">casa 1</option>
-                <option value="casa2">casa 2</option>
-                <option value="casa3">casa 3</option>
-            </select>
+            <Select id="select-address"
+                onChange={props.select}
+                options={options}
+                placeholder='Escolha o endereço'
+            />
         </div>
     )
 }
 
-export default paymentChangeAddress;
+export default PaymentChangeAddress;

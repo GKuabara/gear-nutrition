@@ -5,12 +5,12 @@ import PaymentFinish from './PaymentFinish';
 import PaymentInfo from './PaymentInfo';
 
 const MobilePayment = (props) => {
-    let info = props.info;
+    let infos = props.infos;
 
     return (
         <div id='mobile-payment-container'>
-            <PaymentChangeAddress />
-            <PaymentAddress info={info} />
+            <PaymentChangeAddress infos={props.infos} select={props.select} />
+            <PaymentAddress infos={props.infos} value={props.value}/>
             <PaymentInfo />
             <PaymentFinish />
         </div>

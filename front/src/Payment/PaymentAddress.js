@@ -1,7 +1,10 @@
 import '../css/payment.css'
 
 const PaymentAddress = (props) => {
-    let info = props.info;
+    let infos = props.infos;
+    // let info = infos.find(x => x.name === props.value);
+    let info = props.infos[0];
+    console.log(props.value);
 
     return (
         <div id="payment-address">

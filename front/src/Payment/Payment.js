@@ -10,19 +10,19 @@ import MobilePayment from './MobilePayment';
 
 const Payment = () => {
     const infos = [
-        {key: 1, name: "Ku Alves Gabriel", add: "Rua Luiz Vaz de Toledo Piza, 37, apto 21", city: "São Carlos, SP"},
+        {key: 1, name: "Ku Alves Gabriel", add: "Rua Caminho do seu Coração, 69, apto 42", city: "São Carlos, SP"},
         {key: 2, name: "Spider da Silva Victor", add: "Rua Camargo Sales, 745", city: "São Carlos, SP"}
     ];
-
-    const info = {key: 1, name: "Ku Alves Gabriel", add: "Rua Caminho do seu Coração, 69, apto 42", city: "São Carlos, SP"};
     
+    const [selectedOption, setSelectedOption] = useState(null);
+
     return ( 
         <div id='payment-container'>
             <div id='payment-title-container'>
                 <h1>Pagamento</h1>
             </div>
-            <PcPayment info={info} />
-            <MobilePayment info={info} />
+            <PcPayment infos={infos} select={setSelectedOption} value={selectedOption}/>
+            <MobilePayment infos={infos} select={setSelectedOption} value={selectedOption}/>
         </div>
     );
 }

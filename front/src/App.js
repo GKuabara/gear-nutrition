@@ -22,7 +22,7 @@ function App() {
         		{/* <Homepage /> */}
         		{/* <TMB /> */}	
         		{/* <Admin /> */}
-				<Cart />
+				<Payment />
 	  		</div>
       		<Footer />
     	</div>
