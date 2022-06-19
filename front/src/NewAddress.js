@@ -19,7 +19,7 @@ const NewAddress = ({}) => {
                 <AddrInput size="25%" title="Cidade" placeholder="Ex: São Carlos"/>
                 <AddrInput size="15%" title="Estado" placeholder="Ex: SP"/>
             </div>
-            <Link to="/addresses">Adicionar</Link>
+            <Link to="/profile/addresses">Salvar</Link>
         </div>
     );
 }

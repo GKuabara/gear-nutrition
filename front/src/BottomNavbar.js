@@ -1,11 +1,11 @@
 import BottomNavLinks from './BottomNavLinks';
 import './css/bottomNavbar.css';
 
-const BottomNav = () => {
+const BottomNav = ({isLogged}) => {
     return ( 
         <div className="navbar-bottom">
             <nav>
-                <BottomNavLinks />
+                <BottomNavLinks isLogged={isLogged} />
             </nav>
         </div>
     );

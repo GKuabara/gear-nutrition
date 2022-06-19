@@ -3,15 +3,15 @@ import { MdArrowDropDown } from 'react-icons/md';
 
 import './css/profileNav.css';
 
-const ProfileNav = () => {
+const ProfileNav = ({setIsLogged}) => {
     return ( 
         <div id="profile-options">
             <div className='dropdown'>
-                <Link id="top-nav" to="/orders">Meus Pedidos</Link>
-                <Link to="/changePwd">Alterar Senha</Link>
-                <Link to="/profile">Dados Pessoais</Link>
-                <Link to="/addresses">Endereços de Entrega</Link>
-                <Link id="bottom-nav" to="">Sair</Link>
+                <Link id="top-nav" to="/profile/orders">Meus Pedidos</Link>
+                <Link to="/profile/changePwd">Alterar Senha</Link>
+                <Link to="/profile/data">Dados Pessoais</Link>
+                <Link to="/profile/addresses">Endereços de Entrega</Link>
+                <Link id="bottom-nav" onClick={()=>setIsLogged(false)} to="/">Sair</Link>
             </div>
             <button>Opções<MdArrowDropDown /></button>
         </div>

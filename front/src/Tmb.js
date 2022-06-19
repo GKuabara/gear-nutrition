@@ -1,8 +1,7 @@
 import SelectionInput from "./SelectionInput";
 import TMBInput from "./TmbInput";
-import './css/tmb.css';
 import { useState } from "react";
-import { HashRouter } from "react-router-dom";
+import './css/tmb.css';
 
 const TMB = () => {
     const gender = [
@@ -46,7 +45,7 @@ const TMB = () => {
             setHasErrors(newValues);
         }
 
-        if (uGender == 'm' || uGender == 'f') {
+        if (uGender === 'm' || uGender === 'f') {
             const div = document.getElementById("gender").querySelector("div");
             div.style.backgroundColor = 'white';
             newValues.gender = false;
@@ -95,10 +94,10 @@ const TMB = () => {
 
     function calcBMR() {
         let bmr = 0;
-        const al =  activityL == 's' ? 1.2 : 
-                    activityL == 'la' ? 1.375 : 
-                    activityL == 'ma' ? 1.55 : 
-                    activityL == 'aa' ? 1.725 : 1.9;
+        const al =  activityL === 's' ? 1.2 : 
+                    activityL === 'la' ? 1.375 : 
+                    activityL === 'ma' ? 1.55 : 
+                    activityL === 'aa' ? 1.725 : 1.9;
 
         if (uGender === 'm')
             bmr = al * (66 + (13.7 * weight) + (5*height) - (6.8*age));

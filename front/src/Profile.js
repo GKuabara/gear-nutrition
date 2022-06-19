@@ -13,11 +13,11 @@ const Profile = () => {
             <Router>
                 <ProfileNav />
                 <Routes>
-                    <Route path="/changePwd" element={<ChangePwd />} />
-                    <Route path="/orders" element={<Orders />} />
-                    <Route path="/profile" element={<ProfileData />} />
-                    <Route path="/addresses" element={<Addresses />} />
-                    <Route path="/newAddress" element={<NewAddress />} />
+                    <Route path="/profile/changePwd" element={<ChangePwd />} />
+                    <Route path="/profile/orders" element={<Orders />} />
+                    <Route path="/profile/data" element={<ProfileData />} />
+                    <Route path="/profile/addresses" element={<Addresses />} />
+                    <Route path="/profile/newAddress" element={<NewAddress />} />
                 </Routes>
             </Router>
         </div>

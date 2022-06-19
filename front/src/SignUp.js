@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './css/signup.css';
 import FormInput from './FormInput';
 
@@ -46,7 +47,7 @@ const SignUp = () => {
                 </div>
                                         
                 <div className="signup-button">                                
-                    <button>Entrar</button>                                
+                    <Link to="/">Entrar</Link>                                
                 </div>
             </div>
         </div>
