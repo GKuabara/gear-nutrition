@@ -42,7 +42,8 @@
     position: relative;
 }
 
-.signup-button button{
+.signup-button a{
+    text-align: center;
     width: 40%;
     padding: 8px;
     
@@ -57,7 +58,7 @@
     right: 20px;
 }
 
-h1{
+.signup-container h1{
     margin: 20px;
     padding-bottom: 8px;
     border-bottom: 1px solid gray;     

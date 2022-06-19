@@ -10,7 +10,7 @@ const ChangePwd = () => {
                 <FormInput title="Nova Senha" type="password"/>
                 <FormInput title="Confirmação da Nova Senha" type="password"/>
             </form>
-            <Link to="/profile">Salvar</Link>
+            <Link to="/profile/data">Salvar</Link>
         </div>
     );
 }

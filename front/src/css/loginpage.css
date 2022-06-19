@@ -26,7 +26,8 @@
     position: relative;
 }
 
-.login-button button{
+.login-button a{
+    text-align: center;
     width: 40%;
     padding: 8px;
     
@@ -39,6 +40,8 @@
     position: absolute;
     bottom: 20px;
     right: 20px;
+
+    cursor: pointer;
 }
 
 .login-container h1{

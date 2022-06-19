@@ -1,7 +1,8 @@
+import { Link } from 'react-router-dom';
 import './css/loginpage.css';
 import FormInput from './FormInput';
 
-const Login = () => {
+const Login = ({setIsLogged}) => {
     return (  
         <div className="login-container">
             <h1>Login</h1>
@@ -17,7 +18,7 @@ const Login = () => {
                 </div>
         
                 <div className="login-button" align="right">
-                        <button>Entrar</button>                            
+                    <Link to="/" onClick={()=>{setIsLogged(true)}}>Entrar</Link>
                 </div>
             </div>
         </div>

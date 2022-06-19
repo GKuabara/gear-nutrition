@@ -11,23 +11,82 @@ import Orders from './Orders';
 import Stock from './Stock';
 import Admin from './Admin';
 import NavBar from './Navbar';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+// import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+// import ChangePwd from './ChangePwd';
+import ProfileNav from './ProfileNav';
+// import Orders from './Orders';
+import ProfileData from './ProfileData';
+import Addresses from './Addresses';
+// import NewAddress from './NewAddress';
+import './css/profile.css';
+import { useState } from 'react';
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <div className="content">
-        {/* <Homepage /> */}
-        {/* <Profile /> */}
-        {/* <NewAddress /> */}
-        {/* <Login/> */}
-        {/* <TMB /> */}
-        {/* <Admin /> */}
-        <Profile />
-      </div>
-      <Footer />
-    </div>
-  );
+	let [isLogged, setIsLogged] = useState(true); 
+
+	return (
+		<div className="App">
+			<Router>
+				<NavBar isLogged={isLogged} />
+				<div className="content">
+					<Routes>
+						<Route path="/" element={<Homepage />} />
+						<Route path="/tmb" element={<TMB />} />
+						
+						<Route path="/profile">
+							<Route path="/profile/changePwd" element={(
+								<div id='profile-container'>
+									<ProfileNav setIsLogged={setIsLogged} />
+									<ChangePwd />
+								</div>
+							)} />
+
+							<Route path="/profile/orders" element={(
+								<div id='profile-container'>
+									<ProfileNav setIsLogged={setIsLogged} />
+									<Orders />
+								</div>
+							)} />
+
+							<Route path="/profile/data" element={(
+								<div id='profile-container'>
+									<ProfileNav setIsLogged={setIsLogged} />
+									<ProfileData />
+								</div>
+							)} />
+
+							<Route path="/profile/addresses" element={(
+								<div id='profile-container'>
+									<ProfileNav setIsLogged={setIsLogged} />
+									<Addresses />
+								</div>
+							)} />
+
+							<Route path="/profile/newAddress" element={(
+								<div id='profile-container'>
+									<ProfileNav setIsLogged={setIsLogged} />
+									<NewAddress />
+								</div>
+							)} />
+
+							<Route path="/profile/newAddress" element={(
+								<div id='profile-container'>
+									<ProfileNav setIsLogged={setIsLogged} />
+									<NewAddress />
+								</div>
+							)} />
+						</Route>
+						
+						<Route path="/login" element={<Login setIsLogged={setIsLogged} />} />
+						<Route path="/signup" element={<SignUp />} />
+					</Routes>
+				</div>
+				<Footer />
+			</Router>
+		</div>
+	);
 }
 
 export default App;

@@ -7,8 +7,9 @@ import BottomNavBar from './BottomNavbar';
 import TopNavLinks from './TopNavLinks';
 import BottomNavLinks from './BottomNavLinks';
 import './css/navbar.css';
+import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({isLogged}) => {
     const logo = require('./media/imgs/logo.png');
     let [showProdHam, setShowProdHam] = useState(false);
     let [showProfHam, setShowProfHam] = useState(false);
@@ -38,21 +39,21 @@ const NavBar = () => {
                     {showProdHam ? closeIcon : openIcon}
                 </div>
                 <div className="mobile-logo">
-                    <a href="home.html"><img src={logo} id="logo" /></a>
+                    <Link to="/"><img src={logo} id="logo" /></Link>
                 </div>
                 <div className="profile-links">
                     {showProfHam ? closePIcon : openPIcon}
                 </div>
             </div>
             <div className='menu-links'>
-                {showProdHam && <BottomNavLinks closeMenu={openProdMenu} />}
+                {showProdHam && <BottomNavLinks isLogged={isLogged} closeMenu={openProdMenu} />}
             </div>
             <div className='menu-links'>
-                {showProfHam && <TopNavLinks closeMenu={openMenu} />}
+                {showProfHam && <TopNavLinks isLogged={isLogged} closeMenu={openMenu} />}
             </div>
             <div className='responsive-menu'>
-                <TopNavBar />
-                <BottomNavBar />
+                <TopNavBar isLogged={isLogged} />
+                <BottomNavBar isLogged={isLogged} />
             </div>
         </div>
     );
