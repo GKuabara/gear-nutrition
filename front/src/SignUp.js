@@ -30,6 +30,9 @@ const SignUp = () => {
                     <div className="signup-field">
                         <FormInput placeholder="(11) 1 1111-1111" title="Celular" type="tel"/>
                     </div>
+                    <div className="signup-field">
+                        <FormInput placeholder="Nome da Rua, Nº, Cidade, UF" title="Endereço" type="text"/>
+                    </div>
                 </div>
             </div>
             <div className="third-div">                           
