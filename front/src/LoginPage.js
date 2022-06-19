@@ -1,29 +1,25 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './css/loginpage.css';
 import FormInput from './FormInput';
 
 const Login = () => {
     return (  
-        <div id="login-container">
+        <div className="login-container">
             <h1>Login</h1>
-            <table>
-                <tbody>
-                    <tr>
-                        <td id="first-column">
-                            <div id="login-field">
-                                <FormInput placeholder="seu@email.com" title="Email" type="text"/>
-                            </div>
-                            <div id="login-field">
-                                <FormInput title="Senha" type="password"/>
-                            </div>
+            <div className="forms-div">
+                <div className="input-div">
+                    <div className="login-field">
+                        <FormInput placeholder="seu@email.com" title="Email" type="text"/>
+                    </div>
+                    <div className="login-field">
+                        <FormInput title="Senha" type="password"/>
+                    </div>
 
-                        </td>
-                    <td id="second-column" align="right">
-                            <button>Entrar</button>                            
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                </div>
+        
+                <div className="login-button" align="right">
+                        <button>Entrar</button>                            
+                </div>
+            </div>
         </div>
     );
 }

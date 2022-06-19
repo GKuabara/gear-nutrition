@@ -17,8 +17,8 @@ function App() {
         {/* <Homepage /> */}
         {/* <Profile /> */}
         {/* <NewAddress /> */}
-        {/* <Login/> */}
-        <SignUp/>
+        <Login/>
+        {/* <SignUp/> */}
       </div>
       <Footer />
     </div>

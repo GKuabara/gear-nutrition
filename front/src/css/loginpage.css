@@ -1,43 +1,78 @@
-#login-container {
+.login-container {
     border: 1px solid grey;
     border-radius: 5px;
     box-shadow: var(--sombra);
-    width: 60%;
-    margin-left: 5%;
+    width: 80%;
+    margin: 5%;
     display: inline-block;
 }
 
-h1{
+.forms-div{
+    display: flex;
+}
+
+.input-div{
+    width: 60%;
+}
+
+.login-field input{
+    width: 100%;
+}
+
+.login-button{
+    width: 40%;
+    padding: 20px;
+    vertical-align: bottom;
+    position: relative;
+}
+
+.login-button button{
+    width: 40%;
+    padding: 8px;
+    
+    border-radius: 5px;
+    border: 1px solid grey;
+
+    background-color: #F8DE3C;
+    color: white;
+
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+.login-container h1{
     margin: 20px;
     padding-bottom: 8px;
     border-bottom: 1px solid gray;    
 }
 
-table{
-    margin: 0;
-    width: 100%;
-    padding-right: 20px;
+@media (max-width: 960px){
+    .login-container {
+        width: 50%;
+    }
+    
+    .forms-div{
+        display: unset;
+    }
+    
+    .input-div{
+        width: 100%;
+    }
+    
+    .login-button{
+        width: 100%;
+    }
+    
+    .login-button button{
+        position: unset;
+        width: 100%;
+    }
 }
 
-#first-column{
-    width: 50%;
-}
-
-#login-field input{
-    width: 100%;
-}
-
-#second-column{
-    width: 50%;
-    padding-bottom: 18px;
-    vertical-align: bottom;
-}
-
-button{
-    border-radius: 5px;
-    border: 1px solid grey;
-    padding: 8px;
-    width: 50%;
-    background-color: #F8DE3C;
-    color: white;
+@media (max-width: 480px){
+    .login-container {
+        width: 30%;
+        text-align: center;
+    }
 }
