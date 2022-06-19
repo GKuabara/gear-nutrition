@@ -1,10 +1,9 @@
 import './css/topNavbar.css';
+import TopNavLinks from './TopNavLinks';
 
 const TopNavbar = () => {
     const logo = require('./media/imgs/logo.png');
     const searchBtn = require('./media/imgs/spyglass.png');
-    const profileImg = require('./media/imgs/pirate.png');
-    const cartImg = require('./media/imgs/shoppingBoat.png');
 
     return ( 
         <div className="navbar-top">
@@ -16,12 +15,7 @@ const TopNavbar = () => {
                 <img src={searchBtn} /> 
             </div>
             <nav>
-                <ul>
-                    <li><a href="">Cadastro</a></li>
-                    <li><a href="">Login</a></li>
-                    <li><a href=""><img src={profileImg} width="35px" /></a></li>
-                    <li><a href=""><img src={cartImg} width="35px" /></a></li>
-                </ul>
+                <TopNavLinks />
             </nav>
         </div>
     );

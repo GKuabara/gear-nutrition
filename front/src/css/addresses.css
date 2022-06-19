@@ -1,19 +1,5 @@
-#addresses {
-    display: inline-block;
-    margin-left: 5%;
-    width: 60%;
-}
-
-#addresses a {
-    float: right;
-    margin-top: 5%;
-}
-
 .profile-card {
     margin-top: 2%;
-    border: 1px solid grey;
-    box-shadow: var(--sombra);
-    border-radius: 5px;
 }
 
 .thrash {
@@ -24,16 +10,12 @@
 }
 
 .thrash button {
-    background-color: white;
     border: none;
-}
-
-.thrash button:hover {
+    background-color: white;
     cursor: pointer;
 }
 
 .thrash img {
-    display: inline-block;
     width: 80%;
     vertical-align: middle;
 }

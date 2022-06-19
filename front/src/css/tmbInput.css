@@ -1,0 +1,20 @@
+.tmb-input-container {
+    display: inline-block;
+    margin-left: 2%;
+    padding: 20px;
+}
+
+.tmb-input-container span {
+    font-size: 1em;
+    display: block;
+    margin-left: 2%;
+}
+
+.tmb-input-container input {
+    width: 90%;
+    border: 1px solid #cccccc;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    margin-left: 2%;
+}

@@ -1,0 +1,56 @@
+.error {
+    background-color: lightcoral;
+}
+
+#tmb-container {
+    display: table;
+}
+
+#user-info {
+    display: table-cell;
+    width: 50%;
+}
+
+#user-info button {
+    float: right;
+    margin: 2% 10%;
+}
+
+#result-container {
+    display: table-cell;
+    width: 40%;
+    font-size: 2em;
+    color: var(--amarelo);
+    text-align: center;
+    vertical-align: middle;
+}
+
+#tmb-title {
+    width: 100%;
+    text-align: center;
+}
+
+#tmb-title h3{
+    font-size: 1.5em;
+}
+
+#activity-info {
+    margin: 2% 0;
+}
+
+#user-info button {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#activity-info span {
+    margin-left: 3%;
+    margin-bottom: 1%;
+    font-size: 1.1em;
+}
+
+#activity-info li {
+    margin-left: 5%;
+    color: grey;
+}
