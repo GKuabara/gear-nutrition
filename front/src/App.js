@@ -11,23 +11,25 @@ import Orders from './Orders';
 import Stock from './Stock';
 import Admin from './Admin';
 import NavBar from './Navbar';
+import Product from './Product';
+import Cart from './Cart';
+import CompletedPayment from './CompletedPayment';
+import Payment from './Payment/Payment';
 
 function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <div className="content">
-        {/* <Homepage /> */}
-        {/* <Profile /> */}
-        {/* <NewAddress /> */}
-        {/* <Login/> */}
-        {/* <TMB /> */}
-        {/* <Admin /> */}
-        <Profile />
-      </div>
-      <Footer />
-    </div>
-  );
+  
+  	return (
+    	<div className="App">
+      		<NavBar />
+      		<div className="content">
+        		{/* <Homepage /> */}
+        		{/* <TMB /> */}	
+        		{/* <Admin /> */}
+				    <Profile />
+	  		</div>
+      		<Footer />
+    	</div>
+  	);
 }
 
 export default App;

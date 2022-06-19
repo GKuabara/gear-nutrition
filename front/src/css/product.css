@@ -1,0 +1,119 @@
+#product-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 5% 2% 0%;
+}
+
+#prod-img {
+    align-items: center;
+    margin: 0% 5%;
+}
+
+#prod-img img{
+    width: 100%;
+}
+
+#prod-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+#prod-info p {
+    margin: 3% 0%;   
+}
+
+#prod-desc {
+    text-align: justify;
+    font-size: 20px;
+}
+
+#prod-sold {
+    color: gray;
+    vertical-align: bottom;
+}
+
+#prod-price {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#prod-info-row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#prod-info input {
+    width: 15%;
+    height: 40px;
+    font-size: 20px;
+    border: 1px solid grey;
+    border-radius: 10%;
+    margin: 10px;
+    text-align: center;
+}
+
+#decButton {
+    color: white;
+    background-color: red;
+    border: none;
+    border-radius: 100%;
+    padding: 0px 12px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#incButton {
+    color: white;
+    background-color: green;
+    border: none;
+    border-radius: 100%;
+    padding: 0px 10px;
+    text-align: center;
+    font-size: 30px;
+}
+
+#buyButton {
+    margin-left: auto;
+    color: white;
+    background-color: gold;
+    border: none;
+    border-radius: 10px;
+    padding: 0px 60px;
+    font-size: 20px;
+}
+
+@media (max-width: 960px) {
+
+}   
+
+@media (max-width: 480px) {
+    #product-container {
+        flex-direction: column;
+    }
+
+    #prod-img {
+        text-align: center;
+        margin: 5%;
+    }
+    
+    #prod-img img{
+        width: 70%;
+    }
+
+    #prod-info {
+        margin: 5%;
+    }
+
+    #prod-info-row {
+        margin: 5% 0%;
+    }
+
+    #prod-info input {
+        width: 30%;
+        height: 40px;
+    }
+}  
