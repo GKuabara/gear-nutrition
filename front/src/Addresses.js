@@ -18,13 +18,12 @@ const Addresses = () => {
     }
 
     const thrash = require('./media/imgs/thrash.png');
-
     return (  
-        <div id="addresses">
+        <div className="info-container" id="addresses">
             {
             addrs.map((addr) => {
                 return (
-                    <div key={addr.key} className="profile-card">
+                    <div key={addr.key} className="b-shadow profile-card">
                         <AddrCard addr={addr}/>
                         <div className="thrash">
                             <button onClick={() => {actionConfirmation(addr.key)}}><img src={thrash} /></button>
