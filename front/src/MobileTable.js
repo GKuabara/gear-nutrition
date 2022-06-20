@@ -7,7 +7,6 @@ const MobileTable = ({selection, setSelection, titles, items}) => {
             setSelection(item.key)
     }
 
-    console.log(items);
     return (  
         <div style={{width: "100%"}}>
             {

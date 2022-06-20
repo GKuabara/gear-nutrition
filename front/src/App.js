@@ -26,7 +26,6 @@ import AddProduct from './AddProduct';
 import RemoveProduct from './RemoveProduct';
 import ManageAdmins from './ManageAdmins';
 import AddAdmin from './AddAdmin';
-import MobileTable from './MobileTable';
 
 function App() {
 	let [isLogged, setIsLogged] = useState(true); 
@@ -44,42 +43,35 @@ function App() {
 						<Route path="/profile">
 							<Route path="/profile/changePwd" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsLogged={setIsLogged} />
+									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
 									<ChangePwd />
 								</div>
 							)} />
 
 							<Route path="/profile/orders" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsLogged={setIsLogged} />
+									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
 									<Orders />
 								</div>
 							)} />
 
 							<Route path="/profile/data" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsLogged={setIsLogged} />
+									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
 									<ProfileData />
 								</div>
 							)} />
 
 							<Route path="/profile/addresses" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsLogged={setIsLogged} />
+									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
 									<Addresses />
 								</div>
 							)} />
 
 							<Route path="/profile/newAddress" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsLogged={setIsLogged} />
-									<NewAddress />
-								</div>
-							)} />
-
-							<Route path="/profile/newAddress" element={(
-								<div id='profile-container'>
-									<ProfileNav setIsLogged={setIsLogged} />
+									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
 									<NewAddress />
 								</div>
 							)} />

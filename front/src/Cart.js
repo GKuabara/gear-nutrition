@@ -3,14 +3,20 @@ import './css/cart.css';
 import CartItem from './CartItem';
 import MobileCartItem from './MobileCartItem';
 import database from './data.json';
+import { useEffect } from 'react';
 
 const Cart = () => {
     const [data, setData] = useState(database);
     
-    let total = 1000;
-    let calculateTotal = () => {
-        
-    };
+    let [total, setTotal] = useState(0);
+    useEffect(() => {
+        let temp = 0, i = 0;
+        while (i < data.products.length) {
+            temp += data.products[i].price * data.products[i].qntd;
+            i++;
+        }
+        setTotal(temp);
+    }, [data, total]);
 
     return (
         <div id='cart-container'>
@@ -31,13 +37,13 @@ const Cart = () => {
                 </div>
                 <div id="mobile-rows-container">
                     {
-                        data.products.map((product, index) => {
-                            return <MobileCartItem prod={product} data={data} setData={setData} key={index}/>
+                        data.products.map((product, index) => {                            
+                            return <MobileCartItem product={product} data={data} setData={setData} key={index}/>
                         })
                     }
                 </div>
                 <div id='table-total'>
-                    <p>Total: R$ {total}</p>
+                    <p>Total: R$ {total.toFixed(2)}</p>
                 </div>
                 <div id='keep-to-payment'>
                     <button>Continuar</button>

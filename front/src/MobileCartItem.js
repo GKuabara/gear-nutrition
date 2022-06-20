@@ -7,11 +7,10 @@ const MobileCartItem = ({product, data, setData}) => {
     let [index, setIndex] = useState(0);
 
     useEffect(() => {
-        let i = 0;
-        while (i < data.products.length) {
-            if (data.products[i].index === product.index)
-                setIndex(i++);
-        }
+        data.products.map((prod, idx) => {
+            if (prod.index === product.index)
+                setIndex(idx++)
+        })
     }, [data, product])
 
     let incNum = () => {
