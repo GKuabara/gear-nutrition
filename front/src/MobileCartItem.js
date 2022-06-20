@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import { productImages } from "./images"
 
 const MobileCartItem = ({product, data, setData}) => {
-    let [num, setNum] = useState(product.qntd);
     let [index, setIndex] = useState(0);
 
     useEffect(() => {
@@ -14,26 +13,29 @@ const MobileCartItem = ({product, data, setData}) => {
     }, [data, product])
 
     let incNum = () => {
-        if(num < 100) {
+        if(data.products[index].qntd < 100) {
             let datacopy = data.products;
             datacopy[index].qntd += 1;
-            setNum(num + 1);
             setData({...data, "products": datacopy});
         }
     };
 
     let decNum = () => {
-        if (num === 1) {
+        if (data.products[index].qntd === 1) {
             setData({...data, products: data.products.filter(function(product, cartIndex) {
                 return index !== cartIndex;
             })});
-        }
-        if(num > 1) {
+        } else if (data.products[index].qntd > 1) {
             let datacopy = data.products;
             datacopy[index].qntd -= 1;
-            setNum(num - 1);
             setData({...data, "products": datacopy});
         }
+    }
+
+    function updateQtt(e) {
+        let datacopy = data.products;
+        datacopy[index].qntd = e.target.value;
+        setData({...data, "products": datacopy});
     }
 
     return ( 
@@ -48,10 +50,10 @@ const MobileCartItem = ({product, data, setData}) => {
             <div className='mobile-cart-item-lower'>
                 <div className='mobile-cart-item-qntd'>
                     <button className="decButton" type="button" onClick={decNum}>-</button>
-                    <input className='qntd' type='text' value={num} onChange={e => setNum(e.target.value)}></input>
+                    <input className='qntd' type='text' value={data.products[index].qntd} onChange={e => updateQtt(e)}></input>
                     <button className="incButton" type="button" onClick={incNum}>+</button>
                 </div>
-                <span>R$ {(num * product.price).toFixed(2)}</span>
+                <span>R$ {(data.products[index].qntd * product.price).toFixed(2)}</span>
             </div>
         </div>
     );

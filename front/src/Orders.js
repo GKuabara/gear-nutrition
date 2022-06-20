@@ -1,12 +1,11 @@
 import { useState } from "react";
 import RowInfos from "./rowInfos";
 import './css/orders.css';
+import MobileTable from "./MobileTable";
 
 const Orders = () => {
-    const [colTitles, setColTitles] = useState(
-        {key: "Pedido", status: "Status", value: "Valor"}
-    );
-
+    const [lengths, setLengths] = useState([10, 60, 20]);
+    const colTitles = {key: "Pedido", status: "Status", value: "Valor"};
     const [orders, setOrders] = useState([
         {key: 1, status: "Pedido entregue.", value: "R$ 88,90"},
         {key: 2, status: "Pedido entregue.", value: "R$ 88,90"},
@@ -14,14 +13,13 @@ const Orders = () => {
         {key: 4, status: "Produto em separação", value: "R$ 88,90"}
     ]);
 
-    const [lengths, setLengths] = useState([10, 60, 20]);
 
     return ( 
         <div className="info-container">
             <div className="orders-filter">
                 <input type="text" placeholder="Pedido de nº" />
             </div>
-            <div className="b-shadow" id="orders">
+            <div className="b-shadow pc-table" id="orders">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {
                 orders.map((order) => {
@@ -32,6 +30,10 @@ const Orders = () => {
                     );  
                 })
                 }
+            </div>
+
+            <div className="mobile-table">
+                <MobileTable titles={colTitles} items={orders}/>
             </div>
         </div>
     );

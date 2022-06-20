@@ -21,7 +21,6 @@ const CardItem = ({product, data, setData}) => {
     };
 
     let decNum = () => {
-        // console.log(product.index, product, data.products)
         if (data.products[index].qntd === 1) {
             setData({...data, products: data.products.filter(function(product, cartIndex) {
                 return index !== cartIndex;
@@ -49,7 +48,7 @@ const CardItem = ({product, data, setData}) => {
                 <input className='qntd' type='text' value={data.products[index].qntd} onChange={e => updateQtt(e)}></input>
                 <button className="incButton" type="button" onClick={incNum}>+</button>
             </div>
-                <span>R$ {(product.qntd * product.price).toFixed(2)}</span>
+                <span>R$ {(data.products[index].qntd * product.price).toFixed(2)}</span>
         </div>
     );
 }

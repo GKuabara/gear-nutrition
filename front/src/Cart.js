@@ -4,6 +4,7 @@ import CartItem from './CartItem';
 import MobileCartItem from './MobileCartItem';
 import database from './data.json';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const [data, setData] = useState(database);
@@ -46,7 +47,7 @@ const Cart = () => {
                     <p>Total: R$ {total.toFixed(2)}</p>
                 </div>
                 <div id='keep-to-payment'>
-                    <button>Continuar</button>
+                    <Link to="/payment">Continuar</Link>
                 </div>
             </div>
         </div>
