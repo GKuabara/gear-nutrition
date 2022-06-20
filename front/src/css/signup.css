@@ -3,7 +3,7 @@
     border-radius: 5px;
     box-shadow: var(--sombra);
     width: 80%;
-    margin: 5%;
+    margin: 10%;
     display: inline-block;
 }
 
@@ -64,10 +64,6 @@ h1{
 }
 
 @media (max-width: 960px) {
-    .signup-container{
-        width: 50%;
-    }
-    
     .third-div{
         display: unset;
     }
@@ -101,7 +97,10 @@ h1{
 
 @media (max-width: 480px) {
     .signup-container{
-        width: 30%;
+        text-align: center;
+    }
+
+    .signup-field input{
         text-align: center;
     }
 }
