@@ -39,7 +39,7 @@ const Product = () => {
                         <input id='qntd' type='text' value={num} onChange={handleChange}></input>
                         <button id="incButton" type="button" onClick={incNum}>+</button>
                     </div>
-                    <button id='buyButton'>Comprar</button>
+                    <Link to="/cart" id='buyButton'>Comprar</Link>
                 </div>
                 {/* <Link to='/cart'>Comprar</Link> */}
             </div>

@@ -1,8 +1,8 @@
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import './css/cart.css';
 import CartItem from './CartItem';
 import MobileCartItem from './MobileCartItem';
+import { Link } from 'react-router-dom';
+import './css/cart.css';
 
 const Cart = (props) => {
     // const items = props.series;
@@ -42,7 +42,7 @@ const Cart = (props) => {
                     <p>Total: R$ {total}</p>
                 </div>
                 <div id='keep-to-payment'>
-                    <button>Continuar</button>
+                    <Link to="/payment">Continuar</Link>
                 </div>
             </div>
         </div>

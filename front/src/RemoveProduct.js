@@ -16,8 +16,8 @@ const RemoveProduct = () => {
                 <div className="desc">
                     <span>{prod.desc}</span>
                 </div>
-                <Link to="/admin">Cancelar</Link>
-                <Link to="/admin">Remover</Link>    
+                <Link to="/admin/stock">Cancelar</Link>
+                <Link to="/admin/stock">Remover</Link>    
             </div>
         </div>
     );

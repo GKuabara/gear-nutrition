@@ -1,0 +1,27 @@
+.ordered {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin-top: 5%;
+    padding: 5px;
+}
+
+.ordered div {
+    padding: 5px;
+    margin: 2% 0;
+}
+
+.ordered h1 {
+    color: #008f28;
+    font-size: 2.5rem;
+}
+
+.ordered a {
+    border: 1px solid gold;
+    background-color: gold;
+    padding: 10px;
+    border-radius: 5px;
+    color: white;
+}

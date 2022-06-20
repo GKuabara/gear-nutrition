@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
-import './css/topNavbar.css';
 import TopNavLinks from './TopNavLinks';
+import './css/topNavbar.css';
 
-const TopNavbar = ({isLogged}) => {
+const TopNavbar = ({isAdmin, isLogged}) => {
     const logo = require('./media/imgs/logo.png');
     const searchBtn = require('./media/imgs/spyglass.png');
 
@@ -16,7 +16,7 @@ const TopNavbar = ({isLogged}) => {
                 <img src={searchBtn} /> 
             </div>
             <nav>
-                <TopNavLinks isLogged={isLogged} />
+                <TopNavLinks isAdmin={isAdmin} isLogged={isLogged} />
             </nav>
         </div>
     );

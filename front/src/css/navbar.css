@@ -48,6 +48,7 @@
         justify-content: space-between;      
         flex-direction: row;
         position: fixed;
+        z-index: 9999;
         height: 60px;
         top: 0;
     }
@@ -59,6 +60,7 @@
     .menu-links {
         display: flex;
         position: fixed;
+        z-index: 9999;
         top: 60px;
         flex-direction: column;
         width: 100%;

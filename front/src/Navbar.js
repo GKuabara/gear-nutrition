@@ -6,10 +6,10 @@ import TopNavBar from './TopNavbar';
 import BottomNavBar from './BottomNavbar';
 import TopNavLinks from './TopNavLinks';
 import BottomNavLinks from './BottomNavLinks';
-import './css/navbar.css';
 import { Link } from 'react-router-dom';
+import './css/navbar.css';
 
-const NavBar = ({isLogged}) => {
+const NavBar = ({isAdmin, isLogged}) => {
     const logo = require('./media/imgs/logo.png');
     let [showProdHam, setShowProdHam] = useState(false);
     let [showProfHam, setShowProfHam] = useState(false);
@@ -49,10 +49,10 @@ const NavBar = ({isLogged}) => {
                 {showProdHam && <BottomNavLinks isLogged={isLogged} closeMenu={openProdMenu} />}
             </div>
             <div className='menu-links'>
-                {showProfHam && <TopNavLinks isLogged={isLogged} closeMenu={openMenu} />}
+                {showProfHam && <TopNavLinks isAdmin={isAdmin} isLogged={isLogged} closeMenu={openMenu} />}
             </div>
             <div className='responsive-menu'>
-                <TopNavBar isLogged={isLogged} />
+                <TopNavBar isAdmin={isAdmin} isLogged={isLogged} />
                 <BottomNavBar isLogged={isLogged} />
             </div>
         </div>

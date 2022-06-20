@@ -25,8 +25,8 @@ const ProdInput = ({product}) => {
                     <span>Imagem do produto</span>
                     <input type="file" name="" id=""></input>
                 </div>
-                <Link to="/admin">Cancelar</Link>
-                <Link to="/admin">Salvar</Link>
+                <Link to="/admin/stock">Cancelar</Link>
+                <Link to="/admin/stock">Salvar</Link>
             </div>
         </div>
     );

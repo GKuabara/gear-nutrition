@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import '../css/payment.css'
 import PaymentAddress from './PaymentAddress';
 import PaymentFinish from './PaymentFinish';
 import PaymentInfo from './PaymentInfo';
 import PcPayment from './PcPayment';
 import MobilePayment from './MobilePayment';
+import '../css/payment.css'
 
 const Payment = () => {
     const address = [

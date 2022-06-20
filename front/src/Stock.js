@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import RowInfos from "./rowInfos";
+import MobileTable from "./MobileTable";
 import './css/stock.css';
 
 const Stock = () => {
@@ -19,7 +20,7 @@ const Stock = () => {
     return (  
         <div className="info-container">
             <input type="text" placeholder="Pesquisar por código"/>
-            <div className="b-shadow">
+            <div className="pc-table b-shadow">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {
                 stock.map((product) => {
@@ -31,7 +32,10 @@ const Stock = () => {
                 })
                 }
             </div>
-            <Link to={`/editStock/${selection}`} >Editar</Link>
+            <div className="mobile-table">
+                <MobileTable selection={selection} setSelection={setSelection} items={stock} titles={colTitles} />
+            </div>
+            <Link to={`/admin/editStock/${selection}`} >Editar</Link>
         </div>
     );
 }
