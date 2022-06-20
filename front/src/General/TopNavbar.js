@@ -9,11 +9,11 @@ const TopNavbar = ({isAdmin, isLogged}) => {
     return ( 
         <div className="navbar-top">
             <div className="logo">
-                <Link to="/"><img src={logo} id="logo" /></Link>
+                <Link to="/"><img alt="Site Logo" src={logo} id="logo" /></Link>
             </div>
             <div className="search-box">
                 <input type="text" placeholder="Procurar por um produto" />
-                <img src={searchBtn} /> 
+                <img alt='' src={searchBtn} /> 
             </div>
             <nav>
                 <TopNavLinks isAdmin={isAdmin} isLogged={isLogged} />
