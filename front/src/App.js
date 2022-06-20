@@ -31,8 +31,6 @@ function App() {
 	let [isLogged, setIsLogged] = useState(true); 
 	let [isAdmin, setIsAdmin] = useState(false); 
 
-	let [a, setA] = useState(false);
-
 	return (
 		<div className="App">
 			<Router>

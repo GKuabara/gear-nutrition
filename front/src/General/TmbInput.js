@@ -1,15 +1,17 @@
 import '../css/tmbInput.css';
 
 const TMBInput = ({hasError, cName, id, onChange, size, placeholder, name}) => {
-    function changeVal() {
-        const val = document.getElementById(id).value;
-        onChange(val);
+    function changeVal(e) {
+        onChange(e.target.value);
     }
+
+    let className = ""
+    if (cName) className = " " + cName;
 
     return (  
         <div style={{width: size}} className="tmb-input-container">
             <span>{name}: </span>
-            <input className={hasError ? "error " : "" + cName} onKeyUp={e=>{changeVal(e)}} id={id} placeholder={placeholder} type="text" />
+            <input style={{backgroundColor: hasError ? "lightcoral" : "white"}} className={className + " " + id} onKeyUp={e=>{changeVal(e)}} id={id} placeholder={placeholder} type="text" />
         </div>
     );
 }

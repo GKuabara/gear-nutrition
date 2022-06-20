@@ -39,7 +39,7 @@ const NavBar = ({isAdmin, isLogged}) => {
                     {showProdHam ? closeIcon : openIcon}
                 </div>
                 <div className="mobile-logo">
-                    <Link to="/"><img src={logo} id="logo" /></Link>
+                    <Link to="/"><img src={logo} alt="Site Logo" id="logo" /></Link>
                 </div>
                 <div className="profile-links">
                     {showProfHam ? closePIcon : openPIcon}
