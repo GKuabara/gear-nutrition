@@ -17,7 +17,7 @@
 #header-container {
     margin: 2% 0%;
     border: 1px solid gray;
-    border-radius: 20px;
+    border-radius: 5px;
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
@@ -31,7 +31,7 @@
 
 #rows-container {
     border: 1px solid gray;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 #table-total {
@@ -50,11 +50,11 @@
     text-align: right;
 }
 
-#keep-to-payment button {
+#keep-to-payment a {
     color: white;
     background-color: gold;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     padding: 10px 60px;
     text-align: left;
     font-size: 20px;
@@ -84,7 +84,7 @@
         display: flex;
         flex-direction: column;
         border: 1px solid gray;
-        border-radius: 20px;
+        border-radius: 5px;
         margin-top: 4%;
     }
 

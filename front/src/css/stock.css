@@ -6,7 +6,24 @@
     width: 98%;
 }
 
+.pc-table {
+    display: block;
+}
+
 .selected {
     border: 2px solid var(--vermelho);
 }
 
+.mobile-table {
+    display: none;
+}
+
+@media (max-width: 560px) {
+    .mobile-table {
+        display: flex;
+    }
+
+    .pc-table {
+        display: none;
+    }
+}

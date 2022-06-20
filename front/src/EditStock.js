@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import RowInfos from "./rowInfos";
 import ProdInput from "./ProdInputs";
+import MobileTable from "./MobileTable";
 
 const EditStock = () => {
     const { id } = useParams();
@@ -14,12 +15,16 @@ const EditStock = () => {
     ];
     const lengths = [12, 18, 15, 20, 15, 20];
     const product = stock[idx];
+    const mobileProd = [stock[idx]];
 
     return (  
         <div className="info-container">
-            <div className="b-shadow">
+            <div className="pc-table b-shadow">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 <RowInfos className={"info-row"} sizes={lengths} infos={stock[idx]} />
+            </div>
+            <div className="mobile-table">
+                <MobileTable items={mobileProd} titles={colTitles} />
             </div>
             <ProdInput product={product} />
         </div>

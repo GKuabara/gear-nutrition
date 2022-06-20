@@ -1,6 +1,7 @@
 import { useState } from "react";
 import RowInfos from "./rowInfos";
 import { Link } from "react-router-dom";
+import MobileTable from "./MobileTable";
 
 const ManageAdmins = () => {
     const email = "exemplo@usp.br";
@@ -19,7 +20,7 @@ const ManageAdmins = () => {
     return (  
         <div className="info-container" id="stock-container">
             <input type="text" placeholder="Pesquisar por código"/>
-            <div className="b-shadow">
+            <div className="pc-table b-shadow">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {
                 admins.map((admin) => {
@@ -30,6 +31,9 @@ const ManageAdmins = () => {
                     );  
                 })
                 }
+            </div>
+            <div className="mobile-table">
+                <MobileTable selection={selection} setSelection={setSelection} items={admins} titles={colTitles} />
             </div>
             <Link to="/admin/manageAdmins">Remover</Link>
             <Link to="/admin/addAdmin">Adicionar</Link>

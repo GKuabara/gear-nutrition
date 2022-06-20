@@ -11,11 +11,6 @@
     width: 50%;
 }
 
-#user-info button {
-    float: right;
-    margin: 2% 10%;
-}
-
 #result-container {
     display: table-cell;
     width: 40%;
@@ -34,14 +29,18 @@
     font-size: 1.5em;
 }
 
-#activity-info {
-    margin: 2% 0;
-}
-
 #user-info button {
-    border: 1px solid grey;
+    float: right;
+    border: none;
+    background-color: white;
+    cursor: pointer;
     border-radius: 5px;
     padding: 5px;
+    font-size: 1.1rem;
+}
+
+#activity-info {
+    margin: 2% 0;
 }
 
 #activity-info span {
@@ -53,4 +52,75 @@
 #activity-info li {
     margin-left: 5%;
     color: grey;
+}
+
+.mobile {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    #tmb-container {
+        margin-top: 3%;
+    }
+
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    .mobile .form-input {
+        margin-left: 3.5%;
+    }
+
+    #user-info {
+        width: 50%;
+    }
+
+    #result-container {
+        width: 40%;
+    }
+
+    #result-container h2 {
+        font-size: max(40px, 7vw);
+    }
+}
+
+@media (max-width: 480px) {
+    #tmb #result-container {
+        width: 100%;
+        display: flex;
+    }
+
+    #tmb #result-container h2 {
+        margin: auto;
+    }
+
+    #tmb-container {
+        display: block;
+    }
+    
+    #user-info button {
+        float: none;
+        margin: auto;
+        display: block;
+    }
+
+    #activity-info {
+        margin: 2%;
+    }
+    
+    #activity-info span {
+        margin-left: 4%;
+        margin-bottom: 1%;
+        font-size: 1em;
+    }
+    
+    #activity-info li {
+        margin-left: 5%;
+        color: grey;
+        font-size: 0.9rem;
+    }
 }

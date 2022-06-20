@@ -84,6 +84,10 @@
     border-radius: 10px;
     padding: 0px 60px;
     font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
 }
 
 @media (max-width: 960px) {

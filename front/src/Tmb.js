@@ -114,11 +114,20 @@ const TMB = () => {
             </div>
             <div id="tmb">
                 <div id="user-info">
-                    <SelectionInput id="gender" onChange={setGender} size="60%" title="Gênero" values={gender}/>
-                    <TMBInput onChange={setWeight} id="weight" size="30%" placeholder="Ex: 60" name="Peso (kg)"/>
-                    <TMBInput onChange={setAge} id="age" size="60%" placeholder="Ex: 25" name="Idade"/>
-                    <TMBInput onChange={setHeight} id="height" size="30%" placeholder="Ex: 180" name="Altura (cm)"/>
-                    <SelectionInput id="actvt" onChange={setActivity} size="90%" title="Taxa de Atividade" values={activity}/>
+                    <div className="mobile">
+                        <SelectionInput id="gender" onChange={setGender} size="91.5%" title="Gênero" values={gender}/>
+                        <TMBInput onChange={setWeight} id="weight" size="100%" placeholder="Ex: 60" name="Peso (kg)"/>
+                        <TMBInput onChange={setAge} id="age" size="100%" placeholder="Ex: 25" name="Idade"/>
+                        <TMBInput onChange={setHeight} id="height" size="100%" placeholder="Ex: 180" name="Altura (cm)"/>
+                        <SelectionInput id="actvt" onChange={setActivity} size="91.5%" title="Taxa de Atividade" values={activity}/>
+                    </div>
+                    <div className="pc">
+                        <SelectionInput id="gender" onChange={setGender} size="60%" title="Gênero" values={gender}/>
+                        <TMBInput onChange={setWeight} id="weight" size="30%" placeholder="Ex: 60" name="Peso (kg)"/>
+                        <TMBInput onChange={setAge} id="age" size="60%" placeholder="Ex: 25" name="Idade"/>
+                        <TMBInput onChange={setHeight} id="height" size="30%" placeholder="Ex: 180" name="Altura (cm)"/>
+                        <SelectionInput id="actvt" onChange={setActivity} size="90%" title="Taxa de Atividade" values={activity}/>
+                    </div>
                     <button onClick={checkValues}>Calcular</button>
                 </div>
                 <div id="result-container"><h2>3000 cal</h2></div>

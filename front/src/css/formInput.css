@@ -4,6 +4,7 @@
 }
 
 .form-input input {
+    display: block;
     width: 90%;
     margin-top: 1%;
     border-radius: 5px;
