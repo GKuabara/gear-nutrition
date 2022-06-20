@@ -1,19 +1,17 @@
 import { useState } from 'react';
+import './css/cart.css';
 import CartItem from './CartItem';
 import MobileCartItem from './MobileCartItem';
-import { Link } from 'react-router-dom';
-import './css/cart.css';
+import database from './data.json';
 
-const Cart = (props) => {
-    // const items = props.series;
-    const prodImg = require('./media/imgs/whey.png');
-
-    let [products, setProducts] = useState([
-        {key: 1, name: "Whey Protein Concentrado (1KG)", price: 88.90, img: prodImg},
-        {key: 2, name: "Creatina Monidratada (250g)", price: 45.90, img: prodImg},
-    ]);
+const Cart = () => {
+    const [data, setData] = useState(database);
     
-    let total = 100000;
+    let total = 1000;
+    let calculateTotal = () => {
+        
+    };
+
     return (
         <div id='cart-container'>
             <div id='table-container'>
@@ -26,15 +24,15 @@ const Cart = (props) => {
                 </div>
                 <div id="rows-container">
                     {
-                        products.map((product) => {
-                            return <CartItem prod={product}/>
+                        data.products.map((product, index) => {
+                            return <CartItem product={product} data={data} setData={setData} key={index}/>
                         })
                     }
                 </div>
                 <div id="mobile-rows-container">
                     {
-                        products.map((product) => {
-                            return <MobileCartItem prod={product}/>
+                        data.products.map((product, index) => {
+                            return <MobileCartItem prod={product} data={data} setData={setData} key={index}/>
                         })
                     }
                 </div>
@@ -42,7 +40,7 @@ const Cart = (props) => {
                     <p>Total: R$ {total}</p>
                 </div>
                 <div id='keep-to-payment'>
-                    <Link to="/payment">Continuar</Link>
+                    <button>Continuar</button>
                 </div>
             </div>
         </div>

@@ -3,30 +3,38 @@
         {
             "name": "Whey Protein Concentrado (1KG)",
             "description": "O Whey Protein Concentrado Gear Nutrition possui um perfil nutricional completo e um sabor real, ideal para ser consumido pré/pós treinos, como um snack prático, ou em suas receitas.",
-            "price": "88,90",
+            "price": 88.90,
             "img": "whey",
-            "sold": 111
+            "sold": 111,
+            "qntd": 1,
+            "index": 0
         },
         {
             "name": "Creatina (250g)",
             "description": "A creatina é um nutriente classificado como \"amina\", ela é fabricada por nosso organismo e também é encontrada em alguns alimentos. 95% da creatina presente em nosso organismo encontra-se nos músculos, isto porque creatina é usada pela célula muscular na formação de energia, responsável pelas contrações. Ou seja, sem creatina não há contração e a suplementação de creatina pode aumentar a força muscular.",
-            "price": "79,90",
+            "price": 79.90,
             "img": "creatina",
-            "sold": 222
+            "sold": 222,
+            "qntd": 1,
+            "index": 1
         },
         {
-            "name": "Multtvitamínico (120 caps)",
+            "name": "Multivitamínico (120 caps)",
             "description": "Um corpo saudável precisa ter sempre à disposição nutrientes como vitaminas e minerais em boas quantidades. A demanda pode aumentar ainda mais com a prática de exercícios físicos, como aqueles praticados na academia. Isso porque esses nutrientes são indispensáveis para várias funções do corpo e auxiliam especialmente na recuperação e no desempenho durante a atividade física.",
-            "price": "35,90",
-            "img": "mutlivitaminico",
-            "sold": 333
+            "price": 35.90,
+            "img": "multivitaminico",
+            "sold": 333,
+            "qntd": 1,
+            "index": 2
         },
         {
             "name": "Glutamina (250g)",
             "description": "Indispensável para o metabolismo de um organismo saudável, a glutamina tem importantes funções e pode ser um auxílio tanto para quem pratica exercícios físicos intensos quanto para quem busca apenas uma rotina ainda mais saudável. Consulte um profissional nutricionista para ser orientado acerca da necessidade deste suplemento.",
-            "price": "45,90",
-            "img": "Glutamina",
-            "sold": 444
+            "price": 45.90,
+            "img": "glutamina",
+            "sold": 444,
+            "qntd": 1,
+            "index": 3
         }
     ],
     "users": [
