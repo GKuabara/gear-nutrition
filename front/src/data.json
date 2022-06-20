@@ -36,34 +36,5 @@
             "qntd": 1,
             "index": 3
         }
-    ],
-    "users": [
-        {
-            "name": "Ku",
-            "email": "gabrielalveskuabara@usp.br",
-            "telephone": "(17) 99713-3273",
-            "address": "Rua x, 42, apto 21, San Charles, Brasil",
-            "password": "123456",
-            "admin": false
-        },
-        {
-            "name": "Spider",
-            "email": "spider@usp.br",
-            "telephone": "(99) 99999-9999",
-            "address": "Rua camargo, 69, San Charles, Brasil",
-            "password": "123456",
-            "photo": "admin",
-            "admin": true
-        },
-        {
-            "name": "Random",
-            "email": "random@usp.br",
-            "telephone": "(16) 91212-2121",
-            "address": "Rua camargo sales, 111, San Charles, Brasil",
-            "password": "123456",
-            "photo": "admin",
-            "admin": true
-        }
-    ],
-    "cart": []
+    ]
 }

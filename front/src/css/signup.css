@@ -89,7 +89,7 @@
         width: 100%;
     }
     
-    .signup-button button{
+    .signup-button a {
         padding: 10px;
         position: unset;
         width: 100%;
@@ -114,4 +114,4 @@ input::-webkit-inner-spin-button {
 
 input[type=number] {
     -moz-appearance: textfield;
-  }
+}

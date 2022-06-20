@@ -79,6 +79,10 @@ textarea:focus, input:focus{
         padding: 10px;
         width: 80%;
     }
+
+    #admin-container {
+        margin-top: 2%;
+    }
 }   
 
 @media (max-width: 480px) {

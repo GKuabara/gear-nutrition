@@ -1,4 +1,4 @@
-import ProductSeries from "./ProductSeries";
+import ProductSeries from "./Product/ProductSeries";
 import './css/home.css';
 
 const Homepage = () => {
