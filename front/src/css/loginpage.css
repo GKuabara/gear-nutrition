@@ -3,7 +3,7 @@
     border-radius: 5px;
     box-shadow: var(--sombra);
     width: 80%;
-    margin: 5%;
+    margin: 10%;
     display: inline-block;
 }
 
@@ -51,10 +51,6 @@
 }
 
 @media (max-width: 960px){
-    .login-container {
-        width: 50%;
-    }
-    
     .forms-div{
         display: unset;
     }
@@ -75,7 +71,10 @@
 
 @media (max-width: 480px){
     .login-container {
-        width: 30%;
+        text-align: center;
+    }
+    
+    .login-field input{
         text-align: center;
     }
 }
