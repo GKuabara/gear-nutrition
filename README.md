@@ -64,7 +64,7 @@ Usuários:
 - Senha
 - Campo booleano para indicar administrador
 - CPF
-- Endereços Entrega
+- Endereço de Entrega (Único por usuário)
   -  Nome
   -  Logradouro
   -  Número
@@ -84,18 +84,21 @@ Produtos:
 - Quantidade em estoque
 
 ## Comentários Sobre o Código
-Cada página possui um CSS próprio, o qual está dividido em blocos (comentados) para facilitar o entendimento.
+Todas as páginas e componentes (React Components) tem um arquivo JavaScript e um css próprios. Todos estão modularizados de forma a facilitar a leitura.
 ## Plano de Teste
-No decorrer do projeto, pretendemos testar algumas funcionalidades para garantir uma boa experiência para o usuário, podendo elas ser:
-- Criação de conta,
-- Login, 
-- Compras
+No decorrer do projeto, decidimos, de acordo com as simulações sugeridas por esta entrega (Milestone 2) testar algumas funcionalidades para garantir uma boa experiência para o usuário, sendo estas:
+- Criação de conta;
+- Login;
+- Operações no carrinho, como adição e remoção de itens;
+- Compra;
+- Logout;
+- Taxa Metabólica Basal (funcionalidade extra).
 ## Resultado dos Testes
-Não houve realização de testes ainda.
+Os testes indicaram um bom funcionamento em todos os casos, o que indica que nossa loja está no caminho certo para ser integrada ao lado do servidor.
 ## Building
-Nessa primeira entrega, para visualizar as páginas feitas é necessário baixar o arquivo ``zip`` do repositório e abrir os HTMLs na pasta ``src``.
+Para a Segunda Entrega, caso queira rodar o programa, basta iniciar o projeto React dentro da pasta ``front``. Após realizar o setup do framework, utilize os comandos ``npm install`` e ``npm start`` para executar a aplicação.
 
-Para ver os mockups das páginas principais, basta acessar a pasta ``mockups`` ou abrir o projeto no [figma](https://www.figma.com/file/ZMtR2FPqWEN6cs2xp5uz2I/Gear-Nutrition?node-id=0%3A1).
+Caso queira ver os mockups das páginas principais, por motivo de comparação, basta acessar a pasta ``mockups`` ou abrir o projeto no [figma](https://www.figma.com/file/ZMtR2FPqWEN6cs2xp5uz2I/Gear-Nutrition?node-id=0%3A1).
 ## Problemas
 Não houve problemas.
 ## Comentários
