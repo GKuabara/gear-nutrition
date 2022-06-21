@@ -15,7 +15,7 @@ AVISO: Esse é um projeto realizado para fins educativos e tem problemas graves 
 
 O sistema contém 2 tipos de usuários: clientes e administradores.
 
-**Clientes** são aqueles que compram os produtos. Esses são registrados com as informações de CPF, nome, número de celular e email.
+**Clientes** são aqueles que compram os produtos. Esses são registrados com as informações de CPF, nome, número de celular, endereço e email.
 
 **Administradores** são responsáveis por registrar e gerenciar outros administradores e produtos. A aplicação já vem como padrão um usuário *admin* e senha *admin*. Cada administrador tem informações de CPF, nome, número de celular e email.
 
@@ -47,7 +47,6 @@ Sobre as funcionalidades planejadas para o website:
 - Visualização das informações do cliente, com opção de alterar alguns dados cadastrais, ver histórico de pedidos e deslogar.
 - Acesso ao carrinho de compras, sendo possível alterar quantidades dos produtos selecionados e prosseguir com a finalização da compra.
 - Uma página de pagamento, no qual o cliente insere os dados para finalizar a compra.
-- Uma página para adicionar um endereço de entrega 
 - Homepage com categorias e produtos visando acessibilidade.
 - Página de cada produto com todas as informações necessárias e possibilidade de adicionar ao carrinho.
 - Página de administrador capaz de visualizar, alterar, adicionar e remover produtos no estoque.
@@ -57,6 +56,7 @@ Sobre as funcionalidades planejadas para o website:
 ### Servidor
 
 As informações que devemos salvar são:
+
 Usuários:
 - Id (chave única para cliente)
 - Nome
