@@ -26,7 +26,7 @@
 }
 
 #prod-span {
-    width: 50%;
+    width: 27%;
 }
 
 #rows-container {
@@ -69,7 +69,7 @@
     #cart-container {
         padding: 3%;
     }
-}   
+}
 
 @media (max-width: 480px) {
     #header-container {
