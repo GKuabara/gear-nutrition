@@ -26,10 +26,12 @@ import AddProduct from './Admin/AddProduct';
 import RemoveProduct from './Admin/RemoveProduct';
 import ManageAdmins from './Admin/ManageAdmins';
 import AddAdmin from './Admin/AddAdmin';
+import database from './data.json';
 
 function App() {
 	let [isLogged, setIsLogged] = useState(true); 
-	let [isAdmin, setIsAdmin] = useState(false); 
+	let [isAdmin, setIsAdmin] = useState(false);
+	const [data, setData] = useState(database);
 
 	return (
 		<div className="App">
@@ -37,7 +39,7 @@ function App() {
 				<NavBar isAdmin={isAdmin} isLogged={isLogged} />
 				<div className="content">
 					<Routes>
-						<Route path="/" element={<Homepage />} />
+						<Route path="/" element={<Homepage data={data} setData={setData}/>} />
 						<Route path="/tmb" element={<TMB />} />
 						
 						<Route path="/profile">
@@ -80,9 +82,9 @@ function App() {
 						<Route path="/login" element={<Login setIsLogged={setIsLogged} />} />
 						<Route path="/signup" element={<SignUp />} />
 						
-						<Route path="/product" element={<Product />} />
-						<Route path="/cart" element={<Cart />} />
-						<Route path="/payment" element={<Payment />} />
+						<Route path="/product" element={<Product data={data} setData={setData}/>} />
+						<Route path="/cart" element={<Cart data={data} setData={setData}/>} />
+						<Route path="/payment" element={<Payment data={data} setData={setData} />} />
 						<Route path="/ordered" element={<Ordered />} />
 
 						<Route path="/admin">

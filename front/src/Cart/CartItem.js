@@ -5,50 +5,44 @@ import { productImages } from "../Common/images"
 const CardItem = ({product, data, setData}) => {
     let [index, setIndex] = useState(0);
 
-    useEffect(() => {
-        data.products.map((prod, idx) => {
-            if (prod.index === product.index)
-                setIndex(idx++)
-        })
-    }, [data, product])
-
     let incNum = () => {
-        if(data.products[index].qntd < 100) {
-            let datacopy = data.products;
-            datacopy[index].qntd += 1;
-            setData({...data, "products": datacopy});
+        console.log(data.cart)
+        if(data.cart[product.indexProduct].quantity < 100) {
+            let datacopy = data.cart;
+            datacopy[product.indexProduct].quantity += 1;
+            setData({...data, "cart": datacopy});
         }
     };
 
     let decNum = () => {
-        if (data.products[index].qntd === 1) {
-            setData({...data, products: data.products.filter(function(product, cartIndex) {
+        if (data.cart[product.indexProduct].quantity === 1) {
+            setData({...data, cart: data.cart.filter(function(product, cartIndex) {
                 return index !== cartIndex;
             })});
-        } else if(data.products[index].qntd > 1) {
-            let datacopy = data.products;
-            datacopy[index].qntd -= 1;
-            setData({...data, "products": datacopy});
+        } else if(data.cart[product.indexProduct].quantity > 1) {
+            let datacopy = data.cart;
+            datacopy[product.indexProduct].quantity -= 1;
+            setData({...data, "cart": datacopy});
         }
     }
 
     function updateQtt(e) {
-        let datacopy = data.products;
-        datacopy[index].qntd = e.target.value;
-        setData({...data, "products": datacopy});
+        let datacopy = data.cart;
+        datacopy[product.indexProduct].quantity = e.target.value;
+        setData({...data, "cart": datacopy});
     }
 
     return ( 
         <div className='item-container'>
-            <div className="products-pr-image"><img src={productImages[product.img]} alt='img'/></div>
-                <span>{product.name}</span>
-                <span id='cart-item-price'>R$ {product.price}</span>
+            <div className="products-pr-image"><img src={productImages[data.products[product.indexProduct].img]} alt='img'/></div>
+                <span>{data.products[product.indexProduct].name}</span>
+                <span id='cart-item-price'>R$ {data.products[product.indexProduct].price}</span>
             <div className='item-qntd'>
                 <button className="decButton" type="button" onClick={decNum}>-</button>
-                <input className='qntd' type='text' value={data.products[index].qntd} onChange={e => updateQtt(e)}></input>
+                <input className='qntd' type='text' value={product.quantity} onChange={e => updateQtt(e)}></input>
                 <button className="incButton" type="button" onClick={incNum}>+</button>
             </div>
-                <span>R$ {(data.products[index].qntd * product.price).toFixed(2)}</span>
+                <span>R$ {(product.quantity * data.products[product.indexProduct].price).toFixed(2)}</span>
         </div>
     );
 }

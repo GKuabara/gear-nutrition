@@ -4,7 +4,6 @@ import PaymentFinish from './PaymentFinish';
 import PaymentInfo from './PaymentInfo';
 
 const PcPayment = (props) => {
-
     return (
         <div id='payment-major-container'>
             <div id='payment-left-container'>
@@ -12,7 +11,7 @@ const PcPayment = (props) => {
                 <PaymentInfo />
             </div>
             <div id='payment-right-container'>
-                <PaymentFinish />
+                <PaymentFinish data={props.data} setData={props.setData}/>
             </div>
         </div>
     );

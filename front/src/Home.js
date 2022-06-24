@@ -1,13 +1,13 @@
 import ProductSeries from "./Product/ProductSeries";
 import './css/home.css';
 
-const Homepage = () => {
+const Homepage = ({data, setData}) => {
     return ( 
         <div className="home-container">
-            <ProductSeries title="Populares" series={10} />
-            <ProductSeries title="Gear Second" series={20} />
-            <ProductSeries title="Gear Third" series={30} />
-            <ProductSeries title="Gear Fourth" series={40} />
+            <ProductSeries title="Populares" series={10} data={data} setData={setData} />
+            <ProductSeries title="Gear Second" series={20} data={data} setData={setData} />
+            <ProductSeries title="Gear Third" series={30} data={data} setData={setData} />
+            <ProductSeries title="Gear Fourth" series={40} data={data} setData={setData} />
         </div>
     );
 }

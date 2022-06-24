@@ -3,6 +3,8 @@ import '../css/prodSeries.css';
 
 const ProductSeries = (props) => {
     const series = props.series;
+    const data = props.data;
+    const setData = props.setData;
     const prodImg = require('../media/imgs/whey.png');
 
     let products = [
@@ -16,9 +18,9 @@ const ProductSeries = (props) => {
         <div id={"g" + series} className="product-series">
             <h1>{props.title}</h1>
             {
-                products.map((product) => {
+                data.products.map((product) => {
                     return (
-                        <div className="productCard" key={product.key}>
+                        <div className="productCard" key={product.index}>
                             <ProductCard prod={product} />
                         </div>
                     );

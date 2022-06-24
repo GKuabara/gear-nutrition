@@ -2,18 +2,18 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import CartItem from './CartItem';
-import database from '../data.json';
 import MobileCartItem from './MobileCartItem';
 import '../css/cart.css';
 
-const Cart = () => {
-    const [data, setData] = useState(database);
-    
+const Cart = (props) => {
+    const data = props.data;
+    const setData = props.setData;
     let [total, setTotal] = useState(0);
+
     useEffect(() => {
         let temp = 0, i = 0;
-        while (i < data.products.length) {
-            temp += data.products[i].price * data.products[i].qntd;
+        while (i < data.cart.length) {
+            temp += data.products[data.cart[i].indexProduct].price * data.cart[i].quantity;
             i++;
         }
         setTotal(temp);
@@ -31,7 +31,7 @@ const Cart = () => {
                 </div>
                 <div id="rows-container">
                     {
-                        data.products.map((product, index) => {
+                        data.cart.map((product, index) => {
                             return <CartItem product={product} data={data} setData={setData} key={index}/>
                         })
                     }
