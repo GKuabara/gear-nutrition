@@ -4,16 +4,13 @@ import '../css/topNavbar.css';
 
 const TopNavbar = ({isAdmin, isLogged}) => {
     const logo = require('../media/imgs/logo.png');
-    const searchBtn = require('../media/imgs/spyglass.png');
 
     return ( 
         <div className="navbar-top">
+            <div></div>
+            <div></div>
             <div className="logo">
                 <Link to="/"><img alt="Site Logo" src={logo} id="logo" /></Link>
-            </div>
-            <div className="search-box">
-                <input type="text" placeholder="Procurar por um produto" />
-                <img alt='' src={searchBtn} /> 
             </div>
             <nav>
                 <TopNavLinks isAdmin={isAdmin} isLogged={isLogged} />
