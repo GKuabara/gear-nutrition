@@ -17,15 +17,17 @@ const ProductSeries = (props) => {
     return ( 
         <div id={"g" + series} className="product-series">
             <h1>{props.title}</h1>
-            {
-                data.products.map((product) => {
-                    return (
-                        <div className="productCard" key={product.index}>
-                            <ProductCard prod={product} />
-                        </div>
-                    );
-                })
-            }
+            <div className="prod-row">
+                {
+                    data.products.map((product) => {
+                        return (
+                            <div className="productCard" key={product.index}>
+                                <ProductCard prod={product} />
+                            </div>
+                        );
+                    })
+                }
+            </div>
         </div>
     );
 }
