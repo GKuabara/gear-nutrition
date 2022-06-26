@@ -86,7 +86,6 @@ const Product = ({data, setData}) => {
                     </div>
                     <Link to="/cart" id='buyButton' onClick={() => addToCart()}>Comprar</Link>
                 </div>
-                {/* <Link to='/cart'>Comprar</Link> */}
             </div>
         </div>
     );
