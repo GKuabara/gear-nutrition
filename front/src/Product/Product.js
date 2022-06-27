@@ -57,7 +57,7 @@ const Product = ({data, setData}) => {
             }
             console.log("found: " + found)
             console.log(datacopy.cart[i-1])
-            datacopy.cart[i-1].quantity = qntd;
+            datacopy.cart[i-1].quantity += qntd;
         }
 
         else if (qntd > 0) {
