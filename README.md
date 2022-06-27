@@ -7,6 +7,7 @@ O tema escolhido para desenvolver o website foi uma e-commerce de suplementos co
 AVISO: Esse é um projeto realizado para fins educativos e tem problemas graves de segurança.
 
 ### Autores
+
 - Gabriel Alves Kuabara - nUSP 11275043
 - Victor Henrique de Sa Silva - nUSP 11795759
 - Fernando Henrique Paes Generich - nUSP 11795342
@@ -84,8 +85,11 @@ Produtos:
 - Quantidade em estoque
 
 ## Comentários Sobre o Código
+
 Todas as páginas e componentes (React Components) tem um arquivo JavaScript e um css próprios. Todos estão modularizados de forma a facilitar a leitura.
+
 ## Plano de Teste
+
 No decorrer do projeto, decidimos, de acordo com as simulações sugeridas por esta entrega (Milestone 2) testar algumas funcionalidades para garantir uma boa experiência para o usuário, sendo estas:
 - Criação de conta;
 - Login;
@@ -93,13 +97,22 @@ No decorrer do projeto, decidimos, de acordo com as simulações sugeridas por e
 - Compra;
 - Logout;
 - Taxa Metabólica Basal (funcionalidade extra).
+- Funções de Administrador (acessar adicionando "/admin" na URL)
+
 ## Resultado dos Testes
+
 Os testes indicaram um bom funcionamento em todos os casos, o que indica que nossa loja está no caminho certo para ser integrada ao lado do servidor.
+
 ## Building
+
 Para a Segunda Entrega, caso queira rodar o programa, basta iniciar o projeto React dentro da pasta ``front``. Após realizar o setup do framework, utilize os comandos ``npm install`` e ``npm start`` para executar a aplicação.
 
 Caso queira ver os mockups das páginas principais, por motivo de comparação, basta acessar a pasta ``mockups`` ou abrir o projeto no [figma](https://www.figma.com/file/ZMtR2FPqWEN6cs2xp5uz2I/Gear-Nutrition?node-id=0%3A1).
+
 ## Problemas
+
 Não houve problemas.
+
 ## Comentários
+
 Não há.
