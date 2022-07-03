@@ -1,8 +1,38 @@
 const mongoose = require('mongoose')
 const User = mongoose.model('User')
 const ValidatorContract = require('../validators/fluent-validator')
+const auth = require('../service/auth')
 
-exports.get = (req, res, next) => {
+exports.authenticate = async (req, res, next) => {
+    const data = req.body;
+    try {
+        const user = await User.findOne({
+            email: data.email,
+            password: data.password
+        })
+
+        if (!user) {
+            res.status(404).send({ message: "Usuário ou senha inválidos" })
+            return
+        }
+
+        const token = await auth.generateToken({ email: user.email, name: user.name })
+        const resp = {
+            token: token,
+            data: {
+                email: user.email,
+                name: user.name,
+                isAdmin: user.admin
+            }
+        }
+    
+        res.status(201).send(resp)
+    } catch (e) {
+        res.status(500).send({ message: "Falha ao processar requisição" })
+    }
+}
+
+exports.get = (req, res, next) => {  
     User.find({})
     .then(data => {
         res.status(200).send(data)
