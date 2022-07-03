@@ -9,7 +9,7 @@ import TopNavLinks from './TopNavLinks';
 import BottomNavLinks from './BottomNavLinks';
 import '../css/navbar.css';
 
-const NavBar = ({isAdmin, isLogged}) => {
+const NavBar = ({user}) => {
     const logo = require('../media/imgs/logo.png');
     let [showProdHam, setShowProdHam] = useState(false);
     let [showProfHam, setShowProfHam] = useState(false);
@@ -46,14 +46,14 @@ const NavBar = ({isAdmin, isLogged}) => {
                 </div>
             </div>
             <div className='menu-links'>
-                {showProdHam && <BottomNavLinks isLogged={isLogged} closeMenu={openProdMenu} />}
+                {showProdHam && <BottomNavLinks user={user} closeMenu={openProdMenu} />}
             </div>
             <div className='menu-links'>
-                {showProfHam && <TopNavLinks isAdmin={isAdmin} isLogged={isLogged} closeMenu={openMenu} />}
+                {showProfHam && <TopNavLinks user={user} closeMenu={openMenu} />}
             </div>
             <div className='responsive-menu'>
-                <TopNavBar isAdmin={isAdmin} isLogged={isLogged} />
-                <BottomNavBar isLogged={isLogged} />
+                <TopNavBar user={user} />
+                <BottomNavBar user={user} />
             </div>
         </div>
     );

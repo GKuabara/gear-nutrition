@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import TopNavLinks from './TopNavLinks';
 import '../css/topNavbar.css';
 
-const TopNavbar = ({isAdmin, isLogged}) => {
+const TopNavbar = ({user}) => {
     const logo = require('../media/imgs/logo.png');
 
     return ( 
@@ -13,7 +13,7 @@ const TopNavbar = ({isAdmin, isLogged}) => {
                 <Link to="/"><img alt="Site Logo" src={logo} id="logo" /></Link>
             </div>
             <nav>
-                <TopNavLinks isAdmin={isAdmin} isLogged={isLogged} />
+                <TopNavLinks user={user} />
             </nav>
         </div>
     );

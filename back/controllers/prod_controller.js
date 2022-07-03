@@ -1,5 +1,4 @@
 const ValidatorContract = require('../validators/fluent-validator')
-
 const mongoose = require('mongoose')
 const Product = mongoose.model('Product')
 

@@ -1,6 +1,7 @@
+import axios from 'axios'
 import './css/profile.css';
 import './css/App.css';
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes, useSearchParams } from "react-router-dom";
 import { useState } from 'react';
 import Footer from './General/Footer';
 import Product from './Product/Product';
@@ -26,70 +27,84 @@ import AddProduct from './Admin/AddProduct';
 import RemoveProduct from './Admin/RemoveProduct';
 import ManageAdmins from './Admin/ManageAdmins';
 import AddAdmin from './Admin/AddAdmin';
-import database from './data.json';
+import { useEffect } from 'react';
 
 function App() {
-	let [isLogged, setIsLogged] = useState(true); 
-	let [isAdmin, setIsAdmin] = useState(false);
-	const [data, setData] = useState(database);
+	let [user, setUser] = useState(false); 
+	let [products, setProducts] = useState([])
+    
+    useEffect(() => {
+        getProds()
+    }, [])
+	
+    function getProds() {
+        axios.create({ baseURL: "http://localhost:5000/product", headers: {"Content-Type": "application-json"} })
+        .get()
+        .then(resp => {
+            setProducts(resp.data)
+        })
+        .catch(e => {
+            console.error(e)
+        })
+    }
 
 	return (
 		<div className="App">
 			<Router>
-				<NavBar isAdmin={isAdmin} isLogged={isLogged} />
+				<NavBar user={user} />
 				<div className="content">
 					<Routes>
-						<Route path="/" element={<Homepage data={data} setData={setData}/>} />
+						<Route path="/" element={<Homepage data={products}/>} />
 						<Route path="/tmb" element={<TMB />} />
 						
 						<Route path="/profile">
 							<Route path="/profile/changePwd" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
+									<ProfileNav setUser={setUser} />
 									<ChangePwd />
 								</div>
 							)} />
 
 							<Route path="/profile/orders" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
+									<ProfileNav setUser={setUser} />
 									<Orders />
 								</div>
 							)} />
 
 							<Route path="/profile/data" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
+									<ProfileNav setUser={setUser} />
 									<ProfileData />
 								</div>
 							)} />
 
 							<Route path="/profile/addresses" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
+									<ProfileNav setUser={setUser} />
 									<Addresses />
 								</div>
 							)} />
 
 							<Route path="/profile/newAddress" element={(
 								<div id='profile-container'>
-									<ProfileNav setIsAdmin={setIsAdmin} setIsLogged={setIsLogged} />
+									<ProfileNav setUser={setUser} />
 									<NewAddress />
 								</div>
 							)} />
 						</Route>
 						
-						<Route path="/login" element={<Login setIsLogged={setIsLogged} />} />
+						<Route path="/login" element={<Login setUser={setUser} />} />
 						<Route path="/signup" element={<SignUp />} />
 						
-						<Route path="/product" element={<Product data={data} setData={setData}/>} />
-						<Route path="/cart" element={<Cart data={data} setData={setData}/>} />
-						<Route path="/payment" element={<Payment data={data} setData={setData} />} />
+						<Route path="/product" element={<Product data={products}/>} />
+						<Route path="/cart" element={<Cart data={products}/>} />
+						<Route path="/payment" element={<Payment data={products} />} />
 						<Route path="/ordered" element={<Ordered />} />
 
 						<Route path="/admin">
 							<Route path="" element={(
-								<AdminLogin setIsLogged={setIsLogged} setIsAdmin={setIsAdmin}/>
+								<AdminLogin user={user}/>
 							)} />
 
 							<Route path="stock" element={(

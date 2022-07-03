@@ -3,10 +3,9 @@ import { MdArrowDropDown } from 'react-icons/md';
 
 import '../css/profileNav.css';
 
-const ProfileNav = ({setIsAdmin, setIsLogged}) => {
+const ProfileNav = ({setUser}) => {
     function logoff() {
-        setIsAdmin(false);
-        setIsLogged(false);
+        setUser(false)
     }
 
     return ( 
