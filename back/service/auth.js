@@ -20,7 +20,7 @@ exports.authorize =  (req, res, next) => {
     } else {
         jwt.verify(token, SALT_KEY, (e, decoded) => {
             if (e) {
-                res.status(401).json({messsage: "Token Inválido"})
+                res.status(401).json({message: "Token Inválido"})
             } else {
                 next()
             }

@@ -19,12 +19,14 @@ exports.authenticate = async (req, res, next) => {
         const token = await auth.generateToken({ email: user.email, name: user.name })
         const resp = {
             token: token,
+            id: user._id.toString(), 
             data: {
                 email: user.email,
                 name: user.name,
                 isAdmin: user.admin
             }
         }
+        console.log(resp)
     
         res.status(201).send(resp)
     } catch (e) {

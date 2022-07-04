@@ -5,6 +5,8 @@ import '../css/profileNav.css';
 
 const ProfileNav = ({setUser}) => {
     function logoff() {
+        localStorage.removeItem('token')
+        localStorage.removeItem('id')
         setUser(false)
     }
 
@@ -14,7 +16,7 @@ const ProfileNav = ({setUser}) => {
                 <Link id="top-nav" to="/profile/orders">Meus Pedidos</Link>
                 <Link to="/profile/changePwd">Alterar Senha</Link>
                 <Link to="/profile/data">Dados Pessoais</Link>
-                <Link to="/profile/addresses">Endereços de Entrega</Link>
+                <Link to="/profile/addresses">Endereço de Entrega</Link>
                 <Link id="bottom-nav" onClick={()=>logoff()} to="/">Sair</Link>
             </div>
             <button>Opções<MdArrowDropDown /></button>

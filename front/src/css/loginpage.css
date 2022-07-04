@@ -26,7 +26,7 @@
     position: relative;
 }
 
-.login-button a{
+.login-button button{
     text-align: center;
     width: 40%;
     padding: 8px;
@@ -50,6 +50,18 @@
     border-bottom: 1px solid gray;    
 }
 
+.form-error {
+    margin: auto;
+    margin-bottom: 2%;
+    width: 50%;
+    padding: 5px;
+    text-align: center;
+    border-radius: 7px;
+    border: 1px solid rgb(200, 106, 106);
+    background-color: rgb(239, 174, 174);
+    color: rgb(189, 72, 72);
+}
+
 @media (max-width: 960px){
     .forms-div{
         display: unset;
@@ -66,6 +78,10 @@
     .login-button button{
         position: unset;
         width: 100%;
+    }
+
+    .form-error {
+        width: 95%;
     }
 }
 

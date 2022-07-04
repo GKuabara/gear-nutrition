@@ -4,59 +4,51 @@ import { useState, useEffect } from 'react';
 import { productImages } from "../Common/images"
 import '../css/product.css';
 
-const Product = ({data, setData}) => {
+const Product = ({data, user, setUser}) => {
     const location = useLocation();
-    const [index, setIndex] = useState(0);
-    const [inCart, setInCart] = useState(false);
     const [qntd, setQntd]= useState(1);
-    
     const { idx } = location.state;
     const prod = data[idx]
 
-    let incQntd = () => {
-        if(qntd < 100) {setQntd(qntd + 1);}
-    }
+    let incQntd = () => {if(qntd < 100) {setQntd(qntd + 1);}}
+    let decQntd = () => {if(qntd > 0) {setQntd(qntd - 1);}}
+    let handleChange = (e)=> {setQntd(e.target.value);}
 
-    let decQntd = () => {
-        if(qntd > 0) {setQntd(qntd - 1);}
-    }
+    function addToCart() {
+        const duplicate = false
+        let cartCopy = JSON.parse(JSON.stringify(user.cart))
+        console.log(cartCopy)
+        cartCopy.map((item) => {
+            if (item._id === prod._id) {
+                duplicate = true
+                item.qtt += qntd
+            }
+        })
 
-    let handleChange = (e)=> {
-        setQntd(e.target.value);
-    }
+        if (!duplicate) {
+            cartCopy.push({id: prod._id, qtt: qntd})
+        }
 
-    function addToCart(_id) {
-        axios.post({ baseURL: "http://localhost:5000/product",
-                    headers: {"Content-Type": "application-json"},
-                    data: { id: prod._id, qtt: qntd }})
-        .then(resp => resp.data);
+        localStorage.removeItem('cart')
+        localStorage.setItem('cart', JSON.stringify(cartCopy))
+        setUser({...user, cart: cartCopy})
         
+        // axios.put({ baseURL: "http://localhost:5000/user/" + localStorage.getItem('id'),
+                    // headers: {"Content-Type": "application-json", "x-access-token": localStorage.getItem('token')},
+                    // data: {user}
+        // })
+        // axios.create({baseURL: "http://localhost:5000/user/" + localStorage.getItem('id'), headers: {"x-access-token": localStorage.getItem('token')}, data: {user}})
+        // .put()
+        // .then(resp => {
+        //     localStorage.removeItem('cart')
+        //     localStorage.setItem('cart', JSON.stringify(JSON.parse(cartCopy)))
+        //     setUser({...user, cart: cartCopy})
+        // })
+        // .catch( e => {
+        //     console.log('aaaaaaaaaa')
+        // })
     }
 
-    // const addToCart = () => {
-    //     let datacopy = data;
-    //     console.log("inCart: " + inCart);
-    //     if (inCart) {
-    //         let i = 0;
-    //         let found = false;
-    //         while (i < datacopy.cart.length && !found) {
-    //             if (datacopy.cart[i].indexProduct === index)
-    //                 found = true;
-    //             i++;
-    //         }
-    //         console.log("found: " + found)
-    //         console.log(datacopy.cart[i-1])
-    //         datacopy.cart[i-1].quantity += qntd;
-    //     }
-
-    //     else if (qntd > 0) {
-    //         datacopy.cart.push({indexProduct: index, quantity: qntd});
-    //         setInCart(true);
-    //     }
-    //     setData(datacopy);
-    //     console.log(data);
-    // }
-    
     return ( 
         <div id='product-container'>
             <div id='prod-img'>
@@ -73,7 +65,7 @@ const Product = ({data, setData}) => {
                         <input id='qntd' type='text' value={qntd} onChange={handleChange}></input>
                         <button id="incButton" type="button" onClick={incQntd}>+</button>
                     </div>
-                    <Link to="/cart" id='buyButton' onClick={() => addToCart(prod._id)}>Comprar</Link>
+                    <Link to="/cart" state={{ idx: idx }} id='buyButton' onClick={() => addToCart()}>Comprar</Link>
                 </div>
             </div>
         </div>

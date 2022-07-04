@@ -30,8 +30,10 @@ import AddAdmin from './Admin/AddAdmin';
 import { useEffect } from 'react';
 
 function App() {
-	let [user, setUser] = useState(false); 
+	let [user, setUser] = useState(localStorage.getItem('token') || false); 
 	let [products, setProducts] = useState([])
+	let [orders, setOrders] = useState([])
+	let [userInfo, setUserInfo] = useState({})
     
     useEffect(() => {
         getProds()
@@ -41,12 +43,30 @@ function App() {
         axios.create({ baseURL: "http://localhost:5000/product", headers: {"Content-Type": "application-json"} })
         .get()
         .then(resp => {
-            setProducts(resp.data)
+			setProducts(resp.data)
         })
         .catch(e => {
-            console.error(e)
+			console.error(e)
         })
     }
+
+	const uInfo = () => {
+		const url = `http://localhost:5000/user/${localStorage.getItem('id')}`
+		axios.get( url, {headers: {"x-access-token": localStorage.getItem('token')}})
+		.then(resp => {
+			localStorage.removeItem('cart')
+			localStorage.setItem('cart', JSON.stringify(resp.data.cart))
+			console.log(resp.data)
+			setUserInfo(resp.data)
+		})
+		.catch( e => {
+			console.log(e)
+		})
+	}
+
+	if (localStorage.getItem('id') != null && localStorage.getItem('id') != userInfo._id) {
+		uInfo()
+	}
 
 	return (
 		<div className="App">
@@ -61,45 +81,45 @@ function App() {
 							<Route path="/profile/changePwd" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<ChangePwd />
+									<ChangePwd user={user} />
 								</div>
 							)} />
 
 							<Route path="/profile/orders" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<Orders />
+									<Orders user={user} orders={orders} />
 								</div>
 							)} />
 
 							<Route path="/profile/data" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<ProfileData />
+									<ProfileData user={userInfo} />
 								</div>
 							)} />
 
 							<Route path="/profile/addresses" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<Addresses />
+									<Addresses user={userInfo} />
 								</div>
 							)} />
 
 							<Route path="/profile/newAddress" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<NewAddress />
+									<NewAddress user={user} />
 								</div>
 							)} />
 						</Route>
 						
-						<Route path="/login" element={<Login setUser={setUser} />} />
+						<Route path="/login" element={<Login setUserInfo={setUserInfo} setUser={setUser} />} />
 						<Route path="/signup" element={<SignUp />} />
 						
-						<Route path="/product" element={<Product data={products}/>} />
-						<Route path="/cart" element={<Cart data={products}/>} />
-						<Route path="/payment" element={<Payment data={products} />} />
+						<Route path="/product" element={<Product data={products} user={userInfo} setUser={setUserInfo}/>} />
+						<Route path="/cart" element={<Cart data={products} user={userInfo} setUser={setUserInfo}/>} />
+						<Route path="/payment" element={<Payment user={userInfo} setUser={setUserInfo}/>} />
 						<Route path="/ordered" element={<Ordered />} />
 
 						<Route path="/admin">

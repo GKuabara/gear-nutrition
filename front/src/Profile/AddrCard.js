@@ -1,21 +1,23 @@
 import '../css/addrCard.css';
+import axios from 'axios'
 
-const AddrCard = ({addr}) => {
+const AddrCard = ({uInfo}) => {
+    console.log(uInfo)
     return (  
         <div className="addr-card">
-            <h3>Casa {addr.key}</h3>
+            <h3>Casa</h3>
             <table>
                 <tbody>
                     <tr>
-                        <td><span>Logradouro: <br /></span> {addr.addr}</td>
-                        <td><span>CEP: <br /></span> {addr.cep}</td>
-                        <td><span>Número: <br /></span> {addr.num}</td>
+                        <td><span>Logradouro: <br /></span> {uInfo.street}</td>
+                        <td><span>CEP: <br /></span> {uInfo.CEP}</td>
+                        <td><span>Número: <br /></span> {uInfo.number}</td>
                     </tr>
 
                     <tr>
-                        <td><span>Bairro: <br /></span> {addr.district}</td>
-                        <td><span>Cidade: <br /></span> {addr.city}</td>
-                        <td><span>Estado: <br /></span> {addr.state}</td>
+                        <td><span>Bairro: <br /></span> {uInfo.neighborhood}</td>
+                        <td><span>Cidade: <br /></span> {uInfo.city}</td>
+                        <td><span>Estado: <br /></span> {uInfo.state}</td>
                     </tr>
                 </tbody>
             </table>

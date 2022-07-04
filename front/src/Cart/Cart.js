@@ -5,19 +5,19 @@ import CartItem from './CartItem';
 import MobileCartItem from './MobileCartItem';
 import '../css/cart.css';
 
-const Cart = (props) => {
-    const data = props.data;
-    const setData = props.setData;
-    let [total, setTotal] = useState(0);
+const Cart = ({data, user, setUser}) => {
+    // let [total, setTotal] = useState(0);
 
     useEffect(() => {
         let temp = 0, i = 0;
-        while (i < data.cart.length) {
-            temp += data.products[data.cart[i].indexProduct].price * data.cart[i].quantity;
-            i++;
-        }
-        setTotal(temp);
-    }, [data, total]);
+        user.cart.map ((cartItem) => {
+            data.map((dataItem) => {
+                if (cartItem._id == dataItem._id)
+                    temp += cartItem.qtt * dataItem.price
+            })
+        })
+        // setTotal(temp);
+    }, [data, user]);
 
     return (
         <div id='cart-container'>
@@ -31,20 +31,20 @@ const Cart = (props) => {
                 </div>
                 <div id="rows-container">
                     {
-                        data.cart.map((product, index) => {
-                            return <CartItem product={product} data={data} setData={setData} key={index}/>
+                        user.cart.map((product, index) => {
+                            return <CartItem data={data} product={product} user={user} setUser={setUser} key={index}/>
                         })
                     }
                 </div>
                 <div id="mobile-rows-container">
-                    {
-                        data.products.map((product, index) => {                            
-                            return <MobileCartItem product={product} data={data} setData={setData} key={index}/>
+                    {/* {
+                        user.cart.map((product, index) => {                            
+                            return <MobileCartItem data={data} product={product} user={user} setUser={setUser} key={index}/>
                         })
-                    }
+                    } */}
                 </div>
                 <div id='table-total'>
-                    <p>Total: R$ {total.toFixed(2)}</p>
+                    <p>Total: R$ 12</p>
                 </div>
                 <div id='keep-to-payment'>
                     <Link to="/payment">Continuar</Link>
