@@ -20,7 +20,6 @@
 
 body {
     display: flex; 
-    /* min-height: 90vh; */
     flex-direction: column;
 }
 
@@ -28,6 +27,16 @@ a {
     outline: none;
     text-decoration: none;
     color: black;
+}
+
+button {
+    outline: none;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    border: none;
+    font-size: 1rem;
 }
 
 textarea:focus, input:focus{

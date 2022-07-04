@@ -1,10 +1,8 @@
 import axios from 'axios';
 import '../css/loginpage.css';
-import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import FormInput from '../Common/FormInput';
 import { useState } from 'react';
-import { useEffect } from 'react';
 
 const Login = ({setUserInfo, setUser}) => {
     let [email, setEmail] = useState("")

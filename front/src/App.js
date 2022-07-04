@@ -58,9 +58,7 @@ function App() {
 			localStorage.setItem('cart', JSON.stringify(resp.data.cart)) 
 			setUserInfo(resp.data)
 		})
-		.catch( e => {
-			console.log(e)
-		})
+		.catch( e => {})
 	}
 
 	if (localStorage.getItem('id') != null && localStorage.getItem('id') != userInfo._id) {
@@ -80,14 +78,14 @@ function App() {
 							<Route path="/profile/changePwd" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<ChangePwd user={user} />
+									<ChangePwd setUserInfo={setUserInfo} userInfo={userInfo} user={user} />
 								</div>
 							)} />
 
 							<Route path="/profile/orders" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<Orders user={user} orders={orders} />
+									<Orders user={user} />
 								</div>
 							)} />
 

@@ -1,5 +1,5 @@
-@media (max-width: 960px) {
-    .info-container a {
-        text-align: right;
-    }
+.pwd-button {
+    width: 95%;
+    display: flex;
+    flex-direction: row-reverse;
 }

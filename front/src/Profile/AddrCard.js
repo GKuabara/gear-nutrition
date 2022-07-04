@@ -2,7 +2,7 @@ import '../css/addrCard.css';
 import axios from 'axios'
 
 const AddrCard = ({uInfo}) => {
-    console.log(uInfo)
+    
     return (  
         <div className="addr-card">
             <h3>Casa</h3>
