@@ -15,13 +15,12 @@ const Product = ({data, user, setUser}) => {
     let handleChange = (e)=> {setQntd(e.target.value);}
 
     function addToCart() {
-        const duplicate = false
+        let duplicate = false
         let cartCopy = JSON.parse(JSON.stringify(user.cart))
-        console.log(cartCopy)
-        cartCopy.map((item) => {
-            if (item._id === prod._id) {
+        cartCopy.map((item, idx) => {
+            if (item.id === prod._id) {
                 duplicate = true
-                item.qtt += qntd
+                cartCopy[idx].qtt += qntd
             }
         })
 
@@ -32,21 +31,7 @@ const Product = ({data, user, setUser}) => {
         localStorage.removeItem('cart')
         localStorage.setItem('cart', JSON.stringify(cartCopy))
         setUser({...user, cart: cartCopy})
-        
-        // axios.put({ baseURL: "http://localhost:5000/user/" + localStorage.getItem('id'),
-                    // headers: {"Content-Type": "application-json", "x-access-token": localStorage.getItem('token')},
-                    // data: {user}
-        // })
-        // axios.create({baseURL: "http://localhost:5000/user/" + localStorage.getItem('id'), headers: {"x-access-token": localStorage.getItem('token')}, data: {user}})
-        // .put()
-        // .then(resp => {
-        //     localStorage.removeItem('cart')
-        //     localStorage.setItem('cart', JSON.stringify(JSON.parse(cartCopy)))
-        //     setUser({...user, cart: cartCopy})
-        // })
-        // .catch( e => {
-        //     console.log('aaaaaaaaaa')
-        // })
+        console.log(cartCopy)
     }
 
     return ( 

@@ -13,7 +13,6 @@ const Login = ({setUserInfo, setUser}) => {
     
     const navigate = useNavigate();
     function logUser() {
-        console.log("oioi")
         axios.create({ baseURL: "http://localhost:5000" })
         .post('/user/auth', {
             email: email,
