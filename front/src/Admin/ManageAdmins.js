@@ -1,20 +1,59 @@
-import { useState } from "react";
+import axios from 'axios'
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import RowInfos from "../Common/rowInfos";
 import MobileTable from "../Common/MobileTable";
 
-const ManageAdmins = () => {
-    const email = "exemplo@usp.br";
-    const colTitles = {key: "ID", name: "Nome", email: "Email", cpf: "CPF"};
-    const [admins, setAdmins] = useState([
-        {key: 1, name: "Daniel Johnson", email: email, cpf: "111.111.111-11"},
-        {key: 2, name: "Matthew Leblanc", email: email, cpf: "222.222.222-22"},
-        {key: 3, name: "Crystal Moore", email: email, cpf: "333.333.333-33"},
-        {key: 4, name: "Eleanor Friedman", email: email, cpf: "444.444.444-44"},
-        {key: 5, name: "Aime Strong", email: email, cpf: "555.555.555-55"}
-    ]);
+const ManageAdmins = ({user}) => {
+    const colTitles = {key: "ID", name: "Nome", email: "Email", cpf: "CPF", admin: "Admin"};
+    // const [admins, setAdmins] = useState([
+    //     {key: 1, name: "Daniel Johnson", email: "exemplo@usp.br", cpf: "111.111.111-11", admin: "S"},
+    //     {key: 2, name: "Matthew Leblanc", email: "exemplo@usp.br", cpf: "222.222.222-22", admin: "S"},
+    //     {key: 3, name: "Crystal Moore", email: "exemplo@usp.br", cpf: "333.333.333-33", admin: "N"},
+    //     {key: 4, name: "Eleanor Friedman", email: "exemplo@usp.br", cpf: "444.444.444-44", admin: "S"},
+    //     {key: 5, name: "Aime Strong", email: "exemplo@usp.br", cpf: "555.555.555-55", admin: "N"}
+    // ]);
+
+    const [users, setUsers] = useState([])
+    const [usersInfo, setUsersInfo] = useState([])
     
-    const lengths = [10, 30, 30, 30];
+    useEffect(() => {
+        if (users.length)
+            getUsersInfo()
+    }, [users])
+
+    useEffect(() => {
+        getUsers()
+    }, [user])
+
+    function getUsers () {
+        axios.create({ baseURL: "http://localhost:5000/user",
+                    headers: {"Content-Type": "application-json","x-access-token": localStorage.getItem('token')}
+        })
+        .get()
+        .then(resp => {
+			setUsers(resp.data)
+		})
+		.catch( e => {console.log(e)})
+    }
+
+    function getUsersInfo () {
+        let usersList = []
+        users.map((u, idx) => {
+            let uInfo = {
+                id: idx + 1,
+                name: u.name,
+                email: u.email,
+                cpf: u.CPF,
+                admin: u.admin ? "True" : "False"                  
+            }
+            usersList.push(uInfo)
+        })
+        console.log(usersList)
+        setUsersInfo(usersList)
+    }
+    
+    const lengths = [7, 20, 30, 30, 13];
 
     let [selection, setSelection] = useState(-1);
     return (  
@@ -23,17 +62,18 @@ const ManageAdmins = () => {
             <div className="pc-table b-shadow">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {
-                admins.map((admin) => {
+                usersInfo.map((userInfo) => {
+                    console.log(userInfo)
                     return (
-                        <div className={selection === admin.key ? "info-row selected" : "info-row"} onClick={() => {setSelection(admin.key)}} id={admin.key} key={admin.key}>
-                            <RowInfos sizes={lengths} infos={admin} />
+                        <div className={selection === userInfo._id ? "info-row selected" : "info-row"} onClick={() => {setSelection(userInfo._id)}} id={userInfo._id} key={userInfo._id}>
+                            <RowInfos id={userInfo._id} sizes={lengths} infos={userInfo} />
                         </div>
                     );  
                 })
                 }
             </div>
             <div className="mobile-table">
-                <MobileTable selection={selection} setSelection={setSelection} items={admins} titles={colTitles} />
+                <MobileTable selection={selection} setSelection={setSelection} items={usersInfo} titles={colTitles} />
             </div>
             <Link to="/admin/manageAdmins">Remover</Link>
             <Link to="/admin/addAdmin">Adicionar</Link>

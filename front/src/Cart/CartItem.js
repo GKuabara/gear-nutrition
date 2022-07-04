@@ -63,7 +63,6 @@ const CardItem = ({data, product, user, setUser}) => {
     }
 
     useEffect(() => {
-        console.log("user atualizado", user.cart)
         const body = {
             "name": user.name,
             "email": user.email,

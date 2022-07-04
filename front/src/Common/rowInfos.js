@@ -1,6 +1,6 @@
 import '../css/rowInfos.css';
 
-const RowInfos = ({className, sizes, infos}) => {
+const RowInfos = ({id, className, sizes, infos}) => {
     let values = []
     for (const key in infos) 
         values.push(infos[key]);
@@ -10,7 +10,7 @@ const RowInfos = ({className, sizes, infos}) => {
         <div className={className}>
             {
             values.map((info, index) => {
-                const curKey = info + toString(key);
+                const curKey = "" + id + toString(key) + index;
                 return (
                     <div style={
                         {width: sizes[index] + "%"}

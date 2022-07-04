@@ -37,7 +37,17 @@ function App() {
     
     useEffect(() => {
         getProds()
-    }, [])
+
+		const ourl = `http://localhost:5000/orders/${localStorage.getItem('id')}`
+		axios.create({ baseURL: ourl, headers: {"x-access-token" : localStorage.getItem('token') } })
+        .get()
+        .then(resp => {
+			setOrders(resp.data)
+        })
+        .catch(e => {
+			console.error(e)
+        })
+    }, [user])
 	
     function getProds() {
         axios.create({ baseURL: "http://localhost:5000/product", headers: {"Content-Type": "application-json"} })
@@ -52,13 +62,14 @@ function App() {
 
 	const uInfo = () => {
 		const url = `http://localhost:5000/user/${localStorage.getItem('id')}`
-		axios.get( url, {headers: {"x-access-token": localStorage.getItem('token')}})
+		axios.get( url, {headers: {"x-access-token": localStorage.getItem('token')}} )
 		.then(resp => {
 			localStorage.removeItem('cart')
 			localStorage.setItem('cart', JSON.stringify(resp.data.cart)) 
 			setUserInfo(resp.data)
 		})
 		.catch( e => {})
+
 	}
 
 	if (localStorage.getItem('id') != null && localStorage.getItem('id') != userInfo._id) {
@@ -85,7 +96,7 @@ function App() {
 							<Route path="/profile/orders" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<Orders user={user} />
+									<Orders orders={orders} user={user} />
 								</div>
 							)} />
 
@@ -111,12 +122,12 @@ function App() {
 							)} />
 						</Route>
 						
-						<Route path="/login" element={<Login setUserInfo={setUserInfo} setUser={setUser} />} />
+						<Route path="/login" element={<Login user={user} setOrders={setOrders} setUserInfo={setUserInfo} setUser={setUser} />} />
 						<Route path="/signup" element={<SignUp />} />
 						
 						<Route path="/product" element={<Product data={products} user={userInfo} setUser={setUserInfo}/>} />
 						<Route path="/cart" element={<Cart data={products} user={userInfo} setUser={setUserInfo}/>} />
-						<Route path="/payment" element={<Payment user={userInfo} setUser={setUserInfo}/>} />
+						<Route path="/payment" element={<Payment orders={orders} user={userInfo} setUser={setUserInfo}/>} />
 						<Route path="/ordered" element={<Ordered />} />
 
 						<Route path="/admin">
@@ -155,7 +166,7 @@ function App() {
 							<Route path="manageAdmins" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<ManageAdmins />
+									<ManageAdmins user={user}/>
 								</div>
 							)} />
 							

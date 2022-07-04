@@ -26,7 +26,6 @@ exports.authenticate = async (req, res, next) => {
                 isAdmin: user.admin
             }
         }
-        console.log(resp)
     
         res.status(201).send(resp)
     } catch (e) {
@@ -53,7 +52,6 @@ exports.getById = (req, res, next) => {
 } 
 
 exports.put = (req, res, next) => {
-    console.log(req.body)
     User
     .findByIdAndUpdate(req.params.id, {
         $set: {

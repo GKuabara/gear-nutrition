@@ -3,12 +3,13 @@ import '../css/loginpage.css';
 import { useNavigate } from "react-router-dom";
 import FormInput from '../Common/FormInput';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
-const Login = ({setUserInfo, setUser}) => {
+const Login = ({setUserInfo, setUser, setOrders}) => {
     let [email, setEmail] = useState("")
     let [pwd, setPwd] = useState("")
     let [error, setError] = useState(false)
-    
+
     const navigate = useNavigate();
     function logUser() {
         axios.create({ baseURL: "http://localhost:5000" })
@@ -40,18 +41,7 @@ const Login = ({setUserInfo, setUser}) => {
             console.log(e)
         })
     }
-
-    const uOrders = () => {
-		const url = `http://localhost:5000/user/${localStorage.getItem('id')}`
-        axios.get( url, {headers: {"x-access-token": localStorage.getItem('token')}})
-        .then(resp => {
-            setUserInfo(resp.data)
-        })
-        .catch( e => {
-            console.log(e)
-        })
-    }
-
+    
     return (  
         <div className="login-container">
             <h1>Login</h1>

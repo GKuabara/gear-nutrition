@@ -21,6 +21,12 @@ const Cart = ({data, user, setUser}) => {
         setTotal(subTotal)
     }, [data, user]);
 
+    function finishOrder() {
+        if (total === 0) return
+
+
+    }
+
     return (
         <div id='cart-container'>
             <div id='table-container'>
@@ -39,16 +45,17 @@ const Cart = ({data, user, setUser}) => {
                     }
                 </div>
                 <div id="mobile-rows-container">
-                    {/* {
+                    {
                         user.cart.map((product, index) => {                            
                             return <MobileCartItem data={data} product={product} user={user} setUser={setUser} key={index}/>
                         })
-                    } */}
+                    }
                 </div>
                 <div id='table-total'>
                     <p>Total: R$ {total.toFixed(2)}</p>
                 </div>
                 <div id='keep-to-payment'>
+                    <button onClick={() => {}}>Continuar</button>
                     <Link to="/payment">Continuar</Link>
                 </div>
             </div>

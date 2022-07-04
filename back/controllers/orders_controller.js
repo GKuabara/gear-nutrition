@@ -4,12 +4,12 @@ const mongoose = require('mongoose')
 const Orders = mongoose.model('Orders')
 
 exports.get = (req, res, next) => {
-    Orders.find({})
+    let id = mongoose.Types.ObjectId(req.params.id)
+    Orders.find({customer: id})
     .then(data => {
         res.status(200).send(data)
     })  
     .catch(e => {
-        res.status(400).send(e)
     })
 }
 
