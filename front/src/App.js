@@ -55,8 +55,7 @@ function App() {
 		axios.get( url, {headers: {"x-access-token": localStorage.getItem('token')}})
 		.then(resp => {
 			localStorage.removeItem('cart')
-			localStorage.setItem('cart', JSON.stringify(resp.data.cart))
-			console.log(resp.data)
+			localStorage.setItem('cart', JSON.stringify(resp.data.cart)) 
 			setUserInfo(resp.data)
 		})
 		.catch( e => {

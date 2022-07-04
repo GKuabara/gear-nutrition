@@ -6,17 +6,19 @@ import MobileCartItem from './MobileCartItem';
 import '../css/cart.css';
 
 const Cart = ({data, user, setUser}) => {
-    // let [total, setTotal] = useState(0);
+    let [total, setTotal] = useState(0);
 
     useEffect(() => {
-        let temp = 0, i = 0;
+        setTotal(0)
+        let subTotal = 0
         user.cart.map ((cartItem) => {
             data.map((dataItem) => {
-                if (cartItem._id == dataItem._id)
-                    temp += cartItem.qtt * dataItem.price
+                if (cartItem.id == dataItem._id) {
+                    subTotal += cartItem.qtt * dataItem.price 
+                }
             })
         })
-        // setTotal(temp);
+        setTotal(subTotal)
     }, [data, user]);
 
     return (
@@ -44,7 +46,7 @@ const Cart = ({data, user, setUser}) => {
                     } */}
                 </div>
                 <div id='table-total'>
-                    <p>Total: R$ 12</p>
+                    <p>Total: R$ {total.toFixed(2)}</p>
                 </div>
                 <div id='keep-to-payment'>
                     <Link to="/payment">Continuar</Link>

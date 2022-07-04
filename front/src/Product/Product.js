@@ -31,7 +31,6 @@ const Product = ({data, user, setUser}) => {
         localStorage.removeItem('cart')
         localStorage.setItem('cart', JSON.stringify(cartCopy))
         setUser({...user, cart: cartCopy})
-        console.log(cartCopy)
     }
 
     return ( 

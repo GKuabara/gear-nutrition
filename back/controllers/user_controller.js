@@ -53,6 +53,7 @@ exports.getById = (req, res, next) => {
 } 
 
 exports.put = (req, res, next) => {
+    console.log(req.body)
     User
     .findByIdAndUpdate(req.params.id, {
         $set: {
