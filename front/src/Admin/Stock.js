@@ -6,7 +6,7 @@ import '../css/stock.css';
 import { useEffect } from "react";
 import axios from 'axios'
 
-const Stock = ({products, setProducts}) => {
+const Stock = ({user, products, setProducts}) => {
     const colTitles = {key: "Código", name: "Nome", value: "Valor", qtt: "Quantidade", sold: "Vendidos"};
     const lengths = [10, 40, 15, 20 , 15];
     let [selection, setSelection] = useState({idx: 0, id: null});
@@ -58,7 +58,6 @@ const Stock = ({products, setProducts}) => {
 
     return (  
         <div className="info-container">
-            <input type="text" placeholder="Pesquisar por código"/>
             <div className="pc-table b-shadow">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {

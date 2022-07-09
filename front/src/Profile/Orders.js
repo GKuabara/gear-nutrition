@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useState } from "react";
 import RowInfos from "../Common/rowInfos";
 import MobileTable from "../Common/MobileTable";

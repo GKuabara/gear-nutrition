@@ -7,9 +7,9 @@ const BottomNavLinks = ({closeMenu}) => {
     }
     return (  
         <ul>
-            <li><Link onClick={() => close()} to="/#g20">Gear Second</Link></li>
-            <li><Link onClick={() => close()} to="/#g30">Gear Third</Link></li>
-            <li><Link onClick={() => close()} to="/#g40">Gear Fourth</Link></li>
+            <li><Link onClick={() => close()} to="/#g2">Gear Second</Link></li>
+            <li><Link onClick={() => close()} to="/#g3">Gear Third</Link></li>
+            <li><Link onClick={() => close()} to="/#g4">Gear Fourth</Link></li>
             <li><Link onClick={() => close()} to="/tmb">Calcular TMB</Link></li>
         </ul>
     );

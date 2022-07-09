@@ -1,8 +1,7 @@
-import axios from 'axios'
 import './css/profile.css';
 import './css/App.css';
-import { Route, BrowserRouter as Router, Routes, useSearchParams } from "react-router-dom";
-import { useState } from 'react';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { useState, useEffect } from 'react';
 import Footer from './General/Footer';
 import Product from './Product/Product';
 import Payment from './Payment/Payment';
@@ -21,60 +20,29 @@ import Addresses from './Profile/Addresses';
 import Cart from './Cart/Cart';
 import Ordered from './Payment/Ordered';
 import AdminNav from './Admin/AdminNav';
-import AdminLogin from './Admin/AdminLogin';
 import EditStock from './Admin/EditStock';
 import AddProduct from './Admin/AddProduct';
 import RemoveProduct from './Admin/RemoveProduct';
 import ManageAdmins from './Admin/ManageAdmins';
-import AddAdmin from './Admin/AddAdmin';
-import { useEffect } from 'react';
+import Prod from './services/product';
+import User from './services/user';
+import Order from './services/orders';
 
 function App() {
 	let [user, setUser] = useState(localStorage.getItem('token') || false); 
 	let [products, setProducts] = useState([])
 	let [orders, setOrders] = useState([])
-	let [userInfo, setUserInfo] = useState({})
+	let [userInfo, setUserInfo] = useState(null)
     
     useEffect(() => {
-        getProds()
-
-		const ourl = `http://localhost:5000/orders/${localStorage.getItem('id')}`
-		axios.create({ baseURL: ourl, headers: {"x-access-token" : localStorage.getItem('token') } })
-        .get()
-        .then(resp => {
-			setOrders(resp.data)
-        })
-        .catch(e => {
-			console.error(e)
-        })
+        Prod.fetchProducts(setProducts)
+		Order.fetchOrders(setOrders)
     }, [user])
-	
-    function getProds() {
-        axios.create({ baseURL: "http://localhost:5000/product", headers: {"Content-Type": "application-json"} })
-        .get()
-        .then(resp => {
-			setProducts(resp.data)
-        })
-        .catch(e => {
-			console.error(e)
-        })
-    }
 
-	const uInfo = () => {
-		const url = `http://localhost:5000/user/${localStorage.getItem('id')}`
-		axios.get( url, {headers: {"x-access-token": localStorage.getItem('token')}} )
-		.then(resp => {
-			localStorage.removeItem('cart')
-			localStorage.setItem('cart', JSON.stringify(resp.data.cart)) 
-			setUserInfo(resp.data)
-		})
-		.catch( e => {})
-
-	}
-
-	if (localStorage.getItem('id') != null && localStorage.getItem('id') != userInfo._id) {
-		uInfo()
-	}
+	useEffect(() => {
+		if (userInfo === null && localStorage.getItem('id') !== null) 
+			User.fetchUser(setUserInfo)
+	}, [userInfo])
 
 	return (
 		<div className="App">
@@ -89,7 +57,7 @@ function App() {
 							<Route path="/profile/changePwd" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUserInfo} />
-									<ChangePwd setUserInfo={setUserInfo} userInfo={userInfo} user={user} />
+									<ChangePwd setUser={setUserInfo} userInfo={userInfo} user={user} />
 								</div>
 							)} />
 
@@ -103,14 +71,14 @@ function App() {
 							<Route path="/profile/data" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUserInfo} />
-									<ProfileData user={userInfo} />
+									<ProfileData setUser={setUserInfo} user={userInfo} />
 								</div>
 							)} />
 
 							<Route path="/profile/addresses" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUserInfo} />
-									<Addresses user={userInfo} />
+									<Addresses setUser={setUser} user={userInfo} />
 								</div>
 							)} />
 
@@ -125,64 +93,46 @@ function App() {
 						<Route path="/login" element={<Login user={user} setOrders={setOrders} setUserInfo={setUserInfo} setUser={setUser} />} />
 						<Route path="/signup" element={<SignUp />} />
 						
-						<Route path="/product" element={<Product data={products} user={userInfo} setUser={setUserInfo}/>} />
-						<Route path="/cart" element={<Cart data={products} user={userInfo} setUser={setUserInfo}/>} />
-						<Route path="/payment" element={<Payment setOrders={setOrders} orders={orders} user={userInfo} setUser={setUserInfo}/>} />
+						<Route path="/product/:idx" element={<Product data={products} setProducts={setProducts} user={userInfo} setUser={setUserInfo}/>} />
+						<Route path="/cart" element={<Cart setProducts={setProducts} setUserInfo={setUserInfo} data={products} user={userInfo} setUser={setUserInfo}/>} />
+						<Route path="/payment" element={<Payment  setOrders={setOrders} orders={orders} user={userInfo} products={products} setProducts={setProducts} setUser={setUserInfo}/>} />
 						<Route path="/ordered" element={<Ordered />} />
 
 						<Route path="/admin">
-							<Route path="" element={(
-								<AdminLogin user={user}/>
-							)} />
-
-							<Route path="stock" element={(
+							{userInfo && userInfo.admin ? <Route path="" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<Stock setProducts={setProducts} products={products}/>
+									<Stock user={userInfo} setProducts={setProducts} products={products}/>
 								</div>
-							)} />
-
-							{/* <Route path="stockEdit" element={(
-								<div id='admin-container'>
-									<AdminNav />
-									<EditStock products={products} setProducts={setProducts} />
-								</div>
-							)} /> */}
+							)} /> : <Route path='' element={<img style={{width: "100%"}} src="https://i.ibb.co/86fFFJn/saia-Invasor-jpg.png" alt="chad saia invasor" />} /> }
 							
-							<Route path="addProduct" element={(
+							{userInfo && userInfo.admin ? <Route path="addProduct" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<AddProduct />
+									<AddProduct user={userInfo} />
 								</div>
-							)} />
+							)} /> : <Route path='addProduct' element={<img style={{width: "100%"}} src="https://i.ibb.co/86fFFJn/saia-Invasor-jpg.png" alt="chad saia invasor" />} /> }
 							
-							<Route path="removeProduct" element={(
+							{userInfo && userInfo.admin ? <Route path="removeProduct" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<RemoveProduct setProducts={setProducts} />
+									<RemoveProduct user={userInfo} setProducts={setProducts} />
 								</div>
-							)} />
+							)} /> : <Route path='removeProduct' element={<img style={{width: "100%"}} src="https://i.ibb.co/86fFFJn/saia-Invasor-jpg.png" alt="chad saia invasor" />} />  }
 							
-							<Route path="manageAdmins" element={(
+							{userInfo && userInfo.admin ? <Route path="manageAdmins" element={(
 								<div id='admin-container'>
 									<AdminNav />
 									<ManageAdmins user={user}/>
 								</div>
-							)} />
-							
-							<Route path="addAdmin" element={(
-								<div id='admin-container'>
-									<AdminNav />
-									<AddAdmin />
-								</div>
-							)} />
+							)} /> : <Route path='manageAdmins' element={<img style={{width: "100%"}} src="https://i.ibb.co/86fFFJn/saia-Invasor-jpg.png" alt="chad saia invasor" />} /> }
 
-							<Route path="editStock/:id" element={(
+							{userInfo && userInfo.admin ? <Route path="editStock/:id" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<EditStock products={products} setProducts={setProducts} />
+									<EditStock user={userInfo} products={products} setProducts={setProducts} />
 								</div>
-							)} />
+							)} /> : <Route path='editStock/:id' element={<img style={{width: "100%"}} src="https://i.ibb.co/86fFFJn/saia-Invasor-jpg.png" alt="chad saia invasor" />} /> }
 						</Route>
 					</Routes>
 				</div>

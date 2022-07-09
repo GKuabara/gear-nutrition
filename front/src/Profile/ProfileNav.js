@@ -5,9 +5,8 @@ import '../css/profileNav.css';
 
 const ProfileNav = ({setUser}) => {
     function logoff() {
-        localStorage.removeItem('token')
-        localStorage.removeItem('id')
-        setUser(false)
+        localStorage.clear()
+        setUser(null)
     }
 
     return ( 

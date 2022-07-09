@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
-import { productImages } from "../Common/images"
 import '../css/prodCard.css'
 
 const ProductCard = ({ product, idx }) => {
     return ( 
-        <Link to="/product" state={{ idx: idx }}>
+        <Link to={"/product/" + idx} state={{ idx: idx }}>
             <div className='prod-container'>
                 <div className="productImage"><img src={product.img} alt='imagem' /></div>
                 <div className='np-container'>

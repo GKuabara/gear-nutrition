@@ -6,7 +6,7 @@ const FormInput = ({updateValue, param, placeholder, title, type}) => {
             <span>{title}:</span>
             <input onChange={(e) => { 
                 updateValue(e.target.value)
-             }} placeholder={placeholder} type={type} disabled={param} />
+             }} placeholder={placeholder} type={type} disabled={param}/>
         </div>
     );
 }

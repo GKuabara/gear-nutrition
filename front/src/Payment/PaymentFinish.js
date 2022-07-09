@@ -1,22 +1,33 @@
-import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../css/payment.css'
-import axios from 'axios'
+import User from '../services/user'
+import Orders from '../services/orders'
+import Product from '../services/product'
 
-const PaymentFinish = ({orders, setOrders, total, user, setUser}) => {
+const PaymentFinish = ({products, setProducts, orders, setOrders, total, user, setUser}) => {
     const emptyCart = () => {
-        const url =  "http://localhost:5000/user/" + localStorage.getItem('id')
-        let emptyCart = structuredClone(user)
-        emptyCart.token = localStorage.getItem('token')
-        axios.put( url, {...emptyCart, cart: []} )
-        .then(resp => {
-            console.log("Pedido Finalizado")
-        })
-        .catch(e => {
-            console.log(e)
-        })
+        User.updateUser({...user, cart: []})
         setUser({...user, cart: []})
     }
+
+    const updateStock = () => {
+        products.map(prod => {
+            user.cart.map((userProd) => {
+                if (prod._id === userProd.id) {
+                    if (prod.stock - userProd.qtt === 0) {
+                        Product.deleteProduct(prod._id)
+                        return
+                    }
+
+                    let newProd = {...prod, stock: prod.stock - userProd.qtt}
+                    newProd = {...newProd, sold: prod.sold + userProd.qtt}
+                    newProd.token = localStorage.getItem('token')
+                    console.log(newProd)
+                    Product.updateStock(userProd.id, newProd, products, setProducts)
+                }
+            })
+        })
+    } 
 
     const finishOrder = () => {
         const newOrder = {
@@ -31,21 +42,8 @@ const PaymentFinish = ({orders, setOrders, total, user, setUser}) => {
             }),
             price: total.toFixed(2)
         }
-
-        axios.create({ baseURL: "http://localhost:5000/" })
-        .post('/orders', newOrder)
-        .then(resp => {
-            emptyCart()
-            let newOrders = structuredClone(orders)
-            newOrders.push(newOrder)
-            setOrders(newOrders)
-        })
-        .catch(e => {
-            console.log(e)
-        })
-    }
-
-    const deleteCart = () => {
+        Orders.newOrder(newOrder, orders, setOrders, emptyCart)
+        updateStock()
     }
 
     return (

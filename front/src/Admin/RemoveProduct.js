@@ -1,10 +1,10 @@
-import axios from 'axios';
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TextInput from "../Common/TextInput";
+import Product from '../services/product';
 
-const RemoveProduct = ({products, setProducts}) => {
-    const navigate = useNavigate()
+const RemoveProduct = ({setProducts}) => {
+    const navigate = useNavigate();
     let [name, setName] = useState('')
     let [prod, setProd] = useState({
         id: '',
@@ -21,40 +21,8 @@ const RemoveProduct = ({products, setProducts}) => {
         searchProduct()
     }, [name])
 
-    const updateStock = () => {
-        axios.create({  baseURL: "http://localhost:5000/product",
-                        headers: {"Content-Type": "application-json","x-access-token": localStorage.getItem('token')}
-        })
-        .get()
-        .then(resp => {
-			setProducts(resp.data)
-		})
-		.catch( e => {console.log(e)})
-    }
-
     const searchProduct = () => {
-        axios.create({ baseURL: "http://localhost:5000/product",
-                    headers: {"Content-Type": "application-json","x-access-token": localStorage.getItem('token')}
-        })
-        .get(name)
-        .then(resp => {
-            updateStock();
-            setProd(resp.data)
-        })
-        .catch( e => {console.log(e)})
-    }
-
-    const deleteProduct = () => {
-        console.log(prod)
-        axios.create({ baseURL: "http://localhost:5000/product",
-                    headers: {"Content-Type": "application-json","x-access-token": localStorage.getItem('token')}
-        })
-        .delete(prod._id)
-        .then(resp => {
-            console.log('delete efetuado')
-            navigate("/admin/stock")
-        })
-        .catch( e => {console.log(e)})
+        Product.searchProd(name, setProducts, setProd)
     }
     
     return (  
@@ -72,7 +40,7 @@ const RemoveProduct = ({products, setProducts}) => {
                     <span>{prod.desc}</span>
                 </div>
                 <Link to="/admin/stock">Cancelar</Link>
-                <button onClick={deleteProduct}>Remover</button>
+                <button onClick={() => {Product.deleteProduct(prod._id); navigate("/admin/stock")}}>Remover</button>
             </div>
         </div>
     );

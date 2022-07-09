@@ -8,10 +8,10 @@ const TopNavLinks = ({closeMenu, user}) => {
     
     return (  
         <ul>
-            {user.admin && <li><Link onClick={() => close()} to="/admin/manageAdmins">Admins</Link></li>}
-            {!user && <li><Link onClick={() => close()} to="/signup">Cadastro</Link></li>}
-            {!user && <li><Link onClick={() => close()} to="/login">Login</Link></li>}
-            {user && <li><Link onClick={() => close()} to="/profile/data">Conta</Link></li>}
+            {user !== null && user.admin && <li><Link onClick={() => close()} to="/admin/manageAdmins">Admins</Link></li>}
+            {user === null && <li><Link onClick={() => close()} to="/signup">Cadastro</Link></li>}
+            {user === null && <li><Link onClick={() => close()} to="/login">Login</Link></li>}
+            {user !== null && <li><Link onClick={() => close()} to="/profile/data">Conta</Link></li>}
             <li><Link onClick={() => close()} to="/cart">Carrinho</Link></li>
         </ul>
     );

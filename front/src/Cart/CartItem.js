@@ -1,6 +1,7 @@
 import axios from 'axios';
 import '../css/cartItem.css'
 import { useEffect, useState } from 'react';
+import User from '../services/user';
 
 const CardItem = ({data, product, user, setUser}) => {
     const [quantity, setQuantity] = useState(product.qtt);
@@ -34,18 +35,9 @@ const CardItem = ({data, product, user, setUser}) => {
                 "city": user.city,
                 "state": user.state,
                 "telephone": user.telephone,
-                "cart": [],
-                "token": localStorage.getItem('token')
+                "cart": []
             }
-    
-            const url =  "http://localhost:5000/user/" + localStorage.getItem('id')
-            axios.put( url, body )
-            .then(resp => {
-                setQuantity(getCartProd())
-            })
-            .catch(e => {
-                console.log(e)
-            })
+            User.updateUser(body)
             setUser({...user, cart: []})
         } else {
             let newUser = {...user, cart: newCart.filter(item => { return item.qtt !== 0 })}
@@ -76,18 +68,18 @@ const CardItem = ({data, product, user, setUser}) => {
             "city": user.city,
             "state": user.state,
             "telephone": user.telephone,
-            "cart": user.cart,
-            "token": localStorage.getItem('token')
+            "cart": user.cart
         }
 
-        const url =  "http://localhost:5000/user/" + localStorage.getItem('id')
-        axios.put( url, body )
-        .then(resp => {
-            setQuantity(getCartProd())
-        })
-        .catch(e => {
-            console.log(e)
-        })
+        User.updateUser(body, false, setQuantity, getCartProd())
+        // const url =  "http://localhost:5000/user/" + localStorage.getItem('id')
+        // axios.put( url, body )
+        // .then(resp => {
+        //     setQuantity(getCartProd())
+        // })
+        // .catch(e => {
+        //     console.log(e)
+        // })
     }, [user])
 
     return ( 

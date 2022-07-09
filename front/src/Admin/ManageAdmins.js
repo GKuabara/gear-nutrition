@@ -1,7 +1,7 @@
-import axios from 'axios'
 import { useState, useEffect } from "react";
 import RowInfos from "../Common/rowInfos";
 import MobileTable from "../Common/MobileTable";
+import User from '../services/user';
 import '../css/manageAdmins.css'
 
 const ManageAdmins = () => {
@@ -18,19 +18,8 @@ const ManageAdmins = () => {
     }, [users])
 
     useEffect(() => {
-        getUsers()
+        User.getUsers(setUsers)
     }, [selection])
-
-    function getUsers () {
-        axios.create({ baseURL: "http://localhost:5000/user",
-                    headers: {"Content-Type": "application-json","x-access-token": localStorage.getItem('token')}
-        })
-        .get()
-        .then(resp => {
-			setUsers(resp.data)
-		})
-		.catch( e => {console.log(e)})
-    }
 
     function getUsersInfo () {
         let usersList = []
@@ -59,18 +48,7 @@ const ManageAdmins = () => {
 
         const updatedUser = {...users[selection.idx - 1], admin: true}
         updatedUser.token = localStorage.getItem('token')
-        const url =  "http://localhost:5000/user/" + selection.id
-        axios.put( url, updatedUser )
-        .then( () => {
-            setUsers(users.map(user => {
-                if (user._id === selection.id)
-                    user.admin = true
-                return user
-            }))
-        })
-        .catch(e => {
-            console.log(e)
-        })
+        User.adminRole(updatedUser, selection.id, users, setUsers, true)
     }
 
     const removeAdmin = () => {
@@ -87,18 +65,7 @@ const ManageAdmins = () => {
 
         const updatedUser = {...users[selection.idx - 1], admin: false}
         updatedUser.token = localStorage.getItem('token')
-        const url =  "http://localhost:5000/user/" + selection.id
-        axios.put( url, updatedUser )
-        .then( () => {
-            setUsers(users.map(user => {
-                if (user._id === selection.id)
-                    user.admin = false
-                return user
-            }))
-        })
-        .catch(e => {
-            console.log(e)
-        })
+        User.adminRole(updatedUser, selection.id, users, setUsers, false)
     }
     
     const lengths = [7, 15, 40, 25, 13];

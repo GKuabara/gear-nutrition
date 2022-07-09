@@ -3,19 +3,26 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CartItem from './CartItem';
 import MobileCartItem from './MobileCartItem';
+import Prod from '../services/product';
+import User from '../services/user';
 import '../css/cart.css';
 
-const Cart = ({data, user, setUser}) => {
+const Cart = ({data, user, setProducts, setUserInfo}) => {
     let [total, setTotal] = useState(0)
-    let [cartEmpty, setCartEmpty] = useState(true)
     let navigate = useNavigate();
 
-    useEffect(() => {
+    
+    if (data.length === 0) Prod.fetchProducts(setProducts)
+    if (user === null) User.fetchUser(setUserInfo)
+
+    useEffect(() => {            
+        if (user === null || data === null) return
+
         setTotal(0)
         let subTotal = 0
         user.cart.map ((cartItem) => {
             data.map((dataItem) => {
-                if (cartItem.id == dataItem._id) {
+                if (cartItem.id === dataItem._id) {
                     subTotal += cartItem.qtt * dataItem.price 
                 }
             })
@@ -24,14 +31,12 @@ const Cart = ({data, user, setUser}) => {
     }, [data, user]);
 
     function finishOrder() {
-        // if (total === 0) setCartEmpty(true); else setCartEmpty(true);
         if (total === 0) return
         else navigate("/payment", {state: {total}});
-        // else return <Link to="/payment" state={{total: total}}>Continuar</Link>
     }
 
     return (
-        <div id='cart-container'>
+        user && <div id='cart-container'>
             <div id='table-container'>
                 <h1 id='cart-title'>Carrinho</h1>
                 <div id='header-container'>
@@ -43,14 +48,14 @@ const Cart = ({data, user, setUser}) => {
                 <div id="rows-container">
                     {
                         user.cart.map((product, index) => {
-                            return <CartItem data={data} product={product} user={user} setUser={setUser} key={index}/>
+                            return <CartItem data={data} product={product} user={user} setUser={setUserInfo} key={index}/>
                         })
                     }
                 </div>
                 <div id="mobile-rows-container">
                     {
                         user.cart.map((product, index) => {                            
-                            return <MobileCartItem data={data} product={product} user={user} setUser={setUser} key={index}/>
+                            return <MobileCartItem data={data} product={product} user={user} setUser={setUserInfo} key={index}/>
                         })
                     }
                 </div>

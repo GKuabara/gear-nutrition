@@ -1,20 +1,33 @@
-import axios from 'axios';
-import { Link, useLocation } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { productImages } from "../Common/images"
+import Prod from '../services/product';
 import '../css/product.css';
 
-const Product = ({data, user, setUser}) => {
-    const location = useLocation();
+const Product = ({data, setProducts, user, setUser}) => {
+    let [prod, setProd] = useState(false);
     const [qntd, setQntd]= useState(1);
-    const { idx } = location.state;
-    const prod = data[idx]
+    const { idx } = useParams();
+    const navigate = useNavigate();
 
-    let incQntd = () => {if(qntd < 100) {setQntd(qntd + 1);}}
-    let decQntd = () => {if(qntd > 0) {setQntd(qntd - 1);}}
-    let handleChange = (e)=> {setQntd(e.target.value);}
+    if (data.length === 0) {
+        Prod.fetchProducts(setProducts)
+    }
+
+    useEffect(() => {
+        if (data.length > 0)
+            setProd(data[idx])
+    }, [data])
+
+    let incQntd = () => {if(qntd < prod.stock) {setQntd(parseInt(qntd + 1))}}
+    
+    let decQntd = () => {if(qntd > 1) {setQntd(parseInt(qntd - 1))}}
 
     function addToCart() {
+        if (qntd === 0) {
+            alert("Quantidade deve ser maior do que 0")
+            return
+        }
+
         let duplicate = false
         let cartCopy = JSON.parse(JSON.stringify(user.cart))
         cartCopy.map((item, idx) => {
@@ -31,6 +44,8 @@ const Product = ({data, user, setUser}) => {
         localStorage.removeItem('cart')
         localStorage.setItem('cart', JSON.stringify(cartCopy))
         setUser({...user, cart: cartCopy})
+
+        navigate("/cart")
     }
 
     return ( 
@@ -46,10 +61,17 @@ const Product = ({data, user, setUser}) => {
                 <div id='prod-info-row'>
                     <div id='prod-info-left'>
                         <button id="decButton" type="button" onClick={decQntd}>-</button>
-                        <input id='qntd' type='text' value={qntd} onChange={handleChange}></input>
+                        <input id='qntd' type="text" value={qntd} onChange={(e) => {
+                            const val = parseInt(e.target.value)
+                            if (val > 0 && val <= prod.stock)
+                                setQntd(val)
+                            else if (isNaN(val)) {
+                                setQntd(0)
+                            }
+                        }}></input>
                         <button id="incButton" type="button" onClick={incQntd}>+</button>
                     </div>
-                    <Link to="/cart" state={{ idx: idx }} id='buyButton' onClick={() => addToCart()}>Comprar</Link>
+                    <button id="buyButton" onClick={addToCart}>Comprar</button>
                 </div>
             </div>
         </div>

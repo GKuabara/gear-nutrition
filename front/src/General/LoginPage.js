@@ -3,43 +3,16 @@ import '../css/loginpage.css';
 import { useNavigate } from "react-router-dom";
 import FormInput from '../Common/FormInput';
 import { useState } from 'react';
-import { useEffect } from 'react';
+import User from '../services/user';
 
-const Login = ({setUserInfo, setUser, setOrders}) => {
+const Login = ({setUserInfo, setUser}) => {
+    const navigate = useNavigate();
     let [email, setEmail] = useState("")
     let [pwd, setPwd] = useState("")
     let [error, setError] = useState(false)
 
-    const navigate = useNavigate();
     function logUser() {
-        axios.create({ baseURL: "http://localhost:5000" })
-        .post('/user/auth', {
-            email: email,
-            password: pwd
-        })
-        .then(resp => {
-            localStorage.setItem('token', resp.data.token)
-            localStorage.setItem('id', resp.data.id)
-            uInfo()
-            setUser(resp.data)
-            setError(false)
-            navigate("/")
-        })
-        .catch(e => {
-            setError(true)
-            console.log(e)
-        })
-    }
-    
-	const uInfo = () => {
-		const url = `http://localhost:5000/user/${localStorage.getItem('id')}`
-        axios.get( url, {headers: {"x-access-token": localStorage.getItem('token')}})
-        .then(resp => {
-            setUserInfo(resp.data)
-        })
-        .catch( e => {
-            console.log(e)
-        })
+        User.logUser({ email: email, password: pwd }, setUser, setUserInfo, setError, navigate)
     }
     
     return (  

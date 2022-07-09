@@ -1,11 +1,17 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import AddrCard from './AddrCard';
 import '../css/addrCard.css';
 import '../css/addresses.css';
-import AddrCard from './AddrCard';
+import User from '../services/user';
 
-const Addresses = ({user}) => {
+const Addresses = ({user, setUser}) => {
+    useEffect(() => {
+        if (user === null) User.fetchUser(setUser)
+    })
+
     return (  
-        <div className="info-container" id="addresses">
+        user && <div className="info-container" id="addresses">
             <div className="b-shadow profile-card">
                 <AddrCard uInfo={user}/>
             </div>  

@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import FormInput from '../Common/FormInput';
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom';
+import User from '../services/user';
 import '../css/changePwd.css';
 
-const ChangePwd = ({userInfo, setUserInfo, user}) => {
+const ChangePwd = ({userInfo}) => {
     let [curPwd, setCurPwd] = useState("")
     let [newPwd, setNewPwd] = useState("")
     let [newPwdC, setNewPwdC] = useState("")
@@ -31,20 +31,10 @@ const ChangePwd = ({userInfo, setUserInfo, user}) => {
                 "city": userInfo.city,
                 "state": userInfo.state,
                 "telephone": userInfo.telephone,
-                "cart": userInfo.cart,
-                "token": localStorage.getItem('token')
+                "cart": userInfo.cart
             }
-    
-            const url =  "http://localhost:5000/user/" + localStorage.getItem('id')
-            axios.put( url, body )
-            .then( () => {
-                setUserInfo({...userInfo, password: newPwd})
-                navigate('/')
-            }
-            )
-            .catch(e => {
-                console.log(e)
-            })
+            
+            User.updateUser(body, () => {navigate("/profile/data")})
             
         }
     }

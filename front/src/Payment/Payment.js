@@ -1,13 +1,10 @@
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import PaymentAddress from './PaymentAddress';
-import PaymentFinish from './PaymentFinish';
-import PaymentInfo from './PaymentInfo';
 import PcPayment from './PcPayment';
 import MobilePayment from './MobilePayment';
 import '../css/payment.css'
 
-const Payment = ({setOrders, orders, user, setUser}) => {
+const Payment = ({products, setProducts, setOrders, orders, user, setUser}) => {
     const location = useLocation()
     const {total} = location.state
 
@@ -27,8 +24,8 @@ const Payment = ({setOrders, orders, user, setUser}) => {
             <div id='payment-title-container'>
                 <h1>Pagamento</h1>
             </div>
-            <PcPayment setOrders={setOrders} orders={orders} address={addr} user={user} total={total} setUser={setUser}/>
-            <MobilePayment setOrders={setOrders} orders={orders} total={total} address={addr}/>
+            <PcPayment products={products} setProducts={setProducts} setOrders={setOrders} orders={orders} address={addr} user={user} total={total} setUser={setUser}/>
+            <MobilePayment products={products} setProducts={setProducts} setOrders={setOrders} orders={orders} total={total} address={addr}/>
         </div>
     );
 }

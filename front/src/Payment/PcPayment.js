@@ -3,7 +3,7 @@ import PaymentAddress from './PaymentAddress';
 import PaymentFinish from './PaymentFinish';
 import PaymentInfo from './PaymentInfo';
 
-const PcPayment = ({ orders, setOrders, total, address, user, setUser }) => {
+const PcPayment = ({ products, setProducts, orders, setOrders, total, address, user, setUser }) => {
     return (
         <div id='payment-major-container'>
             <div id='payment-left-container'>
@@ -11,7 +11,7 @@ const PcPayment = ({ orders, setOrders, total, address, user, setUser }) => {
                 <PaymentInfo />
             </div>
             <div id='payment-right-container'>
-                <PaymentFinish setOrders={setOrders} orders={orders} total={total} user={user} setUser={setUser}/>
+                <PaymentFinish products={products} setProducts={setProducts} setOrders={setOrders} orders={orders} total={total} user={user} setUser={setUser}/>
             </div>
         </div>
     );

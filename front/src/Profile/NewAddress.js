@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import AddrInput from './AddrInput';
-import '../css/newAddress.css';
 import { useState } from 'react';
-import axios from 'axios'
+import '../css/newAddress.css';
+import User from "../services/user";
 
 const NewAddress = ({user, setUser}) => {
     let [street, setStreet] = useState("");
@@ -22,20 +22,15 @@ const NewAddress = ({user, setUser}) => {
             number: num,
             neighborhood: neigh,
             city: city,
-            state: state,
-            token: localStorage.getItem('token')
+            state: state
         }
 
-        console.log(updatedAddr)
-        axios.put(url,  updatedAddr)
-        .then( () => {
+        const afterUpdate = (updatedAddr) => {
             setUser(updatedAddr)
             navigate('/profile/data')
         }
-        )
-        .catch(e => {
-            console.log(e)
-        })
+        
+        User.updateUser(updatedAddr, afterUpdate)
     }
 
     return ( 
