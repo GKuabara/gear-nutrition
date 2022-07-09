@@ -13,8 +13,20 @@ exports.get = (req, res, next) => {
 }
 
 exports.getById = (req, res, next) => {
-    User.findById(req.params.id)
+    Product.findById(req.params.id)
     .then(data => {
+        res.status(200).send(data)
+    }).catch(e => {
+        res.status(400).send(e)
+    })
+}
+
+exports.getByName = (req, res, next) => {
+    const name = req.params.name.trim()
+    console.log(`"${name}"`)
+    Product.findOne({name: { "$regex": name }})
+    .then(data => {
+        console.log(data)
         res.status(200).send(data)
     }).catch(e => {
         res.status(400).send(e)
@@ -30,9 +42,10 @@ exports.put = (req, res, next) => {
             $set: {
                 name: req.body.name,
                 price: req.body.price,
-                stock: stock + req.body.stock,
+                stock: req.body.stock,
                 desc: req.body.desc,
-                img: req.body.img
+                img: req.body.img,
+                series: req.body.series
             }
         })
         .then(() => {

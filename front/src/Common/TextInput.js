@@ -1,6 +1,6 @@
 import '../css/textInput.css';
 
-const TextInput = ({title, size, placeholder}) => {
+const TextInput = ({setValue, title, size, placeholder}) => {
     return (  
         <div style={{width: size.width + "%"}} className="text-input">
             <span>{title}</span>

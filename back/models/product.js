@@ -5,7 +5,8 @@ const schema = new Schema({
     name: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        index: {unique: true}
     },
     series: {
         type: String,

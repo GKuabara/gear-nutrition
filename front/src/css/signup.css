@@ -1,3 +1,14 @@
+.signup-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.sign-col {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
 .signup-container {
     border: 1px solid grey;
     border-radius: 5px;
@@ -7,42 +18,14 @@
     display: inline-block;
 }
 
-.first-div{
-    position: relative;
-}
-
-.second-div{
-    position: relative;
-}
-
-.third-div{
-    display: flex;
-}
-
-.signup-field input{
-    width: 100%;
-}
-
-.form-camps-left{
-    width: 50%;
-    margin: 0;
-}
-
-.form-camps-right{
-    width: 50%;
-    margin: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
 .signup-button{
     padding: 20px;
     width: 50%;
+    /* height: auto; */
     position: relative;
 }
 
-.signup-button a{
+.signup-button button{
     text-align: center;
     width: 40%;
     padding: 8px;
@@ -65,31 +48,18 @@
 }
 
 @media (max-width: 960px) {
-    .third-div{
-        display: unset;
+    .sign-col {
+        /* display: inline-block; */
+        flex-direction: column;
+        width: 90%;
     }
 
-    .signup-field{
-        width: 100%;
+    .signup-row {
+        /* display: inline-block; */
+        flex-direction: column;
     }
     
-    .form-camps-left{
-        width: 100%;
-        margin: 0;
-    }
-    
-    .form-camps-right{
-        width: 100%;
-        margin: 0;
-        position: unset;
-    }
-
-    .signup-button {
-        position: unset;
-        width: 100%;
-    }
-    
-    .signup-button a {
+    .signup-button button {
         padding: 10px;
         position: unset;
         width: 100%;

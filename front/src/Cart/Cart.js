@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import CartItem from './CartItem';
 import MobileCartItem from './MobileCartItem';
 import '../css/cart.css';
 
 const Cart = ({data, user, setUser}) => {
-    let [total, setTotal] = useState(0);
+    let [total, setTotal] = useState(0)
+    let [cartEmpty, setCartEmpty] = useState(true)
+    let navigate = useNavigate();
 
     useEffect(() => {
         setTotal(0)
@@ -22,9 +24,10 @@ const Cart = ({data, user, setUser}) => {
     }, [data, user]);
 
     function finishOrder() {
+        // if (total === 0) setCartEmpty(true); else setCartEmpty(true);
         if (total === 0) return
-
-
+        else navigate("/payment", {state: {total}});
+        // else return <Link to="/payment" state={{total: total}}>Continuar</Link>
     }
 
     return (
@@ -55,8 +58,7 @@ const Cart = ({data, user, setUser}) => {
                     <p>Total: R$ {total.toFixed(2)}</p>
                 </div>
                 <div id='keep-to-payment'>
-                    <button onClick={() => {}}>Continuar</button>
-                    <Link to="/payment">Continuar</Link>
+                    <button onClick={() => finishOrder()}>Continuar</button>
                 </div>
             </div>
         </div>

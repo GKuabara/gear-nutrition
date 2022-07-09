@@ -1,10 +1,10 @@
 import '../css/addrInput.css';
 
-const AddrInput = ({title, placeholder, size}) => {
+const AddrInput = ({updateValue, title, placeholder, size}) => {
     return (  
         <div style={{width: size}} className="addr-input">
             <span>{title}: </span>
-            <input id={title} type="text" placeholder={placeholder} />
+            <input id={title} onChange={e => {updateValue(e.target.value)}} type="text" placeholder={placeholder} />
         </div>
     );
 }

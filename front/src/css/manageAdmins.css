@@ -1,0 +1,10 @@
+.admin-buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    padding: 5px;
+}
+
+.admin-buttons button {
+    margin: 1%;
+}

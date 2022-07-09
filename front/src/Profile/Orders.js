@@ -10,9 +10,6 @@ const Orders = ({orders, user}) => {
 
     return ( 
         <div className="info-container">
-            <div className="orders-filter">
-                <input type="text" placeholder="Pedido de nº" />
-            </div>
             <div className="b-shadow pc-table" id="orders">
                 <RowInfos className={"row-titles"} sizes={lengths} infos={colTitles} />
                 {
@@ -24,7 +21,7 @@ const Orders = ({orders, user}) => {
                     }
             
                     return (
-                        <div key={order._id}>
+                        <div key={order._id + idx}>
                             <RowInfos className={"info-row"} sizes={lengths} infos={item} />
                         </div>
                     );  
@@ -32,9 +29,9 @@ const Orders = ({orders, user}) => {
                 }
             </div>
 
-            <div className="mobile-table">
-                {/* <MobileTable titles={colTitles} items={orders}/> */}
-            </div>
+            {/* <div className="mobile-table">
+                <MobileTable titles={colTitles} items={orders}/>
+            </div> */}
         </div>
     );
 }

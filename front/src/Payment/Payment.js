@@ -7,7 +7,9 @@ import PcPayment from './PcPayment';
 import MobilePayment from './MobilePayment';
 import '../css/payment.css'
 
-const Payment = ({user, setUser, orders}) => {
+const Payment = ({setOrders, orders, user, setUser}) => {
+    const location = useLocation()
+    const {total} = location.state
 
     let [addr, setAddr] = useState("")
     useEffect(() => {
@@ -25,8 +27,8 @@ const Payment = ({user, setUser, orders}) => {
             <div id='payment-title-container'>
                 <h1>Pagamento</h1>
             </div>
-            <PcPayment address={addr} data={data} setData={setData}/>
-            <MobilePayment address={addr}/>
+            <PcPayment setOrders={setOrders} orders={orders} address={addr} user={user} total={total} setUser={setUser}/>
+            <MobilePayment setOrders={setOrders} orders={orders} total={total} address={addr}/>
         </div>
     );
 }

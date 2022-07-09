@@ -8,7 +8,7 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 // Carregando o BD
-mongoose.connect(process.env.GN_DB_URI)
+mongoose.connect(process.env.GN_DB_URI, {dbName: "GN"})
 
 // Carregando models
 const Product = require('./models/product')

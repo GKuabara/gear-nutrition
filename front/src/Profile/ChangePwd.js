@@ -1,9 +1,8 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FormInput from '../Common/FormInput';
 import axios from 'axios'
-import '../css/changePwd.css';
 import { useNavigate } from 'react-router-dom';
+import '../css/changePwd.css';
 
 const ChangePwd = ({userInfo, setUserInfo, user}) => {
     let [curPwd, setCurPwd] = useState("")

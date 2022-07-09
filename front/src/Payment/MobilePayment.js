@@ -9,7 +9,7 @@ const MobilePayment = (props) => {
         <div id='mobile-payment-container'>
             <PaymentAddress address={props.address} />
             <PaymentInfo />
-            <PaymentFinish />
+            <PaymentFinish total={props.total} />
         </div>
     );
 }

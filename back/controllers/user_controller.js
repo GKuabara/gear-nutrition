@@ -4,12 +4,14 @@ const ValidatorContract = require('../validators/fluent-validator')
 const auth = require('../service/auth')
 
 exports.authenticate = async (req, res, next) => {
+    console.log("User authenticating:", req.body)
     const data = req.body;
     try {
         const user = await User.findOne({
             email: data.email,
             password: data.password
         })
+        console.log(user)
 
         if (!user) {
             res.status(404).send({ message: "Usuário ou senha inválidos" })

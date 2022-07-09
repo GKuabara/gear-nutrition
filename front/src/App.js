@@ -117,7 +117,7 @@ function App() {
 							<Route path="/profile/newAddress" element={(
 								<div id='profile-container'>
 									<ProfileNav setUser={setUser} />
-									<NewAddress user={user} />
+									<NewAddress setUser={setUserInfo} user={userInfo} />
 								</div>
 							)} />
 						</Route>
@@ -127,7 +127,7 @@ function App() {
 						
 						<Route path="/product" element={<Product data={products} user={userInfo} setUser={setUserInfo}/>} />
 						<Route path="/cart" element={<Cart data={products} user={userInfo} setUser={setUserInfo}/>} />
-						<Route path="/payment" element={<Payment orders={orders} user={userInfo} setUser={setUserInfo}/>} />
+						<Route path="/payment" element={<Payment setOrders={setOrders} orders={orders} user={userInfo} setUser={setUserInfo}/>} />
 						<Route path="/ordered" element={<Ordered />} />
 
 						<Route path="/admin">
@@ -138,16 +138,16 @@ function App() {
 							<Route path="stock" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<Stock />
+									<Stock setProducts={setProducts} products={products}/>
 								</div>
 							)} />
 
-							<Route path="stockEdit" element={(
+							{/* <Route path="stockEdit" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<EditStock />
+									<EditStock products={products} setProducts={setProducts} />
 								</div>
-							)} />
+							)} /> */}
 							
 							<Route path="addProduct" element={(
 								<div id='admin-container'>
@@ -159,7 +159,7 @@ function App() {
 							<Route path="removeProduct" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<RemoveProduct />
+									<RemoveProduct setProducts={setProducts} />
 								</div>
 							)} />
 							
@@ -180,7 +180,7 @@ function App() {
 							<Route path="editStock/:id" element={(
 								<div id='admin-container'>
 									<AdminNav />
-									<EditStock />
+									<EditStock products={products} setProducts={setProducts} />
 								</div>
 							)} />
 						</Route>

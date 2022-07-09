@@ -1,8 +1,13 @@
 import '../css/addrCard.css';
 import axios from 'axios'
+import { useEffect } from 'react';
 
 const AddrCard = ({uInfo}) => {
     
+    useEffect(() => {
+        console.log("Endereço Mudou")
+    }, [uInfo])
+
     return (  
         <div className="addr-card">
             <h3>Casa</h3>
