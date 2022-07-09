@@ -3,10 +3,11 @@ import '../css/payment.css'
 const PaymentAddress = (props) => {
     let address = props.address;
 
+    console.log(address)
     return (
         <div id="payment-address">
             <h2>Dados de Entrega</h2>
-            <p>{address.name}<br/>{address.add}<br/>{address.city}</p>
+            <p>{address.street}<br/>{address.num}<br/>{address.city}</p>
         </div>
     )
 }

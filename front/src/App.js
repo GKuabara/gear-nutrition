@@ -79,7 +79,7 @@ function App() {
 	return (
 		<div className="App">
 			<Router>
-				<NavBar user={user} />
+				<NavBar user={userInfo} />
 				<div className="content">
 					<Routes>
 						<Route path="/" element={<Homepage data={products}/>} />
@@ -88,35 +88,35 @@ function App() {
 						<Route path="/profile">
 							<Route path="/profile/changePwd" element={(
 								<div id='profile-container'>
-									<ProfileNav setUser={setUser} />
+									<ProfileNav setUser={setUserInfo} />
 									<ChangePwd setUserInfo={setUserInfo} userInfo={userInfo} user={user} />
 								</div>
 							)} />
 
 							<Route path="/profile/orders" element={(
 								<div id='profile-container'>
-									<ProfileNav setUser={setUser} />
+									<ProfileNav setUser={setUserInfo} />
 									<Orders orders={orders} user={user} />
 								</div>
 							)} />
 
 							<Route path="/profile/data" element={(
 								<div id='profile-container'>
-									<ProfileNav setUser={setUser} />
+									<ProfileNav setUser={setUserInfo} />
 									<ProfileData user={userInfo} />
 								</div>
 							)} />
 
 							<Route path="/profile/addresses" element={(
 								<div id='profile-container'>
-									<ProfileNav setUser={setUser} />
+									<ProfileNav setUser={setUserInfo} />
 									<Addresses user={userInfo} />
 								</div>
 							)} />
 
 							<Route path="/profile/newAddress" element={(
 								<div id='profile-container'>
-									<ProfileNav setUser={setUser} />
+									<ProfileNav setUser={setUserInfo} />
 									<NewAddress setUser={setUserInfo} user={userInfo} />
 								</div>
 							)} />

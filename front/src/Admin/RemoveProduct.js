@@ -73,7 +73,6 @@ const RemoveProduct = ({products, setProducts}) => {
                 </div>
                 <Link to="/admin/stock">Cancelar</Link>
                 <button onClick={deleteProduct}>Remover</button>
-                {/* <Link to="/admin/stock" onCLick={() => deleteProduct()}>Remover</Link>     */}
             </div>
         </div>
     );

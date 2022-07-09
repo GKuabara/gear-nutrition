@@ -5,10 +5,10 @@ const TopNavLinks = ({closeMenu, user}) => {
         if (closeMenu) 
             closeMenu();
     }
-
+    
     return (  
         <ul>
-            {user.admin && user && <li><Link onClick={() => close()} to="/admin/manageAdmins">Admins</Link></li>}
+            {user.admin && <li><Link onClick={() => close()} to="/admin/manageAdmins">Admins</Link></li>}
             {!user && <li><Link onClick={() => close()} to="/signup">Cadastro</Link></li>}
             {!user && <li><Link onClick={() => close()} to="/login">Login</Link></li>}
             {user && <li><Link onClick={() => close()} to="/profile/data">Conta</Link></li>}

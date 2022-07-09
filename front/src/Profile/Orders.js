@@ -19,10 +19,9 @@ const Orders = ({orders, user}) => {
                         status: order.status === 'done' ? "Pedido entregue" : "Pedido realizado",
                         price: order.price
                     }
-            
                     return (
-                        <div key={order._id + idx}>
-                            <RowInfos className={"info-row"} sizes={lengths} infos={item} />
+                        <div key={"" + order._id + idx}>
+                            <RowInfos className={"info-row"} id={order._id} sizes={lengths} infos={item} />
                         </div>
                     );  
                 })
