@@ -18,7 +18,7 @@ O sistema contém 2 tipos de usuários: clientes e administradores.
 
 **Clientes** são aqueles que compram os produtos. Esses são registrados com as informações de CPF, nome, número de celular, endereço e email.
 
-**Administradores** são responsáveis por registrar e gerenciar outros administradores e produtos. A aplicação já vem como padrão um usuário *admin* e senha *admin*. Cada administrador tem informações de CPF, nome, número de celular e email.
+Na nossa implementação **Administradores** também são usuários e são responsáveis por gerenciar usuários, outros administradores e produtos. A aplicação já vem como padrão um email *admin@usp.br* e senha *admin*.
 
 Os **produtos** contém um código de identificação, nome, foto, descrição, preço e quantidade em estoque.
 
@@ -78,11 +78,12 @@ Usuários:
 Produtos:
 - Id (chave única para produto)
 - Nome
-- Categoria (0 a 2)
+- Categoria (popular, gear second, gear third, gear fourth)
 - Preço
 - Descrição
 - Identificador da Imagem
 - Quantidade em estoque
+- Quantidade vendida
 
 ## Comentários Sobre o Código
 
@@ -90,28 +91,39 @@ Todas as páginas e componentes (React Components) tem um arquivo JavaScript e u
 
 ## Plano de Teste
 
-No decorrer do projeto, decidimos, de acordo com as simulações sugeridas por esta entrega (Milestone 2) testar algumas funcionalidades para garantir uma boa experiência para o usuário, sendo estas:
-- Criação de conta;
+No decorrer do projeto, decidimos, de acordo com as simulações sugeridas pela entrega final, testar algumas funcionalidades para garantir uma boa experiência para o usuário, sendo estas:
+- Cadastro;
 - Login;
-- Operações no carrinho, como adição e remoção de itens;
-- Compra;
+- Visualização de produtos;
+- Adicionar produtos ao carrinho;
+- Finalização de compra no carrinho;
+- Verificação do carrinho após a compra;
+- Taxa Metabólica Basal (funcionalidade extra);
 - Logout;
-- Taxa Metabólica Basal (funcionalidade extra).
-- Funções de Administrador
+- Login de Administrador (email: admin@usp.br, senha: admin);
+- Entrar em funções de administrador na barra de navegação;
+- Visualização do estoque;
+- Edição de itens no estoque;
+- Adicionar produtos ao banco;
+- Remover produtos do banco;
+- Gerenciar usuários no banco;
+- Tornar usuários administradores;
+- Remover função administradora de usuários;
+- Logout
 
 ## Resultado dos Testes
 
-Os testes indicaram um bom funcionamento em todos os casos, o que indica que nossa loja está no caminho certo para ser integrada ao lado do servidor.
+Os testes indicaram um bom funcionamento em todos os casos, indicando que nosso projeto corresponde aos ensinamentos e proposta da disciplina.
 
 ## Building
 
-Para a Terceira Entrega, caso queira rodar o programa, dois comandos devem ser executados: na pasta ``back``, deve ser dado um ``npm install`` e um ``node server``, que irá instalar e inicializar o servidor. Já na pasta ``front``, deve ser dado um ``npm install`` e um ``npm start``, que irá carregar as páginas do frontend. 
+Para a Entrega Final, caso queira rodar o programa, dois comandos devem ser executados: na pasta ``back``, deve ser dado um ``npm install`` e um ``node server``, que irá instalar e inicializar o servidor. Já na pasta ``front``, deve ser dado um ``npm install`` e um ``npm start``, que irá carregar as páginas do frontend. 
 
 Caso queira ver os mockups das páginas principais, por motivo de comparação, basta acessar a pasta ``mockups`` ou abrir o projeto no [figma](https://www.figma.com/file/ZMtR2FPqWEN6cs2xp5uz2I/Gear-Nutrition?node-id=0%3A1).
 
 ## Problemas
 
-Estamos cientes de que algumas validações de inputs não foram feitas. Porém, o principal, que achamos que seja o foco para disciplina, foi terminado.
+Estamos cientes de que as validações de *inputs* não estão perfeitas como realmente seria na implementação de um site profissional. Porém, o foco do desenvolvimento, que era a funcionamento do front com o back e o banco está funcionando perfeitamente, cujo era o foco da disciplina. Ademais, como pedido, também foi implementada a autenticação e autorização.
 
 ## Comentários
 
