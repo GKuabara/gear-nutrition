@@ -1,7 +1,6 @@
 import axios from 'axios';
 import '../css/cartItem.css'
 import { useState, useEffect } from 'react';
-import { productImages } from "../Common/images"
 
 const MobileCartItem = ({product, data, user, setUser}) => {
     const [quantity, setQuantity] = useState(product.qtt);

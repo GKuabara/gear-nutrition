@@ -99,12 +99,12 @@ function App() {
 						<Route path="/ordered" element={<Ordered />} />
 
 						<Route path="/admin">
-							{userInfo && userInfo.admin ? <Route path="" element={(
+							{userInfo && userInfo.admin ? <Route path="stock" element={(
 								<div id='admin-container'>
 									<AdminNav />
 									<Stock user={userInfo} setProducts={setProducts} products={products}/>
 								</div>
-							)} /> : <Route path='' element={<img style={{width: "100%"}} src="https://i.ibb.co/86fFFJn/saia-Invasor-jpg.png" alt="chad saia invasor" />} /> }
+							)} /> : <Route path='stock' element={<img style={{width: "100%"}} src="https://i.ibb.co/86fFFJn/saia-Invasor-jpg.png" alt="chad saia invasor" />} /> }
 							
 							{userInfo && userInfo.admin ? <Route path="addProduct" element={(
 								<div id='admin-container'>

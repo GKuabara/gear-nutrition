@@ -27,15 +27,12 @@ const RemoveProduct = ({setProducts}) => {
     
     return (  
         <div className="info-container">
-            <TextInput size={{width: 55, height: 30}} placeholder={prod.name ? prod.name : 'Digite o  nome'} title="Procurar por nome" setValue={setName}/>
-            <div id='search-prod-button'>
-                <button onClick={() => searchProduct()}>Pesquisar</button>
-            </div>
+            <TextInput size={{width: 55, height: 30}} placeholder={prod && prod.name ? prod.name : 'Digite o  nome'} title="Procurar por nome" setValue={setName}/>
             <div id="prod-overview">
                 <h3>Resumo do Item</h3>
-                <div className="info"><span>{prod.name}</span></div>
-                <div className="info"><span>{"Em estoque: " + prod.stock}</span></div>
-                <div className="info"><span>{"Vendidos: " + prod.sold}</span></div>
+                <div className="info"><span>{prod ? prod.name : "Produto"}</span></div>
+                <div className="info"><span>Em estoque: {prod ? prod.stock: ""}</span></div>
+                <div className="info"><span>Vendidos: {prod ? prod.sold: ""}</span></div>
                 <div className="desc">
                     <span>{prod.desc}</span>
                 </div>
