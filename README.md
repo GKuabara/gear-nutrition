@@ -97,7 +97,7 @@ No decorrer do projeto, decidimos, de acordo com as simulações sugeridas por e
 - Compra;
 - Logout;
 - Taxa Metabólica Basal (funcionalidade extra).
-- Funções de Administrador (acessar adicionando "/admin" na URL)
+- Funções de Administrador
 
 ## Resultado dos Testes
 
@@ -105,13 +105,13 @@ Os testes indicaram um bom funcionamento em todos os casos, o que indica que nos
 
 ## Building
 
-Para a Segunda Entrega, caso queira rodar o programa, basta iniciar o projeto React dentro da pasta ``front``. Após realizar o setup do framework, utilize os comandos ``npm install`` e ``npm start`` para executar a aplicação.
+Para a Terceira Entrega, caso queira rodar o programa, dois comandos devem ser executados: na pasta ``back``, deve ser dado um ``npm install`` e um ``node server``, que irá instalar e inicializar o servidor. Já na pasta ``front``, deve ser dado um ``npm install`` e um ``npm start``, que irá carregar as páginas do frontend. 
 
 Caso queira ver os mockups das páginas principais, por motivo de comparação, basta acessar a pasta ``mockups`` ou abrir o projeto no [figma](https://www.figma.com/file/ZMtR2FPqWEN6cs2xp5uz2I/Gear-Nutrition?node-id=0%3A1).
 
 ## Problemas
 
-Não houve problemas.
+Estamos cientes de que algumas validações de inputs não foram feitas. Porém, o principal, que achamos que seja o foco para disciplina, foi terminado.
 
 ## Comentários
 
