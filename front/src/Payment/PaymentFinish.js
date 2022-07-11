@@ -10,22 +10,16 @@ const PaymentFinish = ({products, setProducts, orders, setOrders, total, user, s
         setUser({...user, cart: []})
     }
 
-    const updateStock = () => {
+    const updateStock = async () => {
         products.map(prod => {
-            user.cart.map((userProd) => {
-                if (prod._id === userProd.id) {
-                    if (prod.stock - userProd.qtt === 0) {
-                        Product.deleteProduct(prod._id)
-                        return
-                    }
-
-                    let newProd = {...prod, stock: prod.stock - userProd.qtt}
-                    newProd = {...newProd, sold: prod.sold + userProd.qtt}
-                    newProd.token = localStorage.getItem('token')
-                    console.log(newProd)
-                    Product.updateStock(userProd.id, newProd, products, setProducts)
-                }
-            })
+            let userProd = user.cart.filter(uProd => { return prod._id === uProd.id })
+            if (userProd.length === 1) {
+                userProd = userProd[0]
+                let newProd = {...prod, stock: prod.stock - userProd.qtt}
+                newProd = {...newProd, sold: prod.sold + userProd.qtt}
+                newProd.token = localStorage.getItem('token')
+                Product.updateStock(userProd.id, newProd, products, setProducts)
+            }
         })
     } 
 
@@ -42,8 +36,8 @@ const PaymentFinish = ({products, setProducts, orders, setOrders, total, user, s
             }),
             price: total.toFixed(2)
         }
-        Orders.newOrder(newOrder, orders, setOrders, emptyCart)
         updateStock()
+        Orders.newOrder(newOrder, orders, setOrders, emptyCart)
     }
 
     return (

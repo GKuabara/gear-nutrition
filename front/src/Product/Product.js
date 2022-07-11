@@ -5,6 +5,7 @@ import '../css/product.css';
 
 const Product = ({data, setProducts, user, setUser}) => {
     let [prod, setProd] = useState(false);
+    let [error, setError] = useState(false)
     const [qntd, setQntd]= useState(1);
     const { idx } = useParams();
     const navigate = useNavigate();
@@ -12,6 +13,13 @@ const Product = ({data, setProducts, user, setUser}) => {
     if (data.length === 0) {
         Prod.fetchProducts(setProducts)
     }
+
+    useEffect(() => {
+        if (prod.stock === 0)
+            setError(true)
+        else 
+            setError(false)
+    }, [prod])
 
     useEffect(() => {
         if (data.length > 0)
@@ -71,8 +79,10 @@ const Product = ({data, setProducts, user, setUser}) => {
                         }}></input>
                         <button id="incButton" type="button" onClick={incQntd}>+</button>
                     </div>
-                    <button id="buyButton" onClick={addToCart}>Comprar</button>
+                    {!error && <button id="buyButton" onClick={addToCart}>Comprar</button>}
+                    {error && <button style={{backgroundColor: "grey", cursor: "auto"}} disabled id="buyButton" onClick={addToCart}>Comprar</button>}
                 </div>
+                {error && <div style={{width: "100%", marginTop: "2%"}} className="form-error"><span>Fora de Estoque</span></div>}
             </div>
         </div>
     );
