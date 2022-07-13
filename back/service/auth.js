@@ -15,7 +15,7 @@ exports.authorize =  (req, res, next) => {
 
     if (!token) {
         res.status(401).json({
-            message: "Acesso Restrito"
+            message: "Token Inválido"
         });
     } else {
         jwt.verify(token, SALT_KEY, (e, decoded) => {
@@ -27,3 +27,27 @@ exports.authorize =  (req, res, next) => {
         })
     }
 }
+
+exports.isAdmin =  (req, res, next) => {
+    let token = req.body.token || req.query.token || req.headers['x-access-token']
+
+    if (!token) {
+        res.status(401).json({
+            message: "Token Inválido"
+        });
+    } else {
+        jwt.verify(token, SALT_KEY, (e, decoded) => {
+            if (e) {
+                res.status(401).json({message: "Token Inválido"})
+            } else {
+                if (decoded.isAdmin === true) {
+                    next();
+                } else {
+                    res.status(403).json({
+                        message: "Funcionalidade de administrador!"
+                    })
+                }
+            }
+        })
+    }
+} 

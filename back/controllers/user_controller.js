@@ -18,7 +18,7 @@ exports.authenticate = async (req, res, next) => {
             return
         }
 
-        const token = await auth.generateToken({ email: user.email, name: user.name })
+        const token = await auth.generateToken({ email: user.email, name: user.name, isAdmin: user.isAdmin })
         const resp = {
             token: token,
             id: user._id.toString(), 

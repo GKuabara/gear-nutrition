@@ -19,6 +19,7 @@ const PaymentFinish = ({products, setProducts, orders, setOrders, total, user, s
                 newProd = {...newProd, sold: prod.sold + userProd.qtt}
                 newProd.token = localStorage.getItem('token')
                 Product.updateStock(userProd.id, newProd, products, setProducts)
+                console.log('Estoque atualizado', newProd)
             }
         })
     } 

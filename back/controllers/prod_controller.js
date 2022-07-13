@@ -45,7 +45,8 @@ exports.put = (req, res, next) => {
                 stock: req.body.stock,
                 desc: req.body.desc,
                 img: req.body.img,
-                series: req.body.series
+                series: req.body.series,
+                sold: req.body.sold
             }
         })
         .then(() => {
