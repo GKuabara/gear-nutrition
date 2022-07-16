@@ -40,6 +40,7 @@ exports.isAdmin =  (req, res, next) => {
             if (e) {
                 res.status(401).json({message: "Token Inválido"})
             } else {
+                console.log("decoded:",decoded)
                 if (decoded.isAdmin === true) {
                     next();
                 } else {
